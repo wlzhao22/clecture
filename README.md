@@ -5,7 +5,7 @@ This project is to share the "C Programming" course slides written in Latex. The
 One can compile every lecture slides with "pdflatex" smoothly.
 
 ## Copyright Issue
-Any one who receives these slides and material are free to use it. BUT you should point out that "<bf> they are from Wan-Lei Zhao, China</bf>".
+Any one who receives these slides and material are free to use them. BUT when one shows them in any form for lectures one should point out that "<bf> they are from Wan-Lei Zhao, China</bf>".
 
 ## Exercises for the course
 If one wants to get the exercises I designed for this course, please send email to me. Please be noted that I will only share my slides to teachers.
