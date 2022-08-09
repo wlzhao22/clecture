@@ -1,0 +1,4 @@
+\beamer@sectionintoc {1}{Syllabus}{2}{0}{1}
+\beamer@sectionintoc {2}{All about Computer}{6}{0}{2}
+\beamer@sectionintoc {3}{Programming}{13}{0}{3}
+\beamer@sectionintoc {4}{Basics about C Programming}{23}{0}{4}
