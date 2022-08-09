@@ -1,0 +1,218 @@
+\section{Editors and IDE}
+\begin{frame}<beamer>
+    \frametitle{Outline}
+    \tableofcontents[currentsection]
+\end{frame}
+
+\begin{frame}{Programs for programming}
+	\begin{itemize}
+		\item {Integrated Development Environment}
+		\begin{itemize}
+			\item {Microsoft Visual Studio (\textcolor{blue}{default option})}
+			\item {Dev-C++ (\textcolor{red}{recommended})}
+			\item {VScode}
+			\item {Codeblocks}
+		\end{itemize}
+		\item {Any text editors + C compiler}
+		\begin{itemize}
+			\item {Microsoft C compiler (\textcolor{blue}{default option})}
+			\item {GCC (\textcolor{red}{recommended})}
+			\item {ICC: believed to be the most efficient one}
+			\item {Turbo C: classic but being forgotten}
+		\end{itemize}	
+		\end{itemize}
+\end{frame}
+
+\section{Basic Ingradients of a C Program}
+\label{sec:inter}
+\begin{frame}<beamer>
+    \frametitle{Outline}
+    \tableofcontents[currentsection]
+\end{frame}
+
+\begin{frame}[fragile]{The first program}
+	\begin{itemize}
+		\item Create a new file named \textbf{main.c}.
+		\item Open it in your text editor of choice.
+		\item Fill it as follows:
+	\end{itemize}
+	\begin{lstlisting}[frame=non]
+#include <stdio.h>
+int main(void)
+{
+     printf("Hello World!\n");
+     /* Print "Hello World!" on the command line */
+     return 0;
+}
+	\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]{From source to bits}
+	\centering
+	Source code: main.c\\\
+	$\Downarrow$\\\
+	\begin{lstlisting}[numbers=none]
+		$ gcc main.c
+	\end{lstlisting}
+\vspace{-0.2in}
+(Preprocessing $\rightarrow$ compiling $\rightarrow$ assembling $\rightarrow$ linking)
+	\ \\\
+	$\Downarrow$\\\ 
+	Executable program\\\
+	\begin{columns}[T]
+		\column{.35\textwidth}
+		Linux/Mac OS X (\textbf{a.out})
+		\begin{lstlisting}[numbers=none]
+			$ ./a.out
+			$ Hello World!
+		\end{lstlisting}
+		\column{.3\textwidth}
+		Windows (\textbf{a.exe})
+		\begin{lstlisting}[numbers=none]
+			$ ./a.exe
+			$ Hello World!
+		\end{lstlisting}
+	\end{columns}
+\end{frame}
+
+\section{Program structure}
+\label{sec:strt}
+\begin{frame}<beamer>
+    \frametitle{Outline}
+    \tableofcontents[currentsection]
+\end{frame}
+
+
+\begin{frame}[fragile]{A basic program}
+	\begin{columns}[T]
+		\column{.6\textwidth}
+		\begin{lstlisting}
+#include <stdio.h>
+int main()
+{
+   printf("Hello World!\n");
+   /* Print "Hello World!" on the  command line */
+   return 0;
+}
+		\end{lstlisting}
+		\column{.4\textwidth}
+		\ \\$\left. \begin{array}{c}\\\end{array}\right\rbrace $ Preprocessing statements
+		\ \\\ \\$\left. \begin{array}{c}\\\\\\\\\\\\\end{array}\right\rbrace $ Main function
+	\end{columns}
+	\begin{itemize}
+		\item {Processed before compilation}
+		\item {Have their own language, start with a \textcolor{blue}{\#}}
+		\item {In `stdio.h', function `\textbf{printf}()' has been defined}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{The main function}
+	\begin{itemize}
+		\item Basic function of every program
+		\item Exists \textbf{exactly once} per program
+		\item Called on program start
+	\end{itemize}
+	\begin{lstlisting}
+	int main(void)
+ 	{
+\end{lstlisting}
+	\begin{itemize}
+		\item As a function, \textit{main()} can take parameters and return a value
+		\item Get used to \textit{void} and \textit{int}. They will be explained later
+		\item '$\lbrace$' marks the start of the main function scope
+	\end{itemize}
+\end{frame}
+\begin{frame}[fragile]{The main function scope}
+	\begin{itemize}
+		\item Contains program statements
+		\item They are processed from top to bottom
+	\end{itemize} \ \\
+	\ \\
+	\begin{lstlisting}
+	return 0;
+}
+\end{lstlisting}
+	\begin{itemize}
+		\item Last statement, ends main function (and thus the whole program)
+		\item \textit{0} tells the OS that everything went right
+		\item '$\rbrace$' marks the end of the main function scope
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Statements}
+	\begin{itemize}
+		\item Instructions for the computer
+		\item End with a \textit{;} (semicolon)
+	\end{itemize}
+	\begin{lstlisting}
+	printf("Hello World!\n");
+\end{lstlisting} \ \\ \ \\
+	\begin{itemize}
+		\item Here is the empty statement:
+	\end{itemize}
+	\begin{lstlisting}[numbers=none]
+	;
+\end{lstlisting}
+	\begin{itemize}
+		\item All statements are located in function blocks
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Comments}
+	\begin{itemize}
+		\item Information for the programmer, cut out before compilation
+	\end{itemize}
+	Single line comments:
+	\begin{lstlisting}
+	// Prints "Hello World!" on the command line
+\end{lstlisting}
+	Block comments (multi-line):
+	\begin{lstlisting}
+	/* Prints "Hello World!"
+	   on the command line */
+\end{lstlisting}
+	Better style of block comments:
+	\begin{lstlisting}
+	/*
+	 * Prints "Hello World!"
+	 * on the command line
+	 */
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Order of execution}
+	\begin{itemize}
+		\item {Statements inside one function executed from top to bottom}
+		\item {This is a convention for languages}
+	\end{itemize}
+\begin{columns}
+\begin{column}{0.6\linewidth}
+	\begin{lstlisting}[ xleftmargin=0.05\linewidth, linewidth=0.95\linewidth]
+#include <stdio.h>
+int main()
+{
+    printf("Hello China!\n");
+    printf("Hello World!\n");
+    printf("Hello Universe!\n");
+    return 0;
+}
+\end{lstlisting}
+\end{column}
+\begin{column}{0.1\linewidth}
+\end{column}
+\begin{column}{0.3\linewidth}
+	\begin{lstlisting}[frame=none, xleftmargin=0.01\linewidth]
+Hello China!
+Hello World!
+Hello Universe!
+	\end{lstlisting}
+\end{column}
+\end{columns}
+\begin{itemize}
+	\item {For \textcolor{red}{clarity}, \underline{one statement in one line}}
+\end{itemize}
+
+\end{frame}
+
+

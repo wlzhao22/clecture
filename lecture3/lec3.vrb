@@ -1,0 +1,30 @@
+\frametitle{switch-case clause (4)}
+\begin{itemize}
+	\item {What \textcolor{red}{break} means}
+	\item {Work out the output of following codes}
+\end{itemize}
+\vspace{-0.2in}
+\begin{columns}
+\begin{column}{0.1\linewidth}
+\end{column}
+\begin{column}{0.8\linewidth}
+\begin{lstlisting}[numbers=none, basicstyle=\footnotesize]
+int main()
+{
+   int n = 3;
+   switch(n)
+   {
+     case 1: {printf("January\n"); }
+     case 2: {printf("Febuary"); break;}
+     case 3: {printf("March\n"); }
+     case 4: {printf("April\n"); }
+     case 5: {printf("May\n"); break;}
+     ...
+     case 12: {printf("December\n"); break;}
+     default: break;
+   }
+   return 0;
+}
+\end{lstlisting}
+\end{column}
+\end{columns}

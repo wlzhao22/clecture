@@ -1,0 +1,8 @@
+\beamer@sectionintoc {1}{Editors and IDE}{2}{0}{1}
+\beamer@sectionintoc {2}{Basic Ingradients of a C Program}{4}{0}{2}
+\beamer@sectionintoc {3}{Program structure}{7}{0}{3}
+\beamer@sectionintoc {4}{Program of Sequtial Control}{14}{0}{4}
+\beamer@sectionintoc {5}{Conditional Controls}{25}{0}{5}
+\beamer@subsectionintoc {5}{1}{if-else clause}{26}{0}{5}
+\beamer@subsectionintoc {5}{2}{Logical operators}{33}{0}{5}
+\beamer@sectionintoc {6}{Conditions}{41}{0}{6}
