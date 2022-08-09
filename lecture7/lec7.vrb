@@ -1,0 +1,33 @@
+\frametitle{enum: learn by example (3)}
+\begin{columns}
+\begin{column}{0.52\linewidth}
+\begin{lstlisting}
+#include <stdio.h>
+enum Week {Mon=1, Tue, Wed,
+ Thu, Fri, Sat, Sun};
+typedef enum Week WkType;
+int main()
+{
+   WkType wk;
+   wk=Wed;
+   printf("Wed: %d\n", wk);
+   wk=Fri;
+   printf("Fri: %d\n", wk);
+   wk=Sun;
+   printf("Sun: %d\n", wk);
+   return 0;
+}
+\end{lstlisting}
+\end{column}
+\begin{column}{0.43\linewidth}
+[Output]
+\begin{lstlisting}
+Wed: 3
+Fri: 5
+Sun: 7
+\end{lstlisting}
+\end{column}
+\end{columns}
+\begin{itemize}
+	\item {You can use ``\textcolor{blue}{typedef}'' to save up your coding efforts}
+\end{itemize}

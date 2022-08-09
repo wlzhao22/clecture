@@ -1,0 +1,214 @@
+\section{enum}
+\label{sec:enum}
+\begin{frame}<beamer>
+    \frametitle{Outline}
+    \tableofcontents[currentsection]
+\end{frame}
+
+\begin{frame}{enum: motivation}
+\begin{itemize}
+	\item {Sometimes, we feel it is more meaningful }
+	\item {with symbols: Janurary, Feburary ,..., December}
+	\item {than numbers: 1, 2, ..., 12}
+\end{itemize}
+
+\begin{itemize}
+	\item {enum allows us to do a kind of correlating}
+	\item {Numbers are assigned with readable symbols}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{enum: definition (1)}
+\begin{center}
+	\Large{
+	   \textcolor{blue}{enum} \textcolor{red}{enumName}\{memb1, memb2, memb3,...\};
+	}
+\end{center}
+
+\begin{itemize}
+	\item {You enumerate all the members' name inside ``\{\}''}
+	\item {They are symbols}
+	\item {They will be related to integer 0, 1, 2,... automatically}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{enum: definition (2)}
+\begin{center}
+	\Large{
+	   \textcolor{blue}{enum} \textcolor{red}{enumName}\{memb1, memb2, memb3\};
+	}
+\end{center}
+\begin{lstlisting}
+enum Month {Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec};
+int main()
+{
+   ...
+}
+\end{lstlisting}
+\begin{itemize}
+	\item {You enumerate all the members' name inside ``\{\}''}
+	\item {They are symbols}
+	\item {They will be related to integer 0, 1, 2,... automatically}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]{enum: how to use it}
+\begin{lstlisting}
+#include <stdio.h>
+enum Month {Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec};
+int main()
+{
+   enum Month m;
+   m = Feb;
+   printf("Month is: %d\n", m);
+   return 0;
+}
+\end{lstlisting}
+[Output]
+\begin{lstlisting}
+Month is: 1
+\end{lstlisting}
+\begin{itemize}
+	\item {\textbf{Feb} is a symbol instead of a string}
+	\item {They will be related to integer 0, 1, 2,... automatically}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{enum: learn by example (1)}
+\begin{columns}
+\begin{column}{0.52\linewidth}
+\begin{lstlisting}
+#include <stdio.h>
+enum Week {Mon=1, Tue=1, Wed=3,
+ Thu=5, Fri, Sat=4, Sun};
+int main()
+{
+   enum Week wk;
+   wk=Wed;
+   printf("Wed: %d\n", wk);
+   wk=Fri;
+   printf("Fri: %d\n", wk);
+   wk=Sun;
+   printf("Sun: %d\n", wk);
+   return 0;
+}
+\end{lstlisting}
+\end{column}
+\begin{column}{0.43\linewidth}
+[Output]
+\begin{lstlisting}
+Wed: ?
+Fri: ?
+Sun: ?
+\end{lstlisting}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{enum: learn by example (2)}
+\begin{columns}
+\begin{column}{0.52\linewidth}
+\begin{lstlisting}
+#include <stdio.h>
+enum Week {Mon=1, Tue=1, Wed=3,
+ Thu=5, Fri, Sat=4, Sun};
+int main()
+{
+   enum Week wk;
+   wk=Wed;
+   printf("Wed: %d\n", wk);
+   wk=Fri;
+   printf("Fri: %d\n", wk);
+   wk=Sun;
+   printf("Sun: %d\n", wk);
+   return 0;
+}
+\end{lstlisting}
+\end{column}
+\begin{column}{0.43\linewidth}
+[Output]
+\begin{lstlisting}
+Wed: 3
+Fri: 6
+Sun: 5
+\end{lstlisting}
+\end{column}
+\end{columns}
+\begin{itemize}
+	\item {Can you figure out why??}
+	\item {This way is valid, but NOT \textcolor{red}{suggested}}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{enum: learn by example (2)}
+\begin{columns}
+\begin{column}{0.52\linewidth}
+\begin{lstlisting}
+#include <stdio.h>
+enum Week {Mon=1, Tue, Wed,
+ Thu, Fri, Sat, Sun};
+int main()
+{
+   enum Week wk;
+   wk=Wed;
+   printf("Wed: %d\n", wk);
+   wk=Fri;
+   printf("Fri: %d\n", wk);
+   wk=Sun;
+   printf("Sun: %d\n", wk);
+   return 0;
+}
+\end{lstlisting}
+\end{column}
+\begin{column}{0.43\linewidth}
+[Output]
+\begin{lstlisting}
+Wed: 3
+Fri: 5
+Sun: 7
+\end{lstlisting}
+\end{column}
+\end{columns}
+\begin{itemize}
+	\item {This is the right way}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{enum: learn by example (3)}
+\begin{columns}
+\begin{column}{0.52\linewidth}
+\begin{lstlisting}
+#include <stdio.h>
+enum Week {Mon=1, Tue, Wed,
+ Thu, Fri, Sat, Sun};
+typedef enum Week WkType;
+int main()
+{
+   WkType wk;
+   wk=Wed;
+   printf("Wed: %d\n", wk);
+   wk=Fri;
+   printf("Fri: %d\n", wk);
+   wk=Sun;
+   printf("Sun: %d\n", wk);
+   return 0;
+}
+\end{lstlisting}
+\end{column}
+\begin{column}{0.43\linewidth}
+[Output]
+\begin{lstlisting}
+Wed: 3
+Fri: 5
+Sun: 7
+\end{lstlisting}
+\end{column}
+\end{columns}
+\begin{itemize}
+	\item {You can use ``\textcolor{blue}{typedef}'' to save up your coding efforts}
+\end{itemize}
+\end{frame}

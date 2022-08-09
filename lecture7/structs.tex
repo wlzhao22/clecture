@@ -1,0 +1,450 @@
+\begin{frame}[fragile]{Opening Discussion}
+\begin{itemize}
+	\item {Given we have following informatio for \textit{40} students}
+	\begin{enumerate}
+		\item {student number}
+		\item {name}
+		\item {age}
+		\item {gender}
+		\item {height}
+		\item {GPA}
+	\end{enumerate}
+	\item {We now want to build records for all the students}
+\end{itemize}
+\begin{lstlisting}[linewidth=0.7\linewidth, xleftmargin=0.05\linewidth]
+int main()
+{
+    char std1nm[64], std2nm[64], ...;
+    char std1nb[11], std2nb[11], ...;
+    int  std1ag, std2ag, ...;
+    char std1gd[5], std1gd[5], ...;
+    ...
+}
+\end{lstlisting}
+\end{frame}
+
+\section{struct}
+\label{sec:structs}
+\begin{frame}<beamer>
+    \frametitle{Outline}
+    \tableofcontents[currentsection]
+\end{frame}
+
+\begin{frame}[fragile]{Composite Data Types}
+\begin{itemize}
+	\item {It is valid/OK to do it in the way we learned}
+	\item {However, it is not convenient}
+	\item {C provides us the way to extend current data types}
+	\item {We can combine primitive types into one type}
+\end{itemize}
+\begin{columns}
+\begin{column}{0.2\linewidth}
+\end{column}
+\begin{column}{0.4\linewidth}
+\begin{lstlisting}
+struct STD {
+   char stdNm[64];
+   char stdNb[11];
+   int  age;
+   char gender[5];
+};
+\end{lstlisting}
+\end{column}
+\begin{column}{0.2\linewidth}
+\end{column}
+\end{columns}
+\begin{itemize}
+	\item {``\textcolor{blue}{struct} STD'' is a new data type}
+	\item {Its role is similar as \textcolor{blue}{int}, or \textcolor{blue}{float},...}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{struct: grammar of definition}
+\begin{center}
+	\Large{
+	\textcolor{blue}{struct} \textcolor{red}{structTag} \{ \\
+	  \textcolor{blue}{type1} member1; \\
+	  \textcolor{blue}{type2} member2; \\
+	   ... \\
+	  \textcolor{blue}{typeN} memberN; \};
+	}
+\end{center}
+\begin{itemize}
+	\item {Keyword ``\textcolor{blue}{struct}'' is required, it tells C you are going to define a composite type}
+	\item {\textcolor{red}{structTag} gives a \textbf{unique} tag for this new type}
+	\item {You list all the memebers and their corresponding types}
+	\item {``\textcolor{red}{;}'' is required at the end}
+	\item {Keep in your mind, you define a \textbf{type} instead of a variable/constant}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{struct: define variable of composite type (1)}
+\begin{center}
+	\Large{
+	\textcolor{blue}{struct} \textcolor{red}{structTag} \textbf{record};
+	}
+\end{center}
+\begin{itemize}
+	\item {Keyword ``\textcolor{blue}{struct}''  and \textcolor{red}{structTag} are required}
+	\item {``record'' is the variable name of \textcolor{red}{structTag} type}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{struct: define variable of composite type (2)}
+\begin{center}
+	\Large{
+	\textcolor{blue}{struct} \textcolor{red}{structTag} \textbf{record};
+	}
+\end{center}
+\begin{itemize}
+	\item {Keyword ``\textcolor{blue}{struct}''  and \textcolor{red}{structTag} are required}
+	\item {``record'' is the variable name of \textcolor{red}{structTag} type}
+\end{itemize}
+\begin{lstlisting}
+struct STD {
+   char stdNm[64];
+   char stdNb[11];
+   int  age;
+   char gender[5];
+};
+int main()
+{
+   struct STD record;
+   struct STD stds[40];
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{struct: initialize variable of composite type (1)}
+\begin{itemize}
+	\item {Each memember in the composite type variable is treated as a variable}
+	\item {They are visited via ``var.member1''}
+\end{itemize}
+\begin{lstlisting}[linewidth=0.7\linewidth, xleftmargin=0.05\linewidth]
+struct STD {
+   char stdNm[64];
+   char stdNb[11];
+   int  age;
+   char gender[5];
+};
+int main()
+{
+   struct STD record;
+   strcpy(record.stdNm, "Min Li");
+   strcpy(record.stdNb, "11201522031");
+   record.age = 20;
+   strcpy(record.gender, "male");
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{struct: initialize variable of composite type (2)}
+\vspace{-0.15in}
+\begin{lstlisting}
+#include <stdio.h>
+#include <string.h>
+struct STD {
+   char stdNm[64];
+   char stdNb[11];
+   int  age;
+   char gender[5];};
+int main()
+{
+   struct STD std;
+   strcpy(std.stdNm, "Min Li");
+   strcpy(std.stdNb, "22031");
+   std.age = 20;
+   strcpy(std.gender, "male");
+   printf("Name: %s\n", std.stdNm);
+   printf("Numb: %s\n", std.stdNb);
+   printf("Age: %d\n", std.age);
+   printf("Gender: %s\n", std.gender);
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{struct: exmaple (1)}
+\begin{itemize}
+	\item {Please build a struct type for date (Year, month and day)}
+	\item {Work out which day it is of the year}
+	\begin{enumerate}
+		\item {We need \textcolor{blue}{struct} type to keep date inform}
+		\item {We need to calculate which day of the year is}
+		\item {It depends on year (whether it is a leap year)}
+		\item {Depends on the month}
+		\item {Depends on the date}
+	\end{enumerate}
+\end{itemize}
+\begin{center}
+	\Large{
+	   5 minutes to think about it...
+	}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{struct: exmaple (2)}
+
+[General procedure]
+\begin{enumerate}
+	\item {Accept input, save the information to a date structure}
+	\item {Check whether the year is leap year or not}
+	\item {Check which month it is}
+	\item {We need an array to keep the days of months}
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}[fragile]{struct: exmaple (3)}
+
+[General procedure in more detail]
+\begin{enumerate}
+	\item {Define a date struct}
+	\item {Accept input, save the information to a date structure}
+	\item {Initialize of days of months (12 months)}
+	\item {If it is leap year and date.month $>=$ 3}
+	\item {~~Plus 1 day to the total}
+	\item {End-If}
+	\item {For i from 1 to (date.month-1)}
+	\item {~~sum up days of months before current month}
+	\item {End-for}
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}[fragile]{struct: exmaple (4)}
+\vspace{-0.22in}
+\begin{columns}
+\begin{column}{0.48\linewidth}
+\begin{lstlisting}
+struct DATE {
+   int day, month, year;
+};
+
+int main()
+{
+   struct DATE date;
+   int dyMonth[]={31,28,31,
+   30,31,30,31,31,
+   30,31,30,31};
+   int i = 1, dayth = 0;
+   printf("Year:");
+   scanf("%d", &date.year);
+   printf("Month:");
+   scanf("%d", &date.month);
+   printf("Day:");
+   scanf("%d", &date.day);
+\end{lstlisting}
+\end{column}
+\begin{column}{0.48\linewidth}
+\begin{lstlisting}[firstnumber=17]
+   if(isLeap(date.year))
+   {
+      dayth += 1;
+   }
+   for(;i<date.month;i++)
+   {
+      dayth+= dyMonth[i-1];
+   }
+   dayth += date.day;
+   return 0;
+}
+\end{lstlisting}
+\end{column}
+\end{columns}
+\vspace{-0.15in}
+\textcolor{red}{Is there anything wrong?? Two mistakes!!}
+\end{frame}
+
+\begin{frame}[fragile]{struct: exmaple (5)}
+\vspace{-0.26in}
+\begin{columns}
+\begin{column}{0.48\linewidth}
+\begin{lstlisting}
+struct DATE {
+   int day, month, year;
+};
+int isLeap(int year)
+{  if(year%4==0) {
+      if(year%400==0){
+         return 1;
+      }else if(year%100=0){
+         return 0;
+      }
+      return 1;
+   }else{
+      return 0;
+   }//end-if-else
+}//end-isLeap
+int main()
+{  struct DATE date;
+   int dyMonth[]={31,28,31,
+   30,31,30,31,31,
+   30,31,30,31};
+\end{lstlisting}
+\end{column}
+\begin{column}{0.48\linewidth}
+\begin{lstlisting}[firstnumber=21]
+   int i = 1, dayth = 0;
+   printf("Year:");
+   scanf("%d", &date.year);
+   printf("Month:");
+   scanf("%d", &date.month);
+   printf("Day:");
+   scanf("%d", &date.day);
+   if(isLeap(date.year)&&date.month>2)
+   {
+      dayth += 1;
+   }
+   for(;i<date.month;i++)
+   {
+      dayth+= dyMonth[i-1];
+   }
+   dayth += date.day;
+   return 0;
+}
+\end{lstlisting}
+\end{column}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}[fragile]{struct: size of the struct type (1)}
+\begin{itemize}
+	\item {Now let's consider another problem}
+	\item {What is the size (bytes occupied) of struct type variable}
+\end{itemize}
+\begin{columns}
+\begin{column}{0.48\linewidth}
+\begin{lstlisting}
+struct DATE {
+   int day, month, year;
+};
+struct STD{
+   char Name[10];
+   int age;
+   char gender[6];
+};
+int main()
+{  
+   printf("%d\n", sizeof(struct DATE));
+   printf("%d\n", sizeof(struct STD));
+   return 0;
+}
+\end{lstlisting}
+\end{column}
+\begin{column}{0.48\linewidth}
+[Output]
+\begin{lstlisting}
+12
+24
+\end{lstlisting}
+\begin{itemize}
+	\item {Can you figure out why?}
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{struct: size of the struct type (2)}
+\begin{itemize}
+	\item {Now let's consider another problem}
+	\item {What is the size (bytes occupied) of struct type variable}
+\end{itemize}
+\begin{columns}
+\begin{column}{0.48\linewidth}
+\begin{lstlisting}
+struct DATE {
+   int day, month, year;
+};
+struct STD{
+   char Name[10];
+   int age;
+   char gender[6];
+};
+int main()
+{  
+   printf("%d\n", sizeof(struct DATE));
+   printf("%d\n", sizeof(struct STD));
+   return 0;
+}
+\end{lstlisting}
+\end{column}
+\begin{column}{0.48\linewidth}
+[Output]
+\begin{lstlisting}
+12
+24
+\end{lstlisting}
+\begin{itemize}
+	\item {\textcolor{green}{Name} will be given with \textcolor{red}{12} bytes instead of 10}
+	\item {\textcolor{green}{gender} will be given with \textcolor{red}{8} bytes instead of 6}
+	\item {For the convevience of memory allocation}
+	\item {This could be different from one compiler to another}
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}[fragile]{struct: \textcolor{blue}{typedef} to save code (1)}
+\begin{itemize}
+	\item {In ``struct STD'',  ``\textcolor{blue}{struct}'' has been repeated everywhere}
+	\item {We can use ``\textcolor{blue}{typedef}'' to save up our typing}
+\end{itemize}
+\vspace{-0.15in}
+\begin{columns}
+\begin{column}{0.48\linewidth}
+\begin{lstlisting}
+struct DATE {
+   int day, month, year;
+};
+struct STD{
+   char Name[10];
+   int age;
+   char gender[6];
+};
+typedef struct STD StdType;
+typedef struct DATE DatType;
+int main()
+{  
+   DatType date;
+   StdType std;
+   printf("%d\n", sizeof(DatType));
+   ...
+}
+\end{lstlisting}
+\end{column}
+\begin{column}{0.48\linewidth}
+\begin{itemize}
+	\item {During compiling stage}
+	\item {``StdType'' is replaced by ``\textcolor{blue}{struct} STD''}
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{struct: \textcolor{blue}{typedef} to save code (2)}
+\begin{itemize}
+	\item {You can apply \textcolor{blue}{typedef} to any type}
+\end{itemize}
+\vspace{-0.05in}
+\begin{lstlisting}
+#include <stdio.h>
+typedef unsigned int uint;
+
+int main()
+{
+   uint a = 32768;
+   printf("%d\n", a);
+   printf("%d\n", sizeof(uint));
+   return 0;
+}
+\end{lstlisting}
+\begin{itemize}
+	\item {During compiling stage}
+	\item {``uint'' is replaced by ``\textcolor{blue}{unsigned int}''}
+	\item {You actually give a \textbf{nickname} to the type by \textcolor{blue}{typedef}}
+\end{itemize}
+\end{frame}
+
+
