@@ -1,0 +1,33 @@
+\frametitle{Debug by ``printf()''}
+
+\begin{itemize}
+	\item {From my humble point of view}
+	\item {Two types of bugs}
+	\begin{enumerate}
+		\item {Non-memory leakage bugs}
+		\item {Memory leakage bugs}
+	\end{enumerate}
+	\item {Grammar mistakes are not bug!!}
+\end{itemize}
+
+\begin{lstlisting}
+int main()
+{
+   int i = 0, s = 0;
+   printf("bug 1.0\n");
+   for(i = 0; i < 5; i--);
+   {
+       s += i;
+       printf("bug 1.1 %d %d\n", i, s);
+       if(i % 2 == 1);
+         continue;
+   }
+   printf("bug 2.0\n");
+   return 0;
+}
+\end{lstlisting}
+\vspace{-0.05in}
+\begin{itemize}
+	\item {No need launch debug}
+	\item {``Printf()'' tells everything you want to see}
+\end{itemize}
