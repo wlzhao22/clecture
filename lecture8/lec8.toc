@@ -1,0 +1,5 @@
+\beamer@sectionintoc {1}{Pointer to Primitive Type Variables}{2}{0}{1}
+\beamer@sectionintoc {2}{Pointer to Array}{18}{0}{2}
+\beamer@sectionintoc {3}{Pointer to struct Variables}{39}{0}{3}
+\beamer@sectionintoc {4}{Dynamic Memory Allocation}{46}{0}{4}
+\beamer@sectionintoc {5}{List Structure}{56}{0}{5}

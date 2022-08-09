@@ -1,0 +1,26 @@
+\frametitle{Delete Node from List---The answer}
+\vspace{-0.1in}
+\begin{figure}
+\begin{center}
+	\includegraphics[width=0.6\linewidth]{figs/list_delete_step1.pdf}
+\end{center}
+\end{figure}
+\begin{lstlisting}[xleftmargin=0.05\linewidth, linewidth=0.9\linewidth]
+void deleteNode(int val, TNode *head)
+{
+   TNode *p = head, *q = head;
+   while(p != NUL && p->a != val)
+   {
+       q = p;
+       p = p->next;
+   }
+   if(p != NULL && p->a == val)
+   {
+       q->next = p->next;
+       p->next = NULL;
+       free(p);
+   }
+}
+\end{lstlisting}
+\vspace{-0.2in}
+\textcolor{red}{Why condition ``p $!=$ NUL'' first???}
