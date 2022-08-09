@@ -1,0 +1,4 @@
+\beamer@sectionintoc {1}{Arrays}{2}{0}{1}
+\beamer@subsectionintoc {1}{1}{1D Array}{5}{0}{1}
+\beamer@subsectionintoc {1}{2}{2D Array}{26}{0}{1}
+\beamer@sectionintoc {2}{Strings}{34}{0}{2}

@@ -1,0 +1,333 @@
+\section{Strings}
+\label{sec:str}
+\begin{frame}<beamer>
+    \frametitle{Outline}
+    \tableofcontents[currentsection]
+\end{frame}
+
+\begin{frame}[fragile]{Opening discussion}
+	\begin{itemize}
+		\item {Now, we are going to discuss a special kind of array}
+		\item {Array of chars, we give it a new name \textbf{string}}
+		\item {Different from integer array, empty elements are set to `$\setminus$0'}
+	\end{itemize}
+	\begin{columns}
+	\begin{column}{0.47\linewidth}
+	\begin{lstlisting}
+#include <stdio.h>
+int main()
+{
+    char hi[8] ={'h','e','l','l','o'};
+    int i = 0;
+    for(i < 8; i++)
+    {
+       printf("%c", hi[i]);
+    }
+    return 0;
+}
+	[Output: hello   ]
+	\end{lstlisting}
+	\end{column}
+	\begin{column}{0.47\linewidth}
+	\begin{lstlisting}
+#include <stdio.h>
+int main()
+{
+    char hi[8] ={'h','e','l','l','o'};
+    int i = 0;
+    printf("%s", hi);
+    return 0;
+}
+	[Output: hello]
+	\end{lstlisting}
+	\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{String: definition and initialization}
+\begin{itemize}
+	\item {First of all, it is an array}
+	\item {We can initialize it as an array}
+\end{itemize}
+\begin{lstlisting}
+#include <stdio.h>
+int main()
+{
+   char ch[6] = {'H','e','l','l','o','\0'};
+   char ch[]  = {'H','e','l','l','o','\0'};
+   /*we have 6 chars there*/
+   char ch[6] = {'H','e','l','l','o'}; 
+   /*'\0' is automatically appended **/
+   char ch[6] = {"Hello"};
+   char ch[6] = "Hello";
+   char ch[]  = "Hello";
+   return 0;
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{String Operation: strcpy}
+\begin{itemize}
+	\item {Copy one string to another}
+	\item {strcpy(destine, source)}
+\end{itemize}
+\begin{columns}
+\begin{column}{0.45\linewidth}
+\begin{lstlisting}
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+   char ch[10];
+   strcpy(ch, "hi");
+   printf("%s\n", ch);
+   strcpy(ch, "ha");
+   printf("%s\n", ch);
+   return 0;
+}
+\end{lstlisting}
+\end{column}
+\begin{column}{0.45\linewidth}
+[Output:]
+\begin{lstlisting}
+hi
+ha
+\end{lstlisting}
+\end{column}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}[fragile]{String Operation: strcmp (1)}
+\begin{itemize}
+	\item {\textcolor{red}{C}o\textcolor{red}{mp}are whether two strings are equal or not}
+\end{itemize}
+\begin{columns}
+\begin{column}{0.85\linewidth}
+\begin{lstlisting}[xleftmargin=0.05\linewidth, linewidth=0.94\linewidth]
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+  char ch1[10], ch2[10];
+  strcpy(ch1, "hi");
+  strcpy(ch2, "ha");
+  if(strcmp(ch1, ch2) == 1){
+      printf("ch1 > ch2\n");
+  }else if(strcmp(ch1,ch2)==-1)
+  {
+      printf("ch1 < ch2\n");
+  }
+  else if(strcmp(ch1,ch2)==0){
+      printf("identical");
+  }
+}
+\end{lstlisting}
+\end{column}
+\begin{column}{0.15\linewidth}
+[Output]\\
+ch1 $>$ ch2
+\end{column}
+\end{columns}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{String Operation: strcmp (2)}
+\vspace{-0.15in}
+\begin{itemize}
+	\item {\textcolor{red}{C}o\textcolor{red}{mp}are whether two strings are equal or not}
+\end{itemize}
+\vspace{-0.15in}
+\begin{columns}
+\begin{column}{0.85\linewidth}
+\begin{lstlisting}[xleftmargin=0.05\linewidth, linewidth=0.94\linewidth]
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+  char ch1[10], ch2[10];
+  strcpy(ch1, "he");
+  strcpy(ch2, "we");
+  if(strcmp(ch1, ch2) == 1)
+  {
+      printf("ch1 > ch2\n");
+  }else if(strcmp(ch1,ch2)==-1)
+  {
+      printf("ch1 < ch2\n");
+  }
+  else if(strcmp(ch1,ch2)==0)
+  {
+      printf("identical");
+  }
+}
+\end{lstlisting}
+\end{column}
+\begin{column}{0.15\linewidth}
+[Output]\\
+ch1 $<$ ch2
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{String Operation: strcmp (3)}
+\begin{itemize}
+	\item {\textcolor{red}{C}o\textcolor{red}{mp}are whether two strings are equal or not}
+\end{itemize}
+\vspace{-0.15in}
+\begin{columns}
+\begin{column}{0.85\linewidth}
+\begin{lstlisting}[xleftmargin=0.05\linewidth, linewidth=0.94\linewidth]
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+  char ch1[10], ch2[10];
+  strcpy(ch1, "hi");
+  strcpy(ch2, "hi");
+  if(strcmp(ch1, ch2)!=0)
+  {
+      printf("different");
+  }
+  else if(strcmp(ch1, ch2)==0)
+  {
+      printf("identical");
+  }
+  return 0;
+}
+\end{lstlisting}
+\end{column}
+\begin{column}{0.15\linewidth}
+[Output]\\
+identical
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{String Operation: strlen (1)}
+\begin{itemize}
+	\item {Calculate the \textcolor{red}{len}gth of the string}
+	\item {Pass the string until it encounters `$\setminus$0'}
+\end{itemize}
+\begin{columns}
+\begin{column}{0.5\linewidth}
+\begin{lstlisting}
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+   char a[20] = "hello";
+   int l = strlen(a);
+   printf("length is: %d", l);
+   return 0;
+}
+\end{lstlisting}
+[length is: 5]
+\end{column}
+\begin{column}{0.5\linewidth}
+\begin{lstlisting}
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+   char a[20] = "hello world";
+   int l = strlen(a);
+   printf("length is: %d", l);
+   return 0;
+}
+\end{lstlisting}
+[length is: 11]
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{String Operation: strlen (2)}
+\begin{itemize}
+	\item {Calculate the \textcolor{red}{len}gth of the string}
+	\item {Pass the string until it encounters `$\setminus$0'}
+\end{itemize}
+\begin{columns}
+\begin{column}{0.5\linewidth}
+\begin{lstlisting}
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+   char a[20] = "hello world";
+   int l = strlen(a);
+   printf("length is: %d", l);
+   return 0;
+}
+\end{lstlisting}
+[length is: 11]
+\end{column}
+\begin{column}{0.5\linewidth}
+\begin{lstlisting}
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+   char a[20]="hello\0world";
+   int l = strlen(a);
+   printf("length is: %d", l);
+   return 0;
+}
+\end{lstlisting}
+[length is: 5]
+\end{column}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}[fragile]{String Operation: strcat}
+\begin{itemize}
+	\item {Con\textcolor{red}{cat}enate two strings into one}
+\end{itemize}
+\begin{columns}
+\begin{column}{0.45\linewidth}
+\begin{lstlisting}
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+   char a[20] = "hello ";
+   char b[10] = "world";
+   printf("a=%s\n", a);
+   printf("b=%s\n", b);
+   strcat(a, b);
+   printf("a=%s\n", a);
+   return 0;
+}
+\end{lstlisting}
+\end{column}
+\begin{column}{0.45\linewidth}
+\begin{lstlisting}
+hello
+world
+hello world
+\end{lstlisting}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Summary over string and char array}
+\begin{itemize}
+	\item {Array of chars could be used as string, `$\setminus$0' should be appended at the end}
+	\item {One more byte should be reserved for `$\setminus$0'}
+	\item {String can be used as an array of chars}
+	\item {Functions such as ``strcpy'', ``strlen'', ``strcat'' etc require string input}
+\end{itemize}
+
+\begin{table}
+\begin{center}
+	\begin{tabular}{|l|l|} \hline
+	 Usage & Comments \\ \hline
+	\multirow{2}{*}{\textcolor{blue}{strcpy}(str1, str2)} & Copy ``str2'' to ``str1'', the content \\ & of ``str1'' will be overwriten \\ \hline
+	 \textcolor{blue}{strlen}(str1) & Calculate the number of characters before `$\setminus$0' \\ \hline
+	\textcolor{blue}{strcat}(str1, str2) & Concatenate ``str2'' to ``str1'' and save to ``str1'' \\ \hline
+	\multirow{2}{*}{\textcolor{blue}{strcmp}(str1, str2)} & Compare two strings, \\ & returns -1, 1 or 0 if they are identical \\ \hline
+	\end{tabular}
+\end{center}
+\end{table}
+
+\end{frame}

@@ -1,0 +1,20 @@
+\frametitle{Summary over string and char array}
+\begin{itemize}
+	\item {Array of chars could be used as string, `$\setminus$0' should be appended at the end}
+	\item {One more byte should be reserved for `$\setminus$0'}
+	\item {String can be used as an array of chars}
+	\item {Functions such as ``strcpy'', ``strlen'', ``strcat'' etc require string input}
+\end{itemize}
+
+\begin{table}
+\begin{center}
+	\begin{tabular}{|l|l|} \hline
+	 Usage & Comments \\ \hline
+	\multirow{2}{*}{\textcolor{blue}{strcpy}(str1, str2)} & Copy ``str2'' to ``str1'', the content \\ & of ``str1'' will be overwriten \\ \hline
+	 \textcolor{blue}{strlen}(str1) & Calculate the number of characters before `$\setminus$0' \\ \hline
+	\textcolor{blue}{strcat}(str1, str2) & Concatenate ``str2'' to ``str1'' and save to ``str1'' \\ \hline
+	\multirow{2}{*}{\textcolor{blue}{strcmp}(str1, str2)} & Compare two strings, \\ & returns -1, 1 or 0 if they are identical \\ \hline
+	\end{tabular}
+\end{center}
+\end{table}
+

@@ -1,0 +1,192 @@
+\section{Functions}
+\begin{frame}[fragile]{Remember the main \textit{function}?}
+	\bigskip
+	\begin{lstlisting}[numbers=none, language=c]
+		int main(void) 
+		{
+			/*your codes go here */
+			return 0;
+		}
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]{Defining functions}
+	\begin{columns}[T]
+		\column{.33\textwidth}<2->
+		data type of the returned value or \textit{void}, if nothing is returned
+		\column{.33\textwidth}<3->
+		unique name to refer the function, same rules as for variable identifiers
+		\column{.34\textwidth}<4->
+		parameter declarations, seperated by commas or \textit{void}, if there are none
+	\end{columns}
+	\begin{textblock}{7}(1.5,3.5)
+		\begin{tikzpicture}[x=1.2cm,y=.5cm]
+			\only<2>{\draw[red] (-.3,0) edge[out=270,in=90,->,shorten >=0ex] (0,-2);}
+			\uncover<3->{\draw (-.3,0) edge[out=270,in=90,->,shorten >=0ex] (0,-2);}
+			\only<3>{\draw[red] (3.5,0) edge[out=270,in=90,->,shorten >=0ex] (2.25,-2);}
+			\uncover<4->{\draw (3.5,0) edge[out=270,in=90,->,shorten >=0ex] (2.25,-2);}
+			\only<4>{\draw[red] (7,0) edge[out=270,in=90,->,shorten >=.0ex] (4.5,-2);}
+			\uncover<5->{\draw (7,0) edge[out=270,in=90,->,shorten >=.0ex] (4.5,-2);}
+		\end{tikzpicture}
+	\end{textblock}
+	\ \\\ \\\ \\
+	\begin{lstlisting}[numbers=none, language=c,basicstyle=\itshape\small]
+§return_type§ §identifier§(§argument_list§) {
+	§function_body§
+	return §expression§;
+}
+\end{lstlisting}
+	\	\\\	\\\ \\
+	\begin{columns}[T]
+		\column{.5\textwidth}<5->
+		just as in \textit{main()}, all statements are put in here
+		\column{.5\textwidth}<6->
+		value this function returns or empty, if the return value is \textit{void}
+	\end{columns}
+	\begin{textblock}{7}(.5,5.2)
+		\begin{tikzpicture}
+			\only<5>{\draw[red] (1.5,0) edge[out=90,in=180,->,shorten >=0ex] (0,2);}
+			\uncover<6->{\draw (1.5,0) edge[out=90,in=180,->,shorten >=0ex] (0,2);}
+			\only<6>{\draw[red] (8,0) edge[out=90,in=270,->,shorten >=0ex] (2.4,1.5);}
+			\uncover<7->{\draw (8,0) edge[out=90,in=270,->,shorten >=0ex] (2.4,1.5);}
+		\end{tikzpicture}
+	\end{textblock}
+\end{frame}
+
+\begin{frame}[fragile]{Passing arguments}
+	\begin{itemize}
+		\item Each value is assigned to the parameter at the same position in the argument list (and therefore must have the same type)
+	\end{itemize}		
+	\begin{lstlisting}[basicstyle=\normalsize, language=c]
+	#include <stdio.h>
+	void shift_chars(char character, unsigned offset)
+	{
+		printf("%c\n", (character + offset) % 255);
+	}
+
+	int rand_number(void)
+	{
+  		return 4;	// chosen by fair dice roll.
+				// guaranteed to be random.
+	}
+	
+	int main(void)
+	{
+		int offset = 10;
+		shift_character('c', offset);
+		printf("%d\n", random_number());
+		return 0;
+	}
+	\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Global variables}
+	\begin{itemize}
+		\item Variables defined outside any function
+		\item Scope: from line of declaration to end of program
+	\end{itemize}
+	\begin{lstlisting}[language=c]
+int globe = 42;
+
+void foo() {
+	globe = 23;
+}
+
+int main(void) {
+	printf("%d\n", globe);	/* Prints 42 */
+	foo();
+	printf("%d\n", globe);	/* Prints 23 */
+	...
+\end{lstlisting}
+	Altering them in one function may have \textbf{side effects} on other functions $\rightarrow$ use them rarely.
+\end{frame}
+\begin{frame}[fragile]{Where not to call functions}
+	Since a function's scope starts at the line of its definition, having two functions \textit{f()} and \textit{g()} calling each other is not possible:
+	\begin{lstlisting}[language=c]
+void f(int i) {
+	...
+	g(42);	/* What is g? */
+}
+
+void g(int i) {
+	...
+	f(42);
+}
+\end{lstlisting}
+	In that case, \textit{g()} is called outside its scope. Changing the order does not work either.
+\end{frame}
+\begin{frame}[fragile]{Prototypes}
+	Like variables, functions can also be \textit{declared}:
+	\begin{lstlisting}[numbers=none, language=c,basicstyle=\itshape\footnotesize]
+return_type identifier(argument list);
+\end{lstlisting}
+	\begin{itemize}
+		\item It's similar to a definition, just replace the function body by a \textit{;}
+		\item Declared functions must also be defined any where in the program
+		\item In the argument list, only types matter $\rightarrow$ identifiers \textbf{can} be left out
+	\end{itemize}
+	\begin{lstlisting}[language=c]
+void g(int i);	/* better do not leave the identifier out */
+
+void f(int i) {
+	...
+	g(42);		/* Now a call of g() can be compiled */
+}
+
+void g(int i) {...}	/* g() definition, similar to f() */
+\end{lstlisting}
+\end{frame}
+\begin{frame}[fragile]{Better program structure}
+	To avoid problems like that above, it is a common practise to \textit{declare} all functions at the top of the file and define them below the main function:
+	\begin{lstlisting}[language=c]
+void f(int i);
+void g(int i);
+
+int main(void) {
+	...
+}
+
+void f(int i) {
+	...
+	g(42);
+}
+
+/* g() definition, similar to f() */
+\end{lstlisting}
+\end{frame}
+\begin{frame}{Functions in functions}
+	You \textbf{could} define functions in functions.\footnotemark
+	
+	\footnotetext[1]{Just saying.}
+\end{frame}
+
+\begin{frame}[fragile]{Recursive functions}
+	\begin{itemize}
+		\item Functions calling themselves
+		\item Used to implement many mathematical algorithms
+		\item Easy to think up, but they run slow
+	\end{itemize} \ \\ \ \\
+	Careful:
+	\begin{lstlisting}[language=c]
+void foo() {
+	foo();
+}
+\end{lstlisting}
+	creates an infinite loop.\footnote{And, at some point, a program crash (\textit{stack overflow})} \\
+	There must always be an \textit{exit condition} if using recursion!
+\end{frame}
+\begin{frame}[fragile]{Exponentiation}
+As an example, take a look at this function calculating $base^{exponent}$:
+	\begin{lstlisting}
+int power(int base, int exponent) {
+	if (exponent =@\,@= 0)
+		return 1;
+	return base * power(base, exponent - 1);
+}
+\end{lstlisting}
+	\begin{itemize}
+		\item $a^{0} = 1 \rightarrow$ \textit{power(a, 0}) just returns \textit{1}
+		\item $a^{b} = a * a^{b-1} \rightarrow$ recursive call of \textit{power(a, b-1)}
+	\end{itemize}
+\end{frame}
