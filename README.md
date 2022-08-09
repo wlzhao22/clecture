@@ -1,5 +1,5 @@
 # C-Lecture
-This project is to share the "C Programming" course slides written in Latex. The slides are fully written and organized by me. It is designed for the first year undergraduate student. 
+This project is to share the "C Programming" course slides written in Latex. The slides are fully written and organized by Wan-Lei Zhao (from Xiamen University, China). This course is targeted to the first year undergraduate student. 
 
 ## Compile
 One can compile every lecture slides with "pdflatex" smoothly.
