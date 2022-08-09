@@ -1,0 +1,72 @@
+\documentclass[]{beamer}
+\usepackage{beamerthemesplit}
+\usepackage{graphics,epsfig}
+\usepackage{pstricks}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{subfigure}
+\usepackage{listings}
+\usepackage{courier}
+\usepackage{multirow}
+\usepackage{xspace}
+\usepackage{tikz}
+
+
+\mode<presentation>
+{ \usetheme{Boadilla}
+  \setbeamercovered{transparent}
+  \setbeamertemplate{items}[circle]
+  \setbeamertemplate{theorems}[numbered]
+  \setbeamertemplate{footline}[frame number]
+  \setbeamercolor{frametitle}{fg=black,bg=white!900}
+}
+ 
+%\useinnertheme[shadow=true]{rounded}
+\useoutertheme{shadow}
+\usecolortheme{whale}
+
+\newcommand\blfootnote[1]{
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}
+  \addtocounter{footnote}{-1}
+  \endgroup
+}
+
+\mode
+<all>
+
+\title{C Programming}
+\author{Wan-Lei Zhao}
+
+\makeatletter
+\DeclareRobustCommand\onedot{\futurelet\@let@token\@onedot}
+
+\makeatother
+
+\begin{document}
+\begin{frame}
+   \begin{center}
+    \vspace{24pt}
+    \Huge\textbf{C Programming}\blfootnote{Email: wlzhao@xmu.edu.cn, copyrights are fully reserved by the author.}\\
+     \Huge{Lecture 5: Functions and MACROs}
+    \begin{figure}
+    	\begin{center}
+    		\includegraphics[width=0.32\linewidth]{figs/arg2para0.pdf}
+    	\end{center}
+    \end{figure}
+  \end{center}
+  \begin{align*}
+   \vspace{18pt}
+      \large{\mbox{Lecturer:}~Dr.~\mbox{Wan-Lei~~Zhao}} \\
+      \large{Spring~~Semester~~2022} \\
+   \vspace{30pt}
+  \end{align*}
+\end{frame}
+
+\input{temps.tex}
+\input{func.tex}
+\input{recurs.tex}
+\input{vars.tex}
+\input{macros.tex}
+\section{}
+\end{document}

@@ -1,0 +1,4 @@
+\beamer@sectionintoc {1}{Functions: declaration, definition and calling}{2}{0}{1}
+\beamer@sectionintoc {2}{Recursive Functions}{31}{0}{2}
+\beamer@sectionintoc {3}{Visibility and Life-cycle of Variables}{38}{0}{3}
+\beamer@sectionintoc {4}{Precompilation Instructions and Macros}{46}{0}{4}

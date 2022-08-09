@@ -1,0 +1,42 @@
+\frametitle{Instruction for Macros: \#\textcolor {blue}{ifdef} (2)}
+\begin{itemize}
+	\item {Codes after pre-compilation}
+\end{itemize}
+\vspace{-0.2in}
+\begin{columns}
+\begin{column}{0.52\linewidth}
+\begin{lstlisting}[xleftmargin=0.02\linewidth, linewidth=0.9\linewidth]
+#define DEBUG
+#include <stdio.h>
+int main()
+{
+  int i = 0, j = 1;
+  for(i = 0; i < 5; i++)
+  {
+     j = i*2+1;
+     printf("j = %f\n", j);
+  }
+  return 0;
+}
+\end{lstlisting}
+\end{column}
+\begin{column}{0.47\linewidth}
+\begin{lstlisting}
+//#define DEBUG
+#include <stdio.h>
+int main()
+{
+  int i = 0, j = 1;
+  for(i = 0; i < 5; i++)
+  {
+     j = i*2+1;
+  }
+  return 0;
+}
+\end{lstlisting}
+\end{column}
+\end{columns}
+\vspace{-0.2in}
+\begin{itemize}
+	\item {The code is compiled inside \#\textcolor{blue}{ifdef} only when ``\textbf{DEBUG}'' is defined}
+\end{itemize}
