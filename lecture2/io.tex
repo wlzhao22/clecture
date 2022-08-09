@@ -1,0 +1,268 @@
+\section{Variable Input/Output}
+\label{sec:io}
+\begin{frame}<beamer>
+    \frametitle{Outline}
+    \tableofcontents[currentsection]
+\end{frame}
+
+\begin{frame}[fragile]{printf() with placeholders (1)}
+	\begin{itemize}
+		\item {\textbf{printf("\%d ...\%f ...\%ld", d1, d2, d3)}}
+		\item {A function \textbf{pre-defined} by C}
+		\item {It is in charge of print things onto screen}
+		\item {You should organize your things in special format}
+	\end{itemize}
+\begin{columns}	
+\begin{column}{0.6\linewidth}
+    [\textbf{Codes}]
+	\begin{lstlisting}[numbers=none, language=c]
+#include <stdio.h>
+int main()
+{
+   int a = 1;
+   float b = 3.1;
+   char c = 'h';
+   printf("a: %d\n", a);
+   printf("b: %f\n", b);
+   printf("c: %c\n", c);
+   printf("a: %d, c: %c\n", a, c);
+}
+\end{lstlisting}
+\end{column}
+\begin{column}{0.3\linewidth}
+[\textbf{Output}]
+\begin{lstlisting}[numbers=none, language=c]
+a: 1
+b: 3.1
+c: h
+a: 1, c: h
+\end{lstlisting}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{printf() with placeholders (2)}
+	\begin{itemize}
+		\item {``\%x" is called placeholder}
+		\item {It \textbf{holds/occupies} the place that is replaced by output data}
+		\item {Different output data require different placeholders}
+		\item {The \textbf{order} of placeholders corresponds to the order of output}
+		\item {The \textbf{number} of placeholders corresponds to the number of output}
+	\end{itemize}
+\begin{columns}	
+\begin{column}{0.77\linewidth}
+    [\textbf{Codes}]
+	\begin{lstlisting}[numbers=none, language=c]
+#include <stdio.h>
+int main()
+{
+  int a = 3;
+  int b = 5;
+  float c = 7.4;
+  printf("a: %d\nb: %d\nc: %f\n", a, b, c);
+}
+	\end{lstlisting}
+\end{column}
+\begin{column}{0.15\linewidth}
+[\textbf{Output}]
+\begin{lstlisting}[numbers=none, language=c]
+a: 3
+b: 5
+c: 7.4
+\end{lstlisting}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Supported placeholders}
+\begin{itemize}
+	\item {The placeholder determines how the value is interpreted.}
+\end{itemize}
+	\begin{tabular}{|c|c|c|}
+		\hline
+		\textbf{type} & \textbf{description} & \textbf{type of argument} \\\hline
+		\%c & single character & char, int (if $<=$ 255) \\\hline
+		\%d & decimal number & char, int \\\hline
+		\%u & unsigned decimal number & unsigned char, unsigned int \\\hline
+		\%x & hexadecimal number & char, int \\\hline
+		\%ld & long decimal number & long \\\hline
+		\%f & floating point number & float, double \\\hline
+		\%lf & double number & double \\\hline
+	\end{tabular}
+\end{frame}
+
+\begin{frame}[fragile]{printf() by example}
+	\begin{itemize}
+		\item {\textbf{printf("\%d ...\%f ...\%ld", d1, d2, d3)}}
+		\item {A function \textbf{pre-defined} by C}
+	\end{itemize}
+\begin{columns}	
+\begin{column}{0.6\linewidth}
+    [\textbf{Codes}]
+	\begin{lstlisting}[numbers=none, language=c]
+#include <stdio.h>
+int main()
+{
+   int a = 79;
+   char b = 'n';
+   printf("a: %d, b: %d\n", a, b);
+   printf("a: %c, b: %c\n", a, b);
+   printf("a: %x, b: %x\n", a, b);
+}
+	\end{lstlisting}
+\end{column}
+\begin{column}{0.35\linewidth}
+[\textbf{Output}]
+
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{printf() by example}
+	\begin{itemize}
+		\item {\textbf{printf("\%d ...\%f ...\%ld", d1, d2, d3)}}
+		\item {A function \textbf{pre-defined} by C}
+	\end{itemize}
+\begin{columns}	
+\begin{column}{0.6\linewidth}
+    [\textbf{Codes}]
+	\begin{lstlisting}[numbers=none, language=c]
+#include <stdio.h>
+int main()
+{
+  int a = 79;
+  char b = 'n';
+  printf("a: %d, b: %d\n", a, b);
+  printf("a: %c, b: %c\n", a, b);
+  printf("a: %x, b: %x\n", a, b);
+}
+	\end{lstlisting}
+\end{column}
+\begin{column}{0.35\linewidth}
+[\textbf{Output}]
+\begin{lstlisting}[numbers=none, language=c]
+a: 79, b: 110
+a: O, b: n
+a: 4f, b: 6e
+\end{lstlisting}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Escape Character in ASCII (1)}
+\begin{itemize}
+	\item {There are some special character to be print out}
+	\begin{itemize}
+		\item {``Tab'', ``Enter'', ``backspace''}
+	\end{itemize}
+	\item {We want to express it by one character in ASCII}
+	\begin{itemize}
+		\item {But....}
+		\item {All characters have their own use}
+	\end{itemize}
+	\item {If we want to use them to express different meaning}
+	\begin{itemize}
+		\item {We use `$\diagdown$'}
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Escape Character in ASCII (2)}
+\vspace{-0.1in}
+\begin{itemize}
+	\item {All characters have their own use}
+	\item {If we want to use them to express different meaning}
+	\begin{itemize}
+		\item {We use `$\backslash$'}
+	\end{itemize}
+\end{itemize}
+\vspace{-0.1in}
+\begin{table}
+\begin{center}
+	\begin{tabular}{|c|l|} \hline
+	ESC & their charactor  \\ \hline
+	`$\backslash$t' & Tab \\ \hline
+	`$\backslash$b' & back one character \\ \hline
+	`$\backslash$r' & return to the start if a line\\ \hline
+	`$\backslash$n' & go to the next line\\ \hline
+	`$\backslash\backslash$' & $\backslash$\\ \hline
+	`$\backslash$'' & single quote: '\\ \hline
+	`$\backslash$"' & double quote: "\\ \hline
+	\end{tabular}
+\end{center}
+\end{table}
+\vspace{-0.1in}
+\begin{itemize}
+	\item {Remember that it is one character: $\backslash$"}
+	\item {It is valid: '$\backslash$b'}
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Variable input}
+	\begin{itemize}
+		\item {\textbf{scanf("\%d...\%f", \&a, \&b)} is another useful function}
+		\item {Like \textbf{printf}(), it is declared in \textbf{stdio.h}}
+		\item {Like \textbf{printf}(), it has a format string with placeholders}
+		\item You can use it to read values of primitive datatypes from the command line
+	\end{itemize}
+	\ \\ \ \\ Example:
+	\begin{lstlisting}[numbers=none, language=c, frame=none]
+		int i;
+		scanf("%d", &i);	
+	\end{lstlisting}
+	\begin{itemize}
+		\item {Notice that there is ``\&'' before the variable}
+		\item {This \textbf{operator} takes the address of the variable}
+		\item {When buy goods online, you should put your the address}
+		\item {The postman will transfer the \textbf{goods} (value) to your \textbf{mailbox} (variable)}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Notes for scanf}
+	\begin{itemize}
+		\item {\textbf{scanf}() uses the same placeholders as \textbf{printf}()}
+		\item {You must type an \textcolor{red}{\textit{\&}} before each variable identifier}
+		\item {If you read a number (using \%d, \%u etc.), interpretation}
+		\begin{itemize}
+			\item {Starts at first digit}
+			\item {Ends before last \textbf{non digit} character}
+			\item {E.g: \textbf{2} \textbf{2.3}}
+		\end{itemize}
+		\item {If you use \%c, the first character of the user input is taken}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{scanf() by example}
+	\begin{itemize}
+		\item {\textbf{scanf("\%d ...\%f ...\%ld", \&d1, \&d2, \&d3)}}
+		\item {A function \textbf{pre-defined} by C}
+	\end{itemize}
+\begin{columns}	
+\begin{column}{0.6\linewidth}
+    [\textbf{Codes}]
+	\begin{lstlisting}[numbers=none, language=c]
+#include <stdio.h>
+int main()
+{
+   int a = 79;
+   float b = 0.1;
+   printf("a: %d, b: %f\n", a, b);
+   printf("Input a and b: ");
+   scanf("%d%f", &a, &b);
+   printf("a: %d, b: %f\n", a, b);
+}
+	\end{lstlisting}
+\end{column}
+\begin{column}{0.35\linewidth}
+[\textbf{Output}]
+	\begin{lstlisting}[numbers=none, language=c]
+a: 79, b: 0.1
+Input a and b: xx xx.xx
+a: xx, b: xx.xx
+	\end{lstlisting}
+\end{column}
+\end{columns}
+\end{frame}

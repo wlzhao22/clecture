@@ -1,0 +1,450 @@
+\section{Data Operators and Expressions}
+\label{sec:oper}
+\begin{frame}<beamer>
+    \frametitle{Outline}
+    \tableofcontents[currentsection]
+\end{frame}
+
+\begin{frame}[fragile]{Overview about Expressions}
+\begin{itemize}
+	\item {Legal expressions consist of legal combinations of}
+	\begin{itemize}
+		\item {Constants: const float PI = 3.14}
+		\item {Variables: int a, b;}
+		\item {Operators: +,-}
+		\item {Function alls, printf("\%d", a)}
+	\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Vadlid Operators in C}
+\begin{itemize}
+	\item {Operators}
+	\begin{itemize}
+		\item {Arithmetic: +,-,*, /, \%}
+		\item {Relational: ==, !=, $>$,$<$, $<=$, $>=$}
+		\item {Logical: \&\&, !, $||$}
+		\item {\textcolor{yellow}{Bitwise}: \&, |, \^{ }, \~{ }}
+		\item {\textcolor{yellow}{Shift}: $<<$, $>>$}
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Arithmetic Operators in C}
+\begin{itemize}
+	\item {Rules for operator precedence}
+\end{itemize}
+\begin{table}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline 
+Operator & Operation & Precedence \\ \hline \hline
+() & Parenthese & Evaluated \textcolor{red}{first} \\ \hline
+*,/ or \%&multiplication, division & evluated \textcolor{red}{second} \\ \hline
++ or - & addition, substraction & evaluated \textcolor{red}{last} \\ \hline
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+\begin{itemize}
+	\item {Take average of three numbers}
+	\item {1+2+4/3 ??}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Precedence Example}
+\begin{equation}
+(2+3+5)/3 \nonumber
+\end{equation}
+\begin{equation}
+5*((2+6)%2) \nonumber
+\end{equation}
+\begin{columns}
+\begin{column}{0.45\linewidth}
+	\begin{lstlisting}[numbers=none, language=c]
+	int avg = 2 + 3 + 5/3;
+	float x=5*2+6%2;
+	\end{lstlisting}
+\end{column}
+\begin{column}{0.45\linewidth}
+	\begin{lstlisting}[numbers=none, language=c]
+	int avg = (2 + 3 + 5)/3;
+	float x=5*((2+6)%2);
+	\end{lstlisting}
+\end{column}
+\end{columns}
+\begin{itemize}
+	\item {\textcolor{red}{Try to use ``()'' to clarify, if you are uncertain about the precedence}}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Division Operator (1)}
+\begin{itemize}
+	\item {Generates a result that is the same data type of \textcolor{red}{the largest operand} used in the operation}
+	\item {Dividing two integers yields an integer result}
+\end{itemize}
+\begin{columns}
+\begin{column}{0.4\linewidth}
+	\begin{lstlisting}[numbers=none, language=c]
+	5/2
+	17/5
+	\end{lstlisting}
+\end{column}
+\begin{column}{0.4\linewidth}
+[Result]
+	\begin{lstlisting}[numbers=none, language=c]
+	2
+	3
+	\end{lstlisting}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Division Operator (2)}
+\begin{itemize}
+	\item {Generates a result that is the same data type of \textcolor{red}{the largest operand} used in the operation}
+	\item {Dividing two integers yields an integer result}
+\end{itemize}
+\begin{columns}
+\begin{column}{0.4\linewidth}
+	\begin{lstlisting}[numbers=none, language=c]
+	5.0/2
+	17.0/5
+	\end{lstlisting}
+\end{column}
+\begin{column}{0.4\linewidth}
+[Result]
+	\begin{lstlisting}[numbers=none, language=c]
+	2.5
+	3.4
+	\end{lstlisting}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Modulus Operator \%}
+\begin{itemize}
+	\item {Modulus Operator \% returns the remainder}
+	\item {Dividing two integers yields an integer result}
+\end{itemize}
+\begin{columns}
+\begin{column}{0.4\linewidth}
+	\begin{lstlisting}[numbers=none, language=c]
+	5%2
+	17%5
+	12%3
+	\end{lstlisting}
+\end{column}
+\begin{column}{0.4\linewidth}
+[Result]
+	\begin{lstlisting}[numbers=none, language=c]
+	1
+	2
+	0
+	\end{lstlisting}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Evaluating Arithmetic Expressions (1)}
+\begin{itemize}
+	\item {See whether you can work out the answer}
+\end{itemize}
+\begin{columns}
+\begin{column}{0.4\linewidth}
+	\begin{lstlisting}[numbers=none, language=c]
+	11/2
+	11%2
+	11/2.0
+	5.0/2
+	\end{lstlisting}
+\end{column}
+\begin{column}{0.4\linewidth}
+[Result]
+%	\begin{lstlisting}[numbers=none, language=c]
+%
+%	\end{lstlisting}
+\end{column}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}[fragile]{Evaluating Arithmetic Expressions (2)}
+\begin{itemize}
+	\item {Check your answer}
+\end{itemize}
+\begin{columns}
+\begin{column}{0.4\linewidth}
+	\begin{lstlisting}[numbers=none, language=c]
+	11/2
+	11%2
+	11/2.0
+	5.0/2
+	\end{lstlisting}
+\end{column}
+\begin{column}{0.4\linewidth}
+[Result]
+	\begin{lstlisting}[numbers=none, language=c]
+	5
+	1
+	5.5
+	2.5
+	\end{lstlisting}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Arithmetic Expressions (1)}
+\begin{columns}
+\begin{column}{0.4\linewidth}
+[Arithmetic Expression]
+\begin{equation}
+	\begin{aligned}
+	\frac{a}{b}\\
+	2x \\
+	\frac{x-7}{2+3y} \nonumber
+	\end{aligned}
+\end{equation}
+\end{column}
+\begin{column}{0.4\linewidth}
+[Expression in C]
+	\begin{lstlisting}[numbers=none, language=c]
+	a/b
+	2*x
+	(x-7)/(2+3*y)
+	\end{lstlisting}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Arithmetic Expressions (2)}
+\begin{columns}
+\begin{column}{0.4\linewidth}
+[Arithmetic Expression]
+	\begin{lstlisting}[numbers=none, language=c, frame=none]
+	2 * (-3)
+	4 * 5 - 15
+	4 + 2 * 5
+	7/2
+	7 / 2.0
+	2 / 5
+	2.0 / 5.0
+	2 / 5 * 5
+	2.0 + 1.0 + 5 / 2
+	5 % 2
+	4 * 5/2 + 5 % 2
+	\end{lstlisting}
+\end{column}
+\begin{column}{0.4\linewidth}
+
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Arithmetic Expressions (3)}
+\begin{columns}
+\begin{column}{0.4\linewidth}
+[Arithmetic Expression]
+	\begin{lstlisting}[numbers=none, language=c, frame=none]
+	2 * (-3)
+	4 * 5 - 15
+	4 + 2 * 5
+	7/2
+	7 / 2.0
+	2 / 5
+	2.0 / 5.0
+	2 / 5 * 5
+	2.0 + 1.0 + 5 / 2
+	5 % 2
+	4 * 5/2 + 5 % 2
+	\end{lstlisting}
+\end{column}
+\begin{column}{0.4\linewidth}
+[Results]
+	\begin{lstlisting}[numbers=none, language=c, frame=none]
+	-6
+	5
+	14
+	3
+	3.5
+	0
+	0.4
+	0
+	5.0
+	1
+	11
+	\end{lstlisting}
+\end{column}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}[fragile]{Data Assignment}
+\begin{itemize}
+	\item {Assig value to variable in accordance with its type}
+\end{itemize}
+\begin{columns}
+\begin{column}{0.45\linewidth}
+	\begin{lstlisting}[numbers=none, language=c, rulecolor=\color{blue}]
+	int main()
+	{ 
+	   int a;
+	   a = 2.99;
+	   printf("a = %d", a);
+	}
+	\end{lstlisting}
+\end{column}
+\begin{column}{0.4\linewidth}
+  [Output]
+	\begin{lstlisting}[numbers=none, language=c, rulecolor=\color{blue}]
+	a = 2
+	\end{lstlisting}
+\end{column}
+\end{columns}
+\begin{itemize}
+	\item {Comments: above expression is valid, but \textcolor{red}{NOT} suggested}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Shortcut assignment Operators (1)}
+\begin{table}
+	\begin{center}
+	\begin{tabular}{|l|l|} 
+	\hline
+	Assignment & Shortcut \\ \hline
+	d = d - 4 & d-=4 \\ \hline
+	e = e*5  & e *= 5 \\ \hline
+	f = f/3 & f /= 3 \\ \hline
+	g = g\%9 & g \%=9 \\ \hline \hline
+	m = m*(5 + 3) & m *= 5+3 \\ \hline
+	k = k/(5 + 1) & m /= 5+1 \\ \hline
+	k = k/(5*7) & k /= 5*7 \\ \hline
+	\end{tabular}
+	\end{center}
+\end{table}
+\end{frame}
+
+\begin{frame}[fragile]{Shortcut assignment Operators (2)}
+\begin{columns}
+\begin{column}{0.17\linewidth}
+\end{column}
+\begin{column}{0.65\linewidth}
+	\begin{lstlisting}[numbers=none, language=c, rulecolor=\color{blue}]
+		a += 4;		/* a = a + 4; */
+		a -= 4;		/* a = a - 4; */
+		a *= b;		/* a = a * b; */
+		b /= 4+2;	/* b = b / (4+2); */
+		b %= 2+3;	/* b = b % (2+3); */
+	\end{lstlisting}
+\end{column}
+\begin{column}{0.17\linewidth}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Shorthand Operators (1)}
+\begin{itemize}
+	\item {Incremental operator: \textbf{++}}
+	\begin{itemize}
+		\item {\textbf{i++} equivalent to \textbf{i = i+1}}
+	\end{itemize}
+	\item {Decremental operator: \textbf{--}}
+	\begin{itemize}
+		\item {\textbf{i--} equivalent to \textbf{i = i-1}}
+	\end{itemize}
+	\item {When they are used alone}
+	\begin{itemize}
+		\item {\textbf{i++} and \textbf{++i} behave the same as}
+		\item {\textbf{i = i+1}}
+		\item {Similar comment applies to \textbf{--}}
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Shorthand Operators (2)}
+\begin{itemize}
+	\item {When they appear in a compound expression, things are different}
+	\item {\textbf{a=i++} will be different from \textbf{a=++i}}
+	\item {In \textbf{a=i++}, \textbf{i} contributes its value to \textbf{a} first, then self-increments}
+	\item {In \textbf{a=++i}, \textbf{i} self-increments first, then contributes its value to \textbf{a}}
+	\item {Similiar comments apply to \textbf{i--} and \textbf{--i}}
+\end{itemize}
+\begin{columns}
+\begin{column}{0.45\linewidth}
+	\begin{lstlisting}[numbers=none, language=c, rulecolor=\color{blue}]
+	int main()
+	{
+	   int a, b, i = 4;
+	   a = i++;
+	   b = ++i;
+	}
+	\end{lstlisting}
+\end{column}
+\begin{column}{0.45\linewidth}
+	\begin{lstlisting}[numbers=none, language=c, rulecolor=\color{blue}]
+	int main()
+	{
+	   int a, i = 4;
+	   a = i;
+	   i = i + 1;
+	   i = i + 1;
+	   b = i;
+	}
+	\end{lstlisting}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Shorthand Operators (3)}
+\begin{itemize}
+	\item {Now verify how much you understand}
+\end{itemize}
+\begin{columns}
+\begin{column}{0.65\linewidth}
+	\begin{lstlisting}[numbers=none, language=c, rulecolor=\color{blue}]
+	int main()
+	{
+	   int a, b, i = 4;
+	   a = i--;
+	   b = --i;
+	   printf("a = %d, b = %d\n", a, b);
+	}
+	\end{lstlisting}
+\end{column}
+\begin{column}{0.3\linewidth}
+[Output]
+	\begin{lstlisting}[numbers=none, language=c, rulecolor=\color{blue}]
+	a = ?, b = ?
+	\end{lstlisting}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Conditional Operator}
+\begin{itemize}
+	\item {Conditional Operator: logic\_exp1?exp2:exp3}
+	\item {Three operands}
+	\item {If logic\_exp1 is \textcolor{green}{none zero}, takes \textbf{exp2}}
+	\item {If logic\_exp1 is \textcolor{green}{zero}, takes \textbf{exp3}}
+\end{itemize}
+\begin{columns}
+\begin{column}{0.65\linewidth}
+	\begin{lstlisting}[numbers=none, language=c, rulecolor=\color{blue}]
+	int main()
+	{
+	   int a = 2, b = 3, i = 4;
+	   a = b>i?b:i;
+	   b = b==3?2:1;
+	   printf("a = %d, b = %d\n", a, b);
+	}
+	\end{lstlisting}
+\end{column}
+\begin{column}{0.3\linewidth}
+[Output]
+	\begin{lstlisting}[numbers=none, language=c, rulecolor=\color{blue}]
+	a = 4, b = 2
+	\end{lstlisting}
+\end{column}
+\end{columns}
+\end{frame}
