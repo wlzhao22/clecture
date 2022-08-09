@@ -9,7 +9,7 @@ pdflatex lec1.tex
 ```
 
 ## Copyright Issue
-Any one who receives these slides and material are free to use them. BUT when one shows them in any form or in any situation, one should point out that "**they are from Wan-Lei Zhao, China**".
+Any one who receives these slides and material are free to use them. BUT when one shows them in any form or in any situation, one should point out that "**they are designed by Wan-Lei Zhao from China**".
 
 ## Exercises for the course
 If one wants to get the exercises I designed for this course, please send email to me. Please be noted that I will only share my slides to teachers.
