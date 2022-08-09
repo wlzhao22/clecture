@@ -1,0 +1,17 @@
+\frametitle{Summary on File Operation}
+\begin{table}
+	\begin{center}
+		\begin{tabular}{|c|c|c|} \hline
+		Operation & function & instruction \\ \hline
+		Open & fopen(const char *fname, "r$|$w$|$a") &  \\ \hline
+		Read & fscanf(FILE *fp, char *buffer) & "r" \\ \hline
+		Write & fprintf(FILE *fp, "format string") & "w" \\ \hline
+		Append & fprintf(FILE *fp, "format string") &  "a"\\ \hline
+		Close & fclose(FILE *fp) &  \\ \hline
+		\end{tabular}
+	\end{center}
+\end{table}
+\begin{itemize}
+	\item {Open and close operations are always required}
+	\item {All above functions are defined in ``$<$stdio.h$>$''}
+\end{itemize}
