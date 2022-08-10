@@ -12,7 +12,7 @@ pdflatex lec1.tex
 Any one who receives these slides and material are free to use them. BUT when one shows them in any form or in any situation, one should point out that "**they are designed by Wan-Lei Zhao from China**".
 
 ## Exercises for the course
-If one wants to get the exercises I designed for this course, please send email to me. Please be noted that I will only share my slides to teachers.
+If one wants to get the exercises I designed for this course, please send email to me. Please be noted that I will only share my exercises with teachers. So the one who sends me the request should prove himself/herself a teacher first.
 
 ## Author
 Wan-Lei Zhao
