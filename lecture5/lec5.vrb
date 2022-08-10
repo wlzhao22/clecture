@@ -2,7 +2,7 @@
 \begin{itemize}
 	\item {Codes after pre-compilation}
 \end{itemize}
-\vspace{-0.2in}
+\vspace{-0.1in}
 \begin{columns}
 \begin{column}{0.52\linewidth}
 \begin{lstlisting}[xleftmargin=0.02\linewidth, linewidth=0.9\linewidth]
