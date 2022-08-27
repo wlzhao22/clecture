@@ -2,6 +2,20 @@
 
 This project shares the "C Programming" course slides (in English) written with Latex. The slides are fully written and organized by Wan-Lei Zhao (from Xiamen University, China). This course is targeted to the first year undergraduate student. 
 
+
+## Syllabus
+#### Lecture 1 Introduction to Computer and Programming
+#### Lecture 2 Binary Operations and Data Type in C and Basic Operators
+#### Lecture 3 Sequential and Conditional Control
+#### Lecture 4 Loops
+#### Lecture 5 Functions and Macros
+#### Lecture 6 Array and String
+#### Lecture 7 struct, union and enum
+#### Lecture 8 Pointers
+#### Lecture 9 File Operation
+#### Lecture 10 Bit Operation
+
+
 ## Compile
 One can compile slides of every lecture with "pdflatex" smoothly. For example
 ```
