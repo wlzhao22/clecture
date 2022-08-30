@@ -5,7 +5,7 @@ This project shares the "C Programming" course slides (in English) written with 
 
 ## Syllabus
 #### Lecture 1 Introduction to Computer and Programming
-#### Lecture 2 Binary Octal and hexadexical Codes, Data Types and Basic Operators
+#### Lecture 2 Binary, Octal and hexadexical Codes, Data Types and Basic Operators
 #### Lecture 3 Sequential and Conditional Control
 #### Lecture 4 Loops
 #### Lecture 5 Functions and Macros
