@@ -293,14 +293,269 @@ int main()
 \end{columns}
 \end{frame}
 
-\begin{frame}[fragile]{Function Calling}
-\begin{figure}
-	\includegraphics[width=0.85\linewidth]{figs/arg2para.pdf}
-\end{figure}
+\section{Functions with Examples}
+\label{sec:example}
+\begin{frame}[fragile]{Example-1}
 \begin{itemize}
-	\item {Parameters are transferred in by value not \textbf{by address}}
+	\item {Define a function to calculate the area of a circle}
+	\item {Arguments and Parameters should be matched}
+\end{itemize}
+\begin{lstlisting}
+float arear(float r, float pi)
+{
+   float a = 0;
+   a = r*r*pi;
+}
+
+int main()
+{
+   float r = 1.5;
+   const float pi = 3.1415926;
+   r = area(r, pi);
+   return 0;
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Example-2 (1)}
+\begin{itemize}
+	\item {Define a function to check whether a number is Palindrome number}
+	\item {such as: \textcolor{red}{321123}, \textcolor{red}{1221}, \textcolor{red}{121}}
+\end{itemize}
+\begin{center}
+	\Large{
+	Think about this in 5 minutes ...
+	}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Example-2 (2)}
+\begin{itemize}
+	\item {Define a function to check whether a number is Palindrome number}
+	\item {such as: \textcolor{red}{321123}, \textcolor{red}{1221}, \textcolor{red}{121}}
+\end{itemize}
+\begin{lstlisting}
+int isPalindr(int n)
+{
+    int b = n, r = 0;
+    while(b > 0)
+    {
+        r = r*10+b%10;
+        b = b/10;
+    }
+    if(n == r)
+    {
+        return 1;
+    }else{
+        return 0;
+    }
+}
+int main()
+{
+   int a = 515;
+   if(isPalindr(a)){
+      printf("%d is Palindrome number\n", a);
+   }
+   return 0;
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Example-3: perfect number (1)}
+\begin{itemize}
+	\item {1. Define a function to jugde whether an integer is a \textbf{perfect number}}
+	\item {Perfect number: number equals to the sum of all its factors}
+	\item {6 = 1 + 2 + 3}
+	\item {2. Call it to output all the perfect numbers in range [2, 300]}
+\end{itemize}
+\begin{center}
+	\Large{Think about this problem in 5 minutes...}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Example-3: perfect number (2)}
+\begin{itemize}
+	\item {1. Define a function to jugde whether an integer is a \textbf{perfect number}}
+	\item {Perfect number: number equals to the sum of all its factors}
+	\item {6 = 1 + 2 + 3}
+	\item {2. Call it to output all the perfect numbers in range [2, 300]}
+\end{itemize}
+\begin{enumerate}
+	\item {Given a number}
+	\item {We should work out all its factors}
+	\item {Sum all the factors up}
+	\item {See whether it is equal to the number}
+	\item {We should use \% operator a lot}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]{Example-3: perfect number (3)}
+\begin{itemize}
+	\item {1. Define a function to jugde whether an integer is a \textbf{perfect number}}
+	\item {\textbf{Perfect number}: number equals to the sum of all its factors}
+	\item {6 = 1 + 2 + 3}
+	\item {2. Call it to output all the perfect numbers in range [2, 300]}
+	\item {Steps:}
+	\begin{enumerate}
+		\item {Give n}
+		\item {~~For i from 2 to n do}
+		\item {~~~~check whether n is dividable by i}
+		\item {~~~~if yes, sum up}
+		\item {~~Check wether sum equals to n}
+		\item {~~Return \textcolor{red}{1} or \textcolor{red}{0}}
+	\end{enumerate}
+	\item {Let's do it now!!}
 \end{itemize}
 \end{frame}
+
+\begin{frame}[fragile]{Example-3: perfect number (4)}
+\vspace{-0.15in}
+\begin{columns}
+\begin{column}{0.55\linewidth}
+\begin{enumerate}
+	\item {Give n}
+	\item {~~For i from 2 to n do}
+	\item {~~~~check whether n is dividable by i}
+	\item {~~~~if yes, sum up}
+	\item {~~Check wether sum equals to n}
+	\item {~~Return \textcolor{red}{1} or \textcolor{red}{0}}
+\end{enumerate}
+\end{column}
+\begin{column}{0.45\linewidth}
+\begin{lstlisting}
+int isPerfect(int n)
+{
+    int i = 0, sum = 1;
+    int up = ceil(n/2.0);
+    for(i = 2; i < up; i++)
+    {
+        if(n%i == 0)
+        {
+           sum += i;
+        }
+    }
+    if(sum == n)
+      return 1;
+    else 
+      return 0;
+}
+\end{lstlisting}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Example-3: perfect number (5)}
+\vspace{-0.16in}
+\begin{columns}
+\begin{column}{0.48\linewidth}
+\begin{lstlisting}[linewidth=0.95\linewidth]
+#include <stdio.h>
+#include <math.h>
+int isPerfect(int n)
+{
+    int i = 0, sum = 1;
+    int up = ceil(sqrt(n));
+    for(i = 2; i < up; i++)
+    {
+        if(n%i == 0)
+        {
+           sum += i;
+        }
+    }
+    if(sum == n)
+      return 1;
+    else 
+      return 0;
+}
+\end{lstlisting}
+\end{column}
+\begin{column}{0.48\linewidth}
+\begin{lstlisting}[firstnumber=19, linewidth=0.95\linewidth]
+int main()
+{
+   int i = 0;
+   for(i = 2; i <= 300; i++)
+   {
+      if(isPerfect(i))
+      {
+         printf("%d\n", i);
+      }
+   }
+   return 0;
+}
+\end{lstlisting}
+\end{column}
+\end{columns}
+\end{frame}
+
+
+
+\begin{frame}[fragile]{Example-4: Armstrong number (1)}
+\vspace{-0.16in}
+\begin{itemize}
+	\item {Define a function to check whether a number is Amstrong number}
+	\item {For one digits: $1^1$ = 1}
+	\item {For three digits: $1^3$ + $5^3$+$3^3$ = 153}
+	\item {For four digits: $1^4 + 6^4 + 3^4 + 4^4$ = 1634}
+\end{itemize}
+\begin{center}
+	\Large{
+	   Think about this in 5 minutes ...
+	}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Example-4: Armstrong number (2)}
+\vspace{-0.16in}
+\begin{columns}
+\begin{column}{0.48\linewidth}
+\begin{lstlisting}[linewidth=0.95\linewidth]
+#include <stdio.h>
+int isArms(int n)
+{
+  int nd = 0, s = 0, b = 0;
+  int a = n, i = 0, t = 0;
+  while(a > 0){
+     a = a/10;
+     nd++;
+  }
+  a = n;
+  while(a > 0){
+    b = a%10;
+    t = 1;
+    for(i = 0; i < nd; i++){
+       t = t*b;
+    }
+    s += t;
+    a  = a/10;
+  }//end-while(a)
+\end{lstlisting}
+\end{column}
+\begin{column}{0.48\linewidth}
+\begin{lstlisting}[firstnumber=20, linewidth=0.95\linewidth]
+   if(s == n)
+     return 1;
+   else
+     return 0;
+}
+
+int main()
+{
+ int i = 1;
+ for(i=1; i<100000; i++)
+ {
+     if(isArms(i) == 1)
+     {
+        printf("%6d ", i);
+     }
+ }
+ return 0;
+}
+\end{lstlisting}
+\end{column}
+\end{columns}
+\end{frame}
+
 
 \begin{frame}[fragile]{Function definition: a summary}
 \LARGE{
@@ -311,6 +566,7 @@ int main()
 		\item {Give a unique and self-telling name to your function}
 		\item {Define function first, then you can call it (just as variable in C)}
 		\item {Parameters along with the type appear in pair}
+		\item {Parameters are transferred by \textcolor{red}{value}}
 	\end{enumerate}
 \end{itemize}
 }
@@ -422,27 +678,6 @@ a = 5, b = 8
 \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{Parameter Transfer (7)}
-\begin{itemize}
-	\item {Parameters are transferred in \textcolor{red}{by value} not \textbf{by address}}
-	\item {Arguments and Parameters should be matched}
-\end{itemize}
-\begin{lstlisting}
-float calc(int n, float a, short int c)
-{
-    return (a*a*n+c);
-}
-int main()
-{
-   int n = 2;
-   short int w = 4;
-   float x = 4.12, r = 0;
-   r = calc(n, x, w);
-   return 0;
-}
-\end{lstlisting}
-\end{frame}
-
 \begin{frame}[fragile]{Function Calling again (1)}
 \begin{figure}
 	\includegraphics[width=0.8\linewidth]{figs/func_call.pdf}
@@ -473,131 +708,4 @@ int main()
    return 0;
 }
 \end{lstlisting}
-\end{frame}
-
-\begin{frame}[fragile]{Example 1: perfect number (1)}
-\begin{itemize}
-	\item {1. Define a function to jugde whether an integer is a \textbf{perfect number}}
-	\item {Perfect number: number equals to the sum of all its factors}
-	\item {6 = 1 + 2 + 3}
-	\item {2. Call it to output all the perfect numbers in range [2, 300]}
-\end{itemize}
-\begin{center}
-	\Large{Think about this problem in 5 minutes...}
-\end{center}
-\end{frame}
-
-\begin{frame}[fragile]{Example 1: perfect number (2)}
-\begin{itemize}
-	\item {1. Define a function to jugde whether an integer is a \textbf{perfect number}}
-	\item {Perfect number: number equals to the sum of all its factors}
-	\item {6 = 1 + 2 + 3}
-	\item {2. Call it to output all the perfect numbers in range [2, 300]}
-\end{itemize}
-\begin{enumerate}
-	\item {Given a number}
-	\item {We should work out all its factors}
-	\item {Sum all the factors up}
-	\item {See whether it is equal to the number}
-	\item {We should use \% operator a lot}
-\end{enumerate}
-\end{frame}
-
-\begin{frame}[fragile]{Example 1: perfect number (3)}
-\begin{itemize}
-	\item {1. Define a function to jugde whether an integer is a \textbf{perfect number}}
-	\item {\textbf{Perfect number}: number equals to the sum of all its factors}
-	\item {6 = 1 + 2 + 3}
-	\item {2. Call it to output all the perfect numbers in range [2, 300]}
-	\item {Steps:}
-	\begin{enumerate}
-		\item {Give n}
-		\item {~~For i from 2 to n do}
-		\item {~~~~check whether n is dividable by i}
-		\item {~~~~if yes, sum up}
-		\item {~~Check wether sum equals to n}
-		\item {~~Return \textcolor{red}{1} or \textcolor{red}{0}}
-	\end{enumerate}
-	\item {Let's do it now!!}
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]{Example 1: perfect number (4)}
-\vspace{-0.15in}
-\begin{columns}
-\begin{column}{0.55\linewidth}
-\begin{enumerate}
-	\item {Give n}
-	\item {~~For i from 2 to n do}
-	\item {~~~~check whether n is dividable by i}
-	\item {~~~~if yes, sum up}
-	\item {~~Check wether sum equals to n}
-	\item {~~Return \textcolor{red}{1} or \textcolor{red}{0}}
-\end{enumerate}
-\end{column}
-\begin{column}{0.45\linewidth}
-\begin{lstlisting}
-int isPerfect(int n)
-{
-    int i = 0, sum = 1;
-    int up = ceil(n/2.0);
-    for(i = 2; i < up; i++)
-    {
-        if(n%i == 0)
-        {
-           sum += i;
-        }
-    }
-    if(sum == n)
-      return 1;
-    else 
-      return 0;
-}
-\end{lstlisting}
-\end{column}
-\end{columns}
-\end{frame}
-
-\begin{frame}[fragile]{Example 1: perfect number (5)}
-\vspace{-0.16in}
-\begin{columns}
-\begin{column}{0.48\linewidth}
-\begin{lstlisting}[linewidth=0.95\linewidth]
-#include <stdio.h>
-#include <math.h>
-int isPerfect(int n)
-{
-    int i = 0, sum = 1;
-    int up = ceil(sqrt(n));
-    for(i = 2; i < up; i++)
-    {
-        if(n%i == 0)
-        {
-           sum += i;
-        }
-    }
-    if(sum == n)
-      return 1;
-    else 
-      return 0;
-}
-\end{lstlisting}
-\end{column}
-\begin{column}{0.48\linewidth}
-\begin{lstlisting}[firstnumber=19, linewidth=0.95\linewidth]
-int main()
-{
-   int i = 0;
-   for(i = 2; i <= 300; i++)
-   {
-      if(isPerfect(i))
-      {
-         printf("%d\n", i);
-      }
-   }
-   return 0;
-}
-\end{lstlisting}
-\end{column}
-\end{columns}
 \end{frame}
