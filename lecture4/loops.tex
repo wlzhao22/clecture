@@ -785,11 +785,11 @@ int main()
 \end{array} \right.  \nonumber
 \end{equation}
 \begin{lstlisting}[numbers=none]
-for(x = 1; x <= 30; x++)
+for(x = 0; x <= 30; x++)
 {
-   for(y = 1; y <= 30; y++)
+   for(y = 0; y <= 30; y++)
    {
-       for(z = 1; z <= 30; z++)
+       for(z = 0; z <= 30; z++)
        {
          ....
        }
@@ -805,9 +805,9 @@ for(x = 1; x <= 30; x++)
 int main()
 {
   int x = 0, y = 0, z = 0, c1 = 0, c2 = 0;
-  for(x = 1; x <= 30; x++)
-  { for(y = 1; y <= 30; y++)
-     { for(z = 1; z <= 30; z++)
+  for(x = 0; x <= 30; x++)
+  { for(y = 0; y <= 30; y++)
+     { for(z = 0; z <= 30; z++)
        {
           c1 = 3*x+2*y+z;
           c2 = x+y+z;
@@ -829,9 +829,9 @@ int main()
 int main()
 {
   int x = 0, y = 0, z = 0, c1 = 0, c2 = 0;
-  for(x = 1; x < 17; x++) //<-- why??
-  { for(y = 1; y <= 25; y++) //<-- why??
-     { for(z = 1; z <= 30; z++)
+  for(x = 0; x < 17; x++) //<-- why??
+  { for(y = 0; y <= 25; y++) //<-- why??
+     { for(z = 0; z <= 30; z++)
        {
           c1 = 3*x+2*y+z;
           c2 = x+y+z;
