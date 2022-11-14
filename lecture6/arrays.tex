@@ -464,7 +464,7 @@ int main()
 \end{columns}
 \end{frame}
 
-\begin{frame}{1D Array Example1 (1)}
+\begin{frame}{1D Array Example-1 (1)}
 	\begin{itemize}
 		\item {Given an array: a[10] = \{3, 21, 5, 8, 5,11, 22,14,9,51\}}
 		\item {Flip the array to: \{51, 9, 14, 22, 11, 5, 8, 5, 21, 3\}}
@@ -475,7 +475,7 @@ int main()
 	\end{center}
 \end{frame}
 
-\begin{frame}{1D Array Example1 (2)}
+\begin{frame}{1D Array Example-1 (2)}
 	\begin{itemize}
 		\item {Given an array: a[10] = \{3, 21, 5, 8, 5,11, 22,14,9,51\}}
 		\item {Flip the array to: \{51, 9, 14, 22, 11, 5, 8, 5, 21, 3\}}
@@ -487,7 +487,7 @@ int main()
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{1D Array Example1 (3)}
+\begin{frame}{1D Array Example-1 (3)}
 	\begin{itemize}
 		\item {Given an array: a[10] = \{3, 21, 5, 8, 5,11, 22,14,9,51\}}
 		\item {Flip the array to: \{51, 9, 14, 22, 11, 5, 8, 5, 21, 3\}}
@@ -502,7 +502,7 @@ int main()
 	\end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{1D Array Example1 (4)}
+\begin{frame}[fragile]{1D Array Example-1 (4)}
 	\begin{enumerate}
 		\item {For i from 0 to $\frac{N}{2}$ do}
 		\item {~~~Exchange a[i] with a[N-i-1]}
@@ -527,7 +527,80 @@ int main()
 \end{lstlisting}
 \end{frame}
 
-\begin{frame}{1D Array Example2 (1)}
+
+\begin{frame}{Dynamic Array Example-2 (1)}
+	\begin{itemize}
+		\item {An integer number given by user}
+		\item {int a[n]}
+		\item {Input ``n'' numbers assign to ``a[n]''}
+		\item {Print out array ``a''}
+	\end{itemize}
+	\vspace{0.2in}
+	\begin{center}
+		\Large{5 minutes to think about the solution}
+	\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Dynamic Array Example-2 (2)}
+\begin{lstlisting}
+#include <stdio.h>
+int main()
+{
+	int n = 0, i = 0;
+	scanf("%d", &n);
+	int a[n];
+	for(i = 0; i < n; i++)
+	{
+		scanf("%d", &a[i]);
+	}
+	printf("%d\n", sizeof(a));
+	for(i = 0; i < n; i++)
+	{
+		printf("a[%d] = %d\n", i, a[i]);
+	}	
+	return 0;
+}
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}{1D Array Example-3 (1)}
+	\begin{itemize}
+		\item {Given a sorted array: a[7] = \{3, 14, 15, 18, 22,35\}}
+		\item {Insert an input number to the array}
+		\item {Keep the array sorted after the insertion}
+	\end{itemize}
+	\vspace{0.2in}
+	\begin{center}
+		\Large{5 minutes to think about the solution...}
+	\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{1D Array Example-3 (2)}
+\begin{lstlisting}[xleftmargin=0.05\linewidth, linewidth=0.8\linewidth]
+#include <stdio.h> 
+int main(){
+  int a[7] = {3,14,15,18,22,35};
+  int b = 7, i = 0, j = 0;
+  scanf("%d", &b);
+  for(i = 0; i < 6; i++){
+    if(b < a[i]){
+      break;
+	}
+  }
+  for(j = 6; j > i; j--){
+    a[j] = a[j-1];
+  }
+  a[j] = b;
+  for(i = 0; i < 7; i++){
+	printf("a[%d] = %d\n", i, a[i]);
+  }
+  return 0;
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}{1D Array Example-4 (1)}
 	\begin{itemize}
 		\item {Given an array: a[10] = \{21, 3, 5, 8, 5,11, 22,14,51,9\}}
 		\item {Sort the array in ascending order: \{3, 5, 5, 8, 9, 11, 14, 21, 22, 51\}}
@@ -538,7 +611,7 @@ int main()
 	\end{center}
 \end{frame}
 
-\begin{frame}{1D Array Example2 (2)}
+\begin{frame}{1D Array Example-4 (2)}
 	\begin{itemize}
 		\item {Given an array: a[10] = \{21, 3, 5, 8, 5,11, 22,14,9,51\}}
 		\item {Sort the array in ascending order: \{3, 5, 5, 8, 9, 11, 14, 21, 22, 51\}}
@@ -550,14 +623,14 @@ int main()
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{1D Array Example2 (3)}
+\begin{frame}{1D Array Example-4 (3)}
 \begin{figure}
 	\includegraphics[width=0.55\linewidth]{figs/bubblesort.pdf}
 	\caption{Demo of one round of bubble sort}
 \end{figure}
 \end{frame}
 
-\begin{frame}{1D Array Example2 (4)}
+\begin{frame}{1D Array Example-4 (4)}
 \begin{itemize}
 	\item {Let's now outline the procedure}
 \end{itemize}
@@ -573,7 +646,7 @@ int main()
 \end{enumerate}
 \end{frame}
 
-\begin{frame}[fragile]{1D Array Example2 (5): the code}
+\begin{frame}[fragile]{1D Array Example-4 (5): the code}
 \vspace{-0.1in}
 \begin{lstlisting}[xleftmargin=0.08\linewidth,linewidth=0.9\linewidth]
 #include <stdio.h>
@@ -750,6 +823,77 @@ int main()
       printf("\n");
    }
    return 0;
+}
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}{Example-1: transpose a matrix (1)}
+\begin{itemize}
+	\item {Given a 2D matrix, kept in a 1D array}
+	\item {a[12] = \{12,13,5,5,7,21,6,4,10,5,5,9\}}
+\end{itemize}
+\vspace{-0.1in}
+\begin{columns}
+\begin{column}{0.4\linewidth}
+\begin{equation}
+A=\left[
+\begin{array}{ccc}
+12 & 13 & 5 \\
+5 & 7 & 21 \\
+6 & 4 & 10 \\
+5 & 5 & 9 
+\end{array}
+\right]_{3{\times}4} \nonumber
+\end{equation}
+\end{column}
+\begin{column}{0.1\linewidth}
+\begin{center}
+$\Rightarrow$
+\end{center}
+\end{column}
+\begin{column}{0.4\linewidth}
+\begin{equation}
+A^T=\left[ 
+\begin{array}{cccc}
+12 & 5 & 6 & 5 \\
+13 & 7 & 4 & 5 \\
+5 & 21 & 10 & 9
+\end{array}
+\right]_{4{\times}3} \nonumber
+\end{equation}
+\end{column}
+\end{columns}
+\begin{itemize}
+	\item {a[12] =\{12,5,6,5,13,7,4,5,5,21,10,9\}}
+\end{itemize}
+\begin{enumerate}
+	\item {A[i][j] $\rightleftarrows$ A[j][i]}
+	\item {A[i][j] $\Rightarrow$ a[i*c1+j]}
+	\item {A[j][i] $\Rightarrow$ b[j*c2+i]}
+	\item {a[i*c1+j] $\rightleftharpoons$ b[j*c2+i]}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]{Example-1: transpose a matrix (2)}
+\begin{lstlisting}[xleftmargin=0.08\linewidth, linewidth=0.85\linewidth]
+#include <stdio.h>
+int main(){
+  int a[12] = {12,13,5,5,7,21,6,4,10,5,5,9};
+  int b[12] = {0};
+  int i = 0, j = 0, tmp = 0;
+  for(i = 0; i < 4; i++){
+    for(j = 0; j < 3; j++){
+      b[j*4+i] = a[i*3+j];
+    }
+  }
+  for(i = 0; i < 3; i++){
+    for(j = 0; j < 4; j++){
+       printf("%4d", b[i*4+j]);
+    }
+    printf("\n");
+  }
+  return 0;
 }
 \end{lstlisting}
 \end{frame}
