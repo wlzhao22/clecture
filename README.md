@@ -1,6 +1,6 @@
 ## Lecture Slides for C Programming
 
-This project shares the "C Programming" course slides (in English) written with Latex. The slides are fully written and organized by Wan-Lei Zhao (from Xiamen University, China). This course is targeted to the first year undergraduate student. There are around 463 slides in total.
+This project shares the "C Programming" course slides (in English) written with Latex. The slides are fully written and organized by Wan-Lei Zhao (from Xiamen University, China). This course is targeted to the first year undergraduate student. There are around 473 slides in total.
 
 
 ## Syllabus
