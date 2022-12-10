@@ -1,6 +1,6 @@
 ## Lecture Slides for C Programming
 
-This project shares the "C Programming" course slides (in English) written with Latex. The slides are fully written and organized by Wan-Lei Zhao (from Xiamen University, China). This course is targeted to the first year undergraduate student. There are around 487 slides in total.
+This project shares the "C Programming" course slides (in English) written with Latex. The slides are fully written and organized by Wan-Lei Zhao (from Xiamen University, China). This course is targeted to the first year undergraduate student. There are around 510 slides in total.
 
 
 ## Syllabus
@@ -13,7 +13,8 @@ This project shares the "C Programming" course slides (in English) written with 
 #### Lecture 7 struct, union and enum
 #### Lecture 8 Pointers
 #### Lecture 9 File Operation
-#### Lecture 10 Bit Operation
+#### Lecture 10 Bitwise Operation
+#### Lecture 11 make and Makefile
 
 
 ## Compile
