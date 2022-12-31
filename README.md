@@ -1,6 +1,6 @@
 ## Lecture Slides for C Programming
 
-This project shares the "C Programming" course slides (in English) written with Latex. The slides are fully written and organized by Wan-Lei Zhao (from Xiamen University, China). This course is targeted to the first year undergraduate student. There are around 510 slides in total.
+This project shares the "C Programming" course slides (in English) written with Latex. The slides are fully written and organized by Wan-Lei Zhao (from Xiamen University, China). This course is targeted to the first year undergraduate student. There are around 521 slides in total.
 
 
 ## Syllabus
@@ -24,7 +24,7 @@ pdflatex lec1.tex
 ```
 
 ## Copyright Issue
-Any one who receives these slides and material are free to use them. BUT when one shows them in any form or in any situation, one should point out that "**they are designed by Wan-Lei Zhao from China**". By the way, I am looking for the collaborators to improve the slides. For anyone who would like to contribute, please contact with me via email stonescx@gmail.com.
+Any one who receives these slides and material are free to use them. BUT when one shows them in any form or in any situation, one should point out that "**they are designed by Wan-Lei Zhao from China**". By the way, I am looking for the collaborators who are willing to contribute. For anyone who would like to join in the project, please contact with me via email stonescx@gmail.com.
 
 ## Exercises for the course
 If one wants to get the exercises I designed for this course, please send email to me. Please be noted that I will only share my exercises with teachers. So the one who sends me the request should prove himself/herself a teacher first.
