@@ -1,0 +1,172 @@
+\section{Pointer to Function}
+\label{sec:p2func}
+\begin{frame}<beamer>
+    \frametitle{Outline}
+    \tableofcontents[currentsection]
+\end{frame}
+
+\begin{frame}{An Overview: Motivation (1)}
+\begin{figure}
+	\includegraphics[width=0.40\linewidth]{pics/sqrt_integral.png}
+	\caption{Numerical integral of $\sqrt{x}$}
+\end{figure}
+
+\begin{itemize}
+	\item {Given two functions to perform the numerical integral}
+	\item {$f(x)=\sqrt{x}$, $g(x)=cos(x)$}
+	\item {$\int_a^bf(x)dx = ?$, $\int_a^bg(x)dx = ?$}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{An Overview: Motivation (2)}
+\begin{itemize}
+	\item {Define dx=0.05, given \textcolor{blue}{a} and \textcolor{blue}{b}}
+	\item {We can calculate integral of $\sqrt{x}$ when  $x \in [a, b]$}
+\end{itemize}
+\begin{lstlisting}[xleftmargin=0.08\linewidth, linewidth=0.9\linewidth]
+#include <math.h>
+#include <stdio.h>
+float intSqrt(float dx, float a, float b){
+  float s = 0, x = a;
+  while(x < b){
+    s += sqrt(x)*dx;
+    x += dx;
+  }
+  return s;
+}
+float intCos(float dx, float a, float b){
+  float s = 0, x = a;
+  while(x < b){
+    s += cos(x)*dx;
+    x += dx;
+  }
+  return s;
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{An Overview: Motivation (3)}
+\begin{itemize}
+	\item {Define dx=0.05, given \textcolor{blue}{a} and \textcolor{blue}{b}}
+	\item {We can calculate integral of $\sqrt{x}$ when $x \in [a, b]$}
+\end{itemize}
+\begin{lstlisting}[xleftmargin=0.08\linewidth, linewidth=0.9\linewidth,firstnumber=19]
+void main()
+{
+  float a = 1.0, b = 5.0, dx = 0.05, s = 0;
+  char funcName[8] = "";
+  scanf("%s", &funcName);
+  if(strcmp(funcName, "sqrt") == 0){
+     s = intSqrt(dx, a, b);
+  }else if(strcmp(funcName, "sin") == 0){
+     s = intSin(dx, a, b);  
+  }else if(strcmp(funcName, "cos") == 0){
+     s = intCos(dx, a, b);    
+  }
+  printf("Integral is: %f\n", s);
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{An Overview: Motivation (4)}
+\begin{itemize}
+	\item {Define dx=0.05, given \textcolor{blue}{a} and \textcolor{blue}{b}}
+	\item {We can calculate integral of $\sqrt{x}$ $x \in [a, b]$}
+\end{itemize}
+\begin{lstlisting}[xleftmargin=0.08\linewidth, linewidth=0.9\linewidth,firstnumber=19]
+void main()
+{
+  float (*fun_ptr)(float dx, float a, float b);
+  float a = 1.0, b = 5.0, dx = 0.05, s = 0;
+  char funcName[8] = "";
+  scanf("%s", &funcName);
+  if(strcmp(funcName, "sqrt") == 0){
+     func_ptr = &intSqrt;
+  }else if(strcmp(funcName, "sin") == 0){
+	 func_ptr = &intSin;  
+  }else if(strcmp(funcName, "cos") == 0){
+	 func_ptr = &intCos;
+  }
+  s = (*func_ptr)(dx, a, b);
+  printf("Integral is: %f\n", s);
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Function Pointer: the declaration (1)}
+\begin{center}
+\Large{
+   \textcolor{blue}{type0} (\textcolor{red}{*function\_pointer\_name})(\textcolor{blue}{type1} p1, \textcolor{blue}{type2} p2);
+}
+\end{center}
+\begin{itemize}
+	\item {Given a function in the same form }
+\end{itemize}
+\begin{center}
+\Large{
+\textcolor{blue}{type0} \textcolor{red}{fun1}(\textcolor{blue}{type1} p1, \textcolor{blue}{type2} p2);
+}
+
+\textcolor{red}{*function\_pointer\_name} = \&\textcolor{red}{fun1};
+\end{center}
+
+\begin{lstlisting}[xleftmargin =0.05\linewidth, linewidth=0.7\linewidth]
+#include <stdio.h>
+int add(int a, int b){
+   return a+b;
+}
+int main(){
+   int (*pfun)(int a, int b) = NULL;
+   int a = 5, b = 8, r = 0;
+   pfun = &add;
+   r = pfun(a, b);
+   printf("r = %d\n", r);
+   return 0;
+ }
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Function Pointer: the declaration (2)}
+\begin{figure}
+\begin{center}
+	\includegraphics[width=0.48\linewidth]{figs/pfunc.pdf}
+\end{center}
+\end{figure}
+\begin{lstlisting}[xleftmargin =0.05\linewidth, linewidth=0.7\linewidth]
+#include <stdio.h>
+
+int add(int a, int b){
+   return a+b;
+}
+int main(){
+   int (*pfun)(int a, int b) = NULL;
+   int a = 5, b = 8, r = 0;
+   pfun = &add;
+   r = pfun(a, b);
+   printf("r = %d\n", r);
+   return 0;
+ }
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Function Pointer: the declaration (3)}
+
+\begin{lstlisting}[xleftmargin =0.05\linewidth, linewidth=0.86\linewidth]
+#include <stdio.h>
+
+int add(int a, int b){
+   return a+b;
+}
+int main()
+{
+   int (*pfun)(int a, int b) = NULL;
+   int a = 5, b = 8, r = 0;
+   pfun = &add;
+   r = pfun(a, b);
+   printf("size of pointer: %d\n", sizeof(pfun));
+   printf("r = %d\n", r);
+   return 0;
+ }
+\end{lstlisting}
+\end{frame}
