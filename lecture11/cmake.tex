@@ -1,0 +1,324 @@
+\section{Build Project with CMake}
+\label{sec:cmake}
+\begin{frame}<beamer>
+    \frametitle{Outline}
+    \tableofcontents[currentsection]
+\end{frame}
+
+\begin{frame}{Why cmake?}
+\vspace{0.3in}
+\begin{itemize}
+	\item {However, writing a Makefile line-by-line is still too sweaty}
+	\item {There are several convenient ways}
+	\begin{enumerate}
+			\item {``cbp2make''\footnote{https://sourceforge.net/projects/cbp2make/}}
+			\begin{itemize}
+				\item {It works with CodeBlocks}
+					\vspace{0.15in}
+				\item {Command: cbp2make -in project.cbp -out Makefile}
+			\end{itemize}
+				\vspace{0.15in}
+			\item {cmake\footnote{https://cmake.org/}}
+			\begin{itemize}
+				\item {It is a powerful cross-platform tool for C/C++ project compilation, test, and installation}
+					\vspace{0.15in}
+				\item {Based on a ``CMakeLists.txt'' input file, it produces ``Makefile''}
+			\end{itemize}
+	\end{enumerate}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{About cmake}
+\vspace{0.2in}
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=0.3\linewidth]{figs/cmake.png}
+	\end{center}
+\end{figure}
+\begin{itemize}
+	\item {It is another useful tool}
+	\vspace{0.15in}
+	\item {It helps to produce the ``Makefile''}
+	\vspace{0.15in}
+	\item {The cmake requires another simpler script ``CMakeLists.txt''}
+	\vspace{0.15in}
+	\item {Compared to ``Makefile'', it is a super script and easier to compose}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Compose a ``CMakeLists.txt'' (1)}
+\lstset{
+   language=[gnu] make,
+   keywordstyle=\color{teal}\textbf,
+   stringstyle=\color{blue},
+   identifierstyle=\itshape,
+     basicstyle=\scriptsize,  
+}
+\begin{lstlisting}[linewidth=0.95\linewidth, firstnumber= 1, xleftmargin=0.02\linewidth]{CMakeLists.txt}
+cmake_minimum_required (VERSION 2.8)
+\end{lstlisting}
+
+\begin{enumerate}
+	\item {This cmake setting is put in \textcolor{red}{command}(\textcolor{green}{value}) pattern}
+		\vspace{0.15in}
+	\item {This is the way set values for environment variables \textcolor{red}{supported by cmake} }
+		\vspace{0.15in}
+	\item {Here we specify the minimum required cmake version is ``VERSION 2.8''}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]{Compose a ``CMakeLists.txt'' (2)}
+\lstset{
+   language=[gnu] make,
+   keywordstyle=\color{teal}\textbf,
+   stringstyle=\color{blue},
+   identifierstyle=\itshape,
+     basicstyle=\scriptsize,  
+}
+\begin{lstlisting}[linewidth=0.95\linewidth, firstnumber= 1, xleftmargin=0.02\linewidth]{CMakeLists.txt}
+cmake_minimum_required (VERSION 2.8)
+
+project (proj1)
+\end{lstlisting}
+
+\begin{enumerate}
+	\item {Here we specify the target project name as ``proj1''}
+	\vspace{0.15in}
+	\item {After compilation, the name of our executable will be ``proj1''}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]{Compose a ``CMakeLists.txt'' (3)}
+\lstset{
+   language=[gnu] make,
+   keywordstyle=\color{teal}\textbf,
+   stringstyle=\color{blue},
+   identifierstyle=\itshape,
+     basicstyle=\scriptsize,  
+}
+\begin{lstlisting}[linewidth=0.95\linewidth, firstnumber= 1, xleftmargin=0.02\linewidth]{CMakeLists.txt}
+cmake_minimum_required (VERSION 2.8)
+
+project (proj1)
+
+add_executable(proj1 myproj.c mylib.c)
+\end{lstlisting}
+
+\begin{enumerate}
+	\item {``add\_executable'' allows us to list out all C/C++ source files}
+	\vspace{0.15in}
+	\item {The leading file name is the target file name ``proj1''}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]{Compose a ``CMakeLists.txt'' (4)}
+\lstset{
+   language=[gnu] make,
+   keywordstyle=\color{teal}\textbf,
+   stringstyle=\color{blue},
+   identifierstyle=\itshape,
+     basicstyle=\scriptsize,  
+}
+\begin{lstlisting}[linewidth=0.95\linewidth, firstnumber= 1, xleftmargin=0.02\linewidth]{CMakeLists.txt}
+cmake_minimum_required (VERSION 2.8)
+
+project (proj1)
+
+add_executable(proj1 myproj.c mylib.c)
+\end{lstlisting}
+
+\begin{enumerate}
+	\item {We name this text script file as ``CMakeLists.txt''}
+	\vspace{0.1in}
+	\item {Put it to the same folder as the source files}
+	\vspace{0.1in}
+	\item {Using ``mkdir'' to make a sub folder ``build'' under the same folder}
+	\vspace{0.10in}
+	\item {``cd build''}
+	\vspace{0.10in}
+	\item {``cmake ../''}
+\end{enumerate}
+\begin{itemize}
+	\item {After the above steps, one could see ``Makefile'' under build folder}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Compose a ``CMakeLists.txt'' (5)}
+\lstset{
+   language=[gnu] make,
+   keywordstyle=\color{teal}\textbf,
+   stringstyle=\color{blue},
+   identifierstyle=\itshape,
+     basicstyle=\scriptsize,  
+}
+\begin{lstlisting}[linewidth=0.95\linewidth, firstnumber= 1, xleftmargin=0.02\linewidth]{CMakeLists.txt}
+cmake_minimum_required (VERSION 2.8)
+
+project (proj1)
+
+add_executable(proj1 myproj.c mylib.c)
+\end{lstlisting}
+
+\begin{itemize}
+	\item {Under the ``build'' folder, one will see ``CMakeFiles'' folder}
+	\item {Where the object files will be saved}
+	\item {Run command ``make'', you get the file compiled}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{More options in  ``CMakeLists.txt''}
+\lstset{
+   language=[gnu] make,
+   keywordstyle=\color{teal}\textbf,
+   stringstyle=\color{blue},
+   identifierstyle=\itshape,
+     basicstyle=\scriptsize,  
+}
+\begin{lstlisting}[linewidth=0.95\linewidth, firstnumber= 1, xleftmargin=0.02\linewidth]{CMakeLists.txt}
+cmake_minimum_required (VERSION 2.8)
+
+project (proj1)
+
+set(CMAKE_BUILD_TYPE "Release")
+#set(CMAKE_BUILD_TYPE "Debug")
+set(CMAKE_C_FLAGS_RELEASE "$ENV{CFLAGS} -O3 -Wall")
+#set(CMAKE_C_FLAGS_DEBUG "$ENV{CFLAGS} -O0 -Wall -g -ggdb")
+
+add_executable(proj1 myproj.c mylib.c)
+\end{lstlisting}
+
+\begin{itemize}
+	\item {Command ``\textcolor{red}{set}'' is comparable to ``\textcolor{red}{=}'' in a ``Makefile''}
+	\item {Here we set our build type is ``Release'', otherwise could be ``Debug''}
+	\item {You can also specify the compilation flags}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]{Add SHARED libraries in  ``CMakeLists.txt''}
+\lstset{
+   language=[gnu] make,
+   keywordstyle=\color{teal}\textbf,
+   stringstyle=\color{blue},
+   identifierstyle=\itshape,
+     basicstyle=\scriptsize,  
+}
+\begin{lstlisting}[linewidth=0.95\linewidth, firstnumber= 1, xleftmargin=0.02\linewidth]{CMakeLists.txt}
+cmake_minimum_required (VERSION 2.8)
+
+project (proj1)
+
+add_library(libm.so SHARED IMPORTED) 
+
+add_executable(proj1 myproj.c mylib.c)
+
+\end{lstlisting}
+
+\begin{itemize}
+	\item {Command ``\textcolor{red}{set}'' is comparable to ``\textcolor{red}{=}'' in a ``Makefile''}
+	\item {Here we set our build type is ``Release'', otherwise could be ``Debug''}
+	\item {You can also specify the compilation flags}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Build STATIC library (1)}
+\vspace{-0.15in}
+\begin{lstlisting}{mymath.h}[linewidth=0.45\linewidth,xrightmargin=0.4s2\linewidth]
+#ifndef MYMATH_H
+#define MYMATH_H
+float sqrt_nwton(float a);
+#endif
+\end{lstlisting}
+\vspace{-0.15in}
+\begin{lstlisting}{mymath.c}
+#include <stdio.h>
+#include "mymath.h"
+float sqrt_nwton(float a){
+  float b = 1.2, c = b, err = 1.0;
+  if(a < 0){
+     printf("The input %f must be non-negative!\n", a);
+     return 0;
+  }
+  do{
+     c   = b; b   = (b + a/b)*0.5;
+     err = b > c?(b-c):(c-b);
+  }while(err > 0.00001);
+  return b;
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Build STATIC library (2)}
+\lstset{
+   language=[gnu] make,
+   keywordstyle=\color{teal}\textbf,
+   stringstyle=\color{blue},
+   identifierstyle=\itshape,
+     basicstyle=\scriptsize,  
+}
+\begin{lstlisting}[linewidth=0.95\linewidth, firstnumber= 1, xleftmargin=0.02\linewidth]{CMakeLists.txt}
+cmake_minimum_required(VERSION 2.8)
+project(mymath)
+
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=gnu17")
+
+set(SOURCE_FILES mymath.c mymath.h)
+add_library(mymath STATIC ${SOURCE_FILES})
+
+\end{lstlisting}
+
+\begin{itemize}
+	\item {List out all the files to be compiled by ``\textcolor{blue}{set}''}
+	\item {We actually define a variable ``\textbf{SOURCE\_FILES}''}
+	\item {The library name is specified by ``\textcolor{blue}{add\_library}''}
+	\item {``STATIC'' in command ``\textcolor{blue}{add\_library}'' tells ``static library''}
+	\item {If we replace ``STATIC'' with ``SHARED'', a dynamic/shared library is built}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Link with your own STATIC library (1)}
+\vspace{-0.15in}
+\begin{lstlisting}{main.c}[firstnumber = 1]
+#include <stdio.h>
+#include "mymath.h"
+int main(){
+  float a = 4.5;
+  float b = sqrt_nwton(a);
+  printf("sqrt(a) = %.4f\n", b);
+  return 0;
+}
+\end{lstlisting}
+\begin{itemize}
+	\item {The library ``libmymath.a'' is copied to ``libs'' under source folder}
+	\item {The header ``mymath.h'' is copied to ``include'' under source folder}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Link with your own STATIC library (2)}
+\lstset{
+   language=[gnu] make,
+   keywordstyle=\color{teal}\textbf,
+   stringstyle=\color{blue},
+   identifierstyle=\itshape,
+     basicstyle=\scriptsize,  
+}
+\begin{lstlisting}[linewidth=0.95\linewidth, firstnumber= 1, xleftmargin=0.02\linewidth]{CMakeLists.txt}
+cmake_minimum_required(VERSION 2.8)
+project(proj3)
+
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=gnu17")
+include_directories(${CMAKE_SOURCE_DIR}/include)
+link_directories(${CMAKE_SOURCE_DIR}/libs)
+add_executable(proj3 main.c)
+target_link_libraries(proj3 libmymath.a)
+
+\end{lstlisting}
+
+\begin{itemize}
+	\item {Specify the directory for header files ``\textcolor{blue}{include\_directories}''}
+	\item {Specify the directory for header files ``\textcolor{blue}{link\_directories}''}
+	\item {Perform linking by ``\textcolor{blue}{target\_link\_libraries}''}
+	\item {This works for both static and dynamic library}
+\end{itemize}
+\end{frame}
