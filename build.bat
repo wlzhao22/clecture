@@ -29,3 +29,5 @@ pdflatex lec9.tex
 cd ../lecture10
 pdflatex lec10.tex
 
+cd ../lecture11
+pdflatex lec11.tex
