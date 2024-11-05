@@ -1,5 +1,6 @@
 
 %sed -i -e 's/2022/2023/g' */*lec*.tex
+%sed -i -e 's/Wan-Lei\ Zhao/yourname/' */*lec*.tex
 
 cd lecture1/
 pdflatex lec1.tex
