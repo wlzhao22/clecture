@@ -9,7 +9,7 @@
 \vspace{-0.3in}
 \begin{columns}
 \begin{column}{0.4\linewidth}
-\begin{lstlisting}{mylib.h}}[linewidth=0.9\linewidth]
+\begin{lstlisting}{mylib.h}[linewidth=0.9\linewidth]
 #ifndef MYLIB_H
 #define MYLIB_H
 int isodd(int x);
@@ -182,7 +182,7 @@ LD=gcc
 \end{frame}
 
 \begin{frame}[fragile]{Prepare Environment (4)}
-\vspace{-0.2in}
+\vspace{-0.1in}
 \lstset{language=[gnu] make}
 \lstset{
    language=[gnu] make,
@@ -211,7 +211,7 @@ RELEASE=$(WORK_DIR)/bin/myproj
 
 
 \begin{frame}[fragile]{Prepare Environment (5)}
-\vspace{-0.2in}
+\vspace{-0.1in}
 \lstset{language=[gnu] make}
 \lstset{
    language=[gnu] make,
@@ -393,7 +393,7 @@ clean:
 \end{frame}
 
 \begin{frame}[fragile]{A Complete Makefile}
-\vspace{-0.2in}
+\vspace{-0.1in}
 \lstset{language=[gnu] make}
 \lstset{
    language=[gnu] make,
@@ -447,7 +447,7 @@ clean:
 
 \begin{frame}{Running Flow inside Makefile (1)}
 \begin{figure}
-	\includegraphics[width=0.80\linewidth]{figs/make1.pdf}
+	\includegraphics[width=0.88\linewidth]{figs/make1.pdf}
 \end{figure}
 \begin{itemize}
 	\item {Run command ``\textcolor{blue}{make release}''}
@@ -456,7 +456,7 @@ clean:
 
 \begin{frame}{Running Flow inside Makefile (2)}
 \begin{figure}
-	\includegraphics[width=0.80\linewidth]{figs/make2.pdf}
+	\includegraphics[width=0.88\linewidth]{figs/make2.pdf}
 \end{figure}
 \begin{itemize}
 	\item {Run command ``\textcolor{blue}{make release}''}
@@ -487,8 +487,8 @@ gcc -o myproj myproj.o mylib.o -lm
 \end{lstlisting}
 \end{frame}
 
-\begin{frame}[fragile]{Add libraries in Makefile (2)}
-\vspace{-0.2in}
+\begin{frame}[fragile]{}
+\vspace{-0.1in}
 \begin{lstlisting}[linewidth=0.95\linewidth, firstnumber= 1, xleftmargin=0.02\linewidth]{Makefile}
 WORK_DIR=.
 CC=gcc
