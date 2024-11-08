@@ -18,7 +18,7 @@ This project shares the "C Programming" course slides (in English) written with 
 
 
 ## Compile
-One can compile slides of every lecture with "pdflatex" smoothly. For example
+One can compile slides of every lecture with "pdflatex" smoothly. For instance
 ```
 pdflatex lec1.tex
 ```
