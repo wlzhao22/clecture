@@ -1,0 +1,60 @@
+\documentclass[t]{beamer}
+\usepackage{beamerthemesplit}
+\usepackage{graphics}
+\usepackage{pstricks}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{subfigure}
+\usepackage{multirow}
+\usepackage{xspace}
+
+
+\mode<presentation>
+{ \usetheme{Boadilla}
+  \setbeamercovered{transparent}
+  \setbeamertemplate{items}[circle]
+  \setbeamertemplate{theorems}[numbered]
+  \setbeamertemplate{footline}[frame number]
+}
+ 
+%\useinnertheme[shadow=true]{rounded}
+\useoutertheme{shadow}
+\usecolortheme{whale}
+
+\newcommand\blfootnote[1]{
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}
+  \addtocounter{footnote}{-1}
+  \endgroup
+}
+
+\mode
+<all>
+
+\def\answer{ANS}
+
+\title{C Programming}
+\author{WanLei Zhao}
+
+
+\begin{document}
+\begin{frame}
+   \begin{center}
+    \vspace{24pt}
+    \Huge\textbf{C Programming}\blfootnote{Email: wlzhao@xmu.edu.cn, copyrights are fully preserved by the author.}\\
+     \Huge{\mbox{Lab 3: }if-else and switch-case}
+    \vspace{36pt}
+  \end{center}
+  \begin{align*}
+   \vspace{18pt}
+      \large{\mbox{Lecturer:}~Dr.~\mbox{Wan-Lei~~Zhao}} \\
+      \large{Spring~~Semester~~2022} \\
+   \vspace{30pt}
+  \end{align*}
+\end{frame}
+
+\input{temps.tex}
+\input{pbset3.tex}
+\section{}
+\end{document}

@@ -1,0 +1,163 @@
+\section{Exercises}
+\begin{frame}<beamer>
+    \frametitle{Outline}
+    \tableofcontents[currentsection]
+\end{frame}
+\label{sec:exec}
+
+\begin{frame}\frametitle{if-else clause (1)}
+\begin{itemize}
+	\item {Read a character from input}
+	\begin{enumerate}
+		\item {If it is in 0$\sim$9, print out ``It is a digit''}
+		\item {If it is in `a'$\sim$`z', convert it into upper case and print it out}
+		\item {If it is in `A'$\sim$`Z', print it out directly}
+		\item {If it is blank, print ``It is blank''}
+		\item {Otherwise, print ``It is not a visible character''}
+	\end{enumerate}
+\end{itemize}
+\end{frame}
+
+\ifx\answer\defined
+\begin{frame}[fragile]\frametitle{if-else clause (2)}
+	\begin{lstlisting}[basicstyle=\large]
+#include <stdio.h>
+int main()
+{
+    char ch = ' ';
+    ch = getchar();
+    if(ch == ' ')
+    {
+        printf("It is blank\n");
+    }else if(ch >= '0' && ch <= '9')
+    {
+        printf("It is digit\n");
+    }
+	\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{if-else clause (3)}
+	\begin{lstlisting}[basicstyle=\large,firstnumber=12]
+    else if(ch >= 'a' && ch <= 'z')
+    {
+        printf("%c", ch-32);
+    }    
+    else if(ch >= 'A' && ch <= 'Z')
+    {
+        printf("%c", ch);
+    }else{
+        printf("It is not visible character");
+    }
+    return 0;
+}
+	\end{lstlisting}
+\end{frame}
+\fi
+
+%\begin{frame}
+%\frametitle{if-else clause (1)}
+%\vspace{-0.15in}
+%\begin{itemize}
+%	\item {Convert a score (0$\sim$100) to A - E levels}
+%	\begin{enumerate}
+%		\item {90 - 100: A}
+%		\item {80 - 89: B}
+%		\item {70 - 79: C}
+%		\item {60 - 69: D}
+%		\item {  $<$ 60: E}
+%	\end{enumerate}
+%	\item {The input should be a float}
+%	\item {Print out the resulting level to the screen}
+%\end{itemize}
+%\begin{center}
+%	81 -----$>$ B
+%\end{center}
+%
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{if-else clause (2)}
+%\vspace{-0.15in}
+%	\begin{enumerate}
+%		\item {\#include $<$stdio.h$>$}
+%		\item {int~main(~)}
+%		\item {\{}
+%		\item {~~~float score = 0;}
+%   		\item {~~~char grade = '0';}
+%		\item {~~~printf("Please input scores: ");}
+%		\item {~~~scanf("\%f", \&score);}
+%		\item {~~~if(score $<$ 0 $\parallel$ score $>$ 100)}
+%		\item {~~~\{}
+%   		\item {~~~~~printf("Input is invalid!${\setminus}$n");}
+%		\item {~~~\}}
+%		\item {~~~else\{}
+%		\item {~~~~~if(score $>=$ 90)}
+%		\item {~~~~~~~~grade = 'A';}
+%		\item {~~~~~else if(score $>=$ 80)\{}
+%		\item {~~~~~~~~grade = 'B';}
+%		\item {~~~~~~\}else if(score $>=$ 70)\{}
+%	\end{enumerate}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{if-else clause (2)-continued}
+%\begin{enumerate}
+%	\setcounter{enumi}{17}
+%		\item {~~~~~~~~~grade = 'C';}
+%		\item {~~~~~~\}else if(score $>=$ 60)\{}
+%		\item {~~~~~~~~~grade = 'D';}
+%		\item {~~~~~~\}else \{}
+%		\item {~~~~~~~~~~grade = 'E';}
+%		\item {~~~~~~~\}}
+%		\item {~~~\}//if-else}
+%		\item {~~~printf("\%5.1f ---$>$ \%c${\setminus}$n", score, grade);}
+%		\item {\}}
+%\end{enumerate}
+%\end{frame}
+
+\begin{frame}
+\frametitle{switch clause}
+\begin{itemize}
+	\item {Write C codes, which allows user to input number between 1 and 12 (the month)}
+	\item {Then your code tells the user to which season the input month belongs}
+\end{itemize}
+\end{frame}
+
+\ifx\answer\defined
+\begin{frame}
+	\begin{enumerate}
+		\item {\#include $<$stdio.h$>$}
+		\item {int~main(~)}
+		\item {\{}
+		\item {~~int m = 0;}
+		\item {~~printf("Please input month: ");}
+		\item {~~scanf("\%d", \&m);}
+		\item {~if(m $<$ 1 $\parallel$ m $>$ 12)}
+		\item {~\{}
+		\item {~~~~printf("The input is invalid!$\setminus$n");}
+		\item {~\} else\{}
+		\item {~~switch(m)}
+		\item {~~\{}
+		\item {~~~case 1:}
+		\item {~~~case 2:}
+		\item {~~~case 3: printf("\%d --- Spring$\setminus$n", m); break;}
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}
+	\begin{enumerate}
+		\setcounter{enumi}{15}
+		\item {~~~case 4:}
+		\item {~~~case 5:}
+		\item {~~~case 6:printf("\%d --- Summer$\setminus$n", m); break;}
+		\item {~~~case 7:}
+		\item {~~~case 8:}
+		\item {~~~case 9:printf("\%d --- Autumn$\setminus$n", m); break;}
+		\item {~~~case 10:}
+		\item {~~~case 11:}
+		\item {~~~case 12:printf("\%d --- Winter$\setminus$n", m); break;}
+		\item {~~\}}
+		\item {\}}
+	\end{enumerate}
+\end{frame}
+\fi
