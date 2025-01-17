@@ -169,67 +169,67 @@ int main()
 \end{frame}
 \fi
 
-%\begin{frame}{Count digit of an Integer (1)}
-%
-%\begin{itemize}
-%	\item {The problem:}
-%	\begin{enumerate}
-%		\item {Given an input integer in ``main()''}
-%		\item {Work out a function to count the digit for the input integer}
-%		\item {For example, \textcolor{red}{n = 31}, \textcolor{red}{count}(n) returns \textcolor{red}{2}}
-%		\item {and \textcolor{red}{n = -101}, \textcolor{red}{count}(n) returns \textcolor{red}{3}}
-%		\item {print the digit in ``main()''}
-%	\end{enumerate}
-%\end{itemize}
-%\begin{itemize}
-%	\item {Requirements}
-%	\begin{itemize}
-%		\item {Define function \textcolor{red}{int count(int n)}}
-%	\end{itemize}
-%\end{itemize}
-%\end{frame}
-%
-%\ifx\answer\undefined
-%\begin{frame}[fragile]{Count digit for an Integer, the answer (1)}
-%\vspace{-0.1in}
-%\begin{lstlisting}[xleftmargin=0.05\linewidth, linewidth=0.9\linewidth]
-%#include <stdio.h>
-%int count(int a)
-%{
-%    int b = a;
-%    int i = 0;
-%    if(b < 0)
-%       b = -b;
-%
-%    do
-%    {
-%        b = b/10;
-%        i++;
-%    }while(b > 0);
-%    return i;
-%}
-%
-%
-%\end{lstlisting}
-%\end{frame}
-%\fi
-%
-%\ifx\answer\undefined
-%\begin{frame}[fragile]{Count digit for an Integer: the answer (2)}
-%\vspace{-0.1in}
-%\begin{lstlisting}[xleftmargin=0.05\linewidth, linewidth=0.9\linewidth, firstnumber=23]
-%int main()
-%{
-%    int a = 0, n = 0;
-%    scanf("%d", &a);
-%    n = count(a);
-%    printf("result=%d", n);
-%    return 0;
-%}
-%
-%\end{lstlisting}
-%\end{frame}
-%\fi
+\begin{frame}{Count digit of an Integer (1)}
+
+\begin{itemize}
+	\item {The problem:}
+	\begin{enumerate}
+		\item {Given an input integer in ``main()''}
+		\item {Work out a function to count the digit for the input integer}
+		\item {For example, \textcolor{red}{n = 31}, \textcolor{red}{count}(n) returns \textcolor{red}{2}}
+		\item {and \textcolor{red}{n = -101}, \textcolor{red}{count}(n) returns \textcolor{red}{3}}
+		\item {print the digit in ``main()''}
+	\end{enumerate}
+\end{itemize}
+\begin{itemize}
+	\item {Requirements}
+	\begin{itemize}
+		\item {Define function \textcolor{red}{int count(int n)}}
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\ifx\answer\undefined
+\begin{frame}[fragile]{Count digit for an Integer, the answer (1)}
+\vspace{-0.1in}
+\begin{lstlisting}[xleftmargin=0.05\linewidth, linewidth=0.9\linewidth]
+#include <stdio.h>
+int count(int a)
+{
+    int b = a;
+    int i = 0;
+    if(b < 0)
+       b = -b;
+
+    do
+    {
+        b = b/10;
+        i++;
+    }while(b > 0);
+    return i;
+}
+
+
+\end{lstlisting}
+\end{frame}
+\fi
+
+\ifx\answer\undefined
+\begin{frame}[fragile]{Count digit for an Integer: the answer (2)}
+\vspace{-0.1in}
+\begin{lstlisting}[xleftmargin=0.05\linewidth, linewidth=0.9\linewidth, firstnumber=23]
+int main()
+{
+    int a = 0, n = 0;
+    scanf("%d", &a);
+    n = count(a);
+    printf("result=%d", n);
+    return 0;
+}
+
+\end{lstlisting}
+\end{frame}
+\fi
 
 \begin{frame}{Find the largest prime number (1)}
 
