@@ -1,0 +1,352 @@
+\section{Functions}
+\label{sec:func}
+\begin{frame}<beamer>
+    \frametitle{Outline}
+    \tableofcontents[currentsection]
+\end{frame}
+
+\begin{frame}{Maximum of three numbers (1)}
+
+\begin{itemize}
+	\item {The problem:}
+	\begin{enumerate}
+		\item {Given three float numbers input in ``main()''}
+		\item {Work out a function to calculate their maximum}
+		\item {\textcolor{blue}{int} max3(\textcolor{blue}{float} a, \textcolor{blue}{float} b, \textcolor{blue}{float} c)}
+	\end{enumerate}
+\end{itemize}
+
+\end{frame}
+
+
+\ifx\answer\undefined
+\begin{frame}[fragile]{Maximum of three numbers (2)}
+\vspace{-0.1in}
+\begin{lstlisting}[xleftmargin=0.05\linewidth, linewidth=0.9\linewidth,basicstyle=\small]
+#include <stdio.h>
+float max3(float a, float b, float c)
+{
+    float maxm = a;
+    if(maxm < b)
+    {
+        maxm = b;
+    }
+    if(maxm < c)
+    {
+        maxm = c;
+    }
+    return maxm;
+}
+void main()
+{
+    float a = 0, b = 0, c = 0, maxm = 0;
+    scanf("%f%f%f", &a, &b, &c);
+    maxm = max3(a, b, c);
+    printf("result=%f", maxm);
+}
+
+\end{lstlisting}
+\end{frame}
+\fi
+
+\begin{frame}{Greatest Common Divisor (1)}
+
+\begin{itemize}
+	\item {The problem:}
+	\begin{enumerate}
+		\item {Given two numbers input in ``main()''}
+		\item {Work out a function to calculate their GCD}
+		\item {\textcolor{blue}{int} gcd(\textcolor{blue}{int} a, \textcolor{blue}{int} b)}
+	\end{enumerate}
+\end{itemize}
+
+\end{frame}
+
+\ifx\answer\undefined
+\begin{frame}[fragile]{Greatest Common Divisor (2)}
+\begin{lstlisting}[xleftmargin=0.05\linewidth, linewidth=0.9\linewidth]
+#include <stdio.h>
+int gcd(int a, int b)
+{
+    int i = 2, g = 1;
+    int m = a<b?a:b;
+    for(i = 2; i <= m; i++)
+    {
+        if(a%i == 0 && b%i == 0)
+        {
+           g = i;
+        }
+    }
+    return g;
+}
+
+
+\end{lstlisting}
+\end{frame}
+\fi
+
+\ifx\answer\undefined
+\begin{frame}[fragile]{Greatest Common Divisor (3)}
+\begin{lstlisting}[firstnumber=19,xleftmargin=0.05\linewidth, linewidth=0.9\linewidth]
+int main()
+{
+   int a = 0, b = 0, x;
+   scanf("%d%d", &a, &b);
+   x = gcd(a, b);
+   printf("result=%d", x);
+}
+\end{lstlisting}
+\end{frame}
+\fi
+
+
+\begin{frame}
+\frametitle{Approximate cos(x) (1)}
+\begin{equation}
+	cos(x)=\sum_{n=1}^{\infty}\frac{(-1)^{(n-1)}x^{2n-2}}{(2n-2)!}=1-\frac{1}{2!}x^2+\frac{x^4}{4!}-\frac{x^6}{6!}+\frac{x^8}{8!}...
+\end{equation}
+\begin{itemize}
+	\item {Requirements}
+	\begin{itemize}
+		\item {Define function \textbf{cosx(double x)}}
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\ifx\answer\undefined
+\begin{frame}[fragile]
+\frametitle{Approximate cos(x) (2)}
+\vspace{-0.27in}
+\begin{columns}
+\begin{column}{0.44\linewidth}
+\begin{lstlisting}
+#include <stdio.h>
+double cosx(double x0)
+{
+  double t=1, sum=0, x=1;
+  double fact = 1, pw = 1;
+  int sign = 1, i = 0;
+  x = x0;
+  while(x >= 2*PI)
+  {
+    x = x- 2*PI;
+  }
+  while(x < 0)
+  {
+    x = x + 2*PI;
+  }
+
+  while(t > 0.0001)
+  {
+      sum += sign*t;
+\end{lstlisting}
+\end{column}
+\begin{column}{0.53\linewidth}
+\begin{lstlisting}[firstnumber=20]
+      i   += 2;
+      fact = i*(i-1)*fact;
+      pw   = pw*x*x;
+      sign = -1*sign;
+      t    = pw/fact;
+  }
+  return sum;
+}
+
+int main()
+{
+
+  double val = 0, x = 0;
+
+  scanf("%lf", &x);
+  val = cosx(x);
+  printf("result=%3.5lf", val);
+  return 0;
+}
+
+\end{lstlisting}
+\end{column}
+\end{columns}
+\end{frame}
+\fi
+
+%\begin{frame}{Count digit of an Integer (1)}
+%
+%\begin{itemize}
+%	\item {The problem:}
+%	\begin{enumerate}
+%		\item {Given an input integer in ``main()''}
+%		\item {Work out a function to count the digit for the input integer}
+%		\item {For example, \textcolor{red}{n = 31}, \textcolor{red}{count}(n) returns \textcolor{red}{2}}
+%		\item {and \textcolor{red}{n = -101}, \textcolor{red}{count}(n) returns \textcolor{red}{3}}
+%		\item {print the digit in ``main()''}
+%	\end{enumerate}
+%\end{itemize}
+%\begin{itemize}
+%	\item {Requirements}
+%	\begin{itemize}
+%		\item {Define function \textcolor{red}{int count(int n)}}
+%	\end{itemize}
+%\end{itemize}
+%\end{frame}
+%
+%\ifx\answer\undefined
+%\begin{frame}[fragile]{Count digit for an Integer, the answer (1)}
+%\vspace{-0.1in}
+%\begin{lstlisting}[xleftmargin=0.05\linewidth, linewidth=0.9\linewidth]
+%#include <stdio.h>
+%int count(int a)
+%{
+%    int b = a;
+%    int i = 0;
+%    if(b < 0)
+%       b = -b;
+%
+%    do
+%    {
+%        b = b/10;
+%        i++;
+%    }while(b > 0);
+%    return i;
+%}
+%
+%
+%\end{lstlisting}
+%\end{frame}
+%\fi
+%
+%\ifx\answer\undefined
+%\begin{frame}[fragile]{Count digit for an Integer: the answer (2)}
+%\vspace{-0.1in}
+%\begin{lstlisting}[xleftmargin=0.05\linewidth, linewidth=0.9\linewidth, firstnumber=23]
+%int main()
+%{
+%    int a = 0, n = 0;
+%    scanf("%d", &a);
+%    n = count(a);
+%    printf("result=%d", n);
+%    return 0;
+%}
+%
+%\end{lstlisting}
+%\end{frame}
+%\fi
+
+\begin{frame}{Find the largest prime number (1)}
+
+\begin{itemize}
+	\item {The problem:}
+	\begin{enumerate}
+		\item {Given an input integer in ``main()''}
+		\item {Find out a prime number that is the largest among all the prime numbers less than the given integer}
+		\item {For example, \textcolor{red}{a = 31}, the largest prime number less than a is \textcolor{red}{29}}
+		\item {print out the largest prime number in ``main()''}
+	\end{enumerate}
+\end{itemize}
+\begin{itemize}
+	\item {Requirements}
+	\begin{itemize}
+		\item {Define function \textcolor{red}{int isPrime(int a)}}
+	\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\ifx\answer\undefined
+\begin{frame}[fragile]{Find the largest prime number (2)}
+\begin{columns}
+\begin{column}{0.44\linewidth}
+\begin{lstlisting}[xleftmargin=0.03\linewidth]
+#include <stdio.h>
+int isPrime(int a)
+{
+   int i = 2;
+   if(a < 2)
+   {
+           return 0;
+   }else if(a == 2)
+   {
+           return 1;
+   }
+   for(i = 2; i < a; i++)
+   {
+       if(a%i == 0)
+           return 0;
+   }
+   return 1;
+}
+\end{lstlisting}
+\end{column}
+\begin{column}{0.53\linewidth}
+\begin{lstlisting}[firstnumber=15, linewidth=0.96\linewidth, xleftmargin=0.04\linewidth]
+int main()
+{
+   int a = 0, i = 0;
+   scanf("%d", &a);
+   for(i = a-1; i > 1; i--)
+   {
+     if(isPrime(i))
+     {
+       printf("result=%d", i);
+       break;
+     }
+   }
+   return 0;
+}
+\end{lstlisting}
+\end{column}
+\end{columns}
+
+\end{frame}
+\fi
+
+%
+%\section{Variables}
+%\label{sec:var}
+%\begin{frame}<beamer>
+%    \frametitle{Outline}
+%    \tableofcontents[currentsection]
+%\end{frame}
+%
+%
+%\begin{frame}[fragile]
+%\frametitle{\textbf{static}, \textbf{extern} and \textbf{auto} variables (1)}
+%\vspace{-0.20in}
+%\begin{columns}
+%\begin{column}{0.43\linewidth}
+%\begin{lstlisting}[xleftmargin=0.03\linewidth]
+%#include <stdio.h>
+%int a = 0;
+%void count(int i);
+%void multi();
+%int main()
+%{
+% int i = 0;
+% for(i = 1; i < 10; i++)
+% {
+%    count(i);
+%    multi();
+% }
+% return 0;
+%}
+%\end{lstlisting}
+%\end{column}
+%\begin{column}{0.55\linewidth}
+%\begin{lstlisting}[firstnumber=15, linewidth=0.96\linewidth, xleftmargin=0.04\linewidth]
+%void count(int i)
+%{
+%  static a = 0;
+%  a = a + 2;
+%  printf("i=%d: a = %d\n",i,a);
+%}
+%
+%void multi()
+%{
+%  a = 2*a;
+%}
+%\end{lstlisting}
+%\end{column}
+%\end{columns}
+%
+%\end{frame}
+
+
