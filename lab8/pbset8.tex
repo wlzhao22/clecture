@@ -1,0 +1,214 @@
+\section{struct}
+\label{sec:strt}
+\begin{frame}<beamer>
+    \frametitle{Outline}
+    \tableofcontents[currentsection]
+\end{frame}
+
+\begin{frame}
+\frametitle{struct (1)}
+\begin{itemize}
+	\item {Define a \textcolor{blue}{struct} for Complex number (\textbf{Compx})}
+		\begin{itemize}
+			\item {real (\textbf{real}) and virtual (\textbf{virt}) part}
+		\end{itemize}
+	\item {Define a function to perform multiplication between two complex numbers}
+	\item {\textcolor{blue}{struct} Compx multComp(\textcolor{blue}{struct} Compx d1, \textcolor{blue}{struct} Compx d2)}
+		\begin{itemize}
+		    \item {....}
+			\item {rslt.rl = a.rl*b.rl - a.vt*b.vt;}
+			\item {rslt.vt = a.rl*b.vt + b.rl*a.vt;}
+			\item {...}
+		\end{itemize}
+	\item {Define a function ``\textbf{void printCompx(\textcolor{blue}{struct} Compx a)}'' to print out a complex number}
+	\begin{itemize}
+		\item {It prints like following:\\}
+		0.3+0.5i
+	\end{itemize}
+	
+\end{itemize}
+
+\end{frame}
+
+\ifx\answers\undefined
+\begin{frame}[fragile]
+\frametitle{struct (2): the answer}
+\vspace{-0.15in}
+\begin{lstlisting}[xleftmargin=0.05\linewidth, linewidth=0.96\linewidth]
+#include <stdio.h>
+struct Compx{
+  float rl;
+  float vt;
+};
+struct Compx multComp(struct Compx d1, struct Compx d2)
+{
+	struct Compx r;
+	r.rl = d1.rl*d2.rl-d1.vt*d2.vt;
+	r.vt = d1.rl*d2.vt+d2.vt*d1.rl;
+	return r;
+}
+void printComp(struct Compx r)
+{
+	if(r.vt > 0)
+    	printf("%f+%fi\n", r.rl, r.vt);
+    else if(r.vt < 0)
+    	printf("%f%fi\n", r.rl, r.vt);
+    else
+        printf("%f\n", r.rl);
+}
+\end{lstlisting}
+\end{frame}
+\fi
+
+\ifx\answers\undefined
+\begin{frame}[fragile]
+\frametitle{struct (3): the answer}
+\begin{lstlisting}[firstnumber = 22, xleftmargin=0.05\linewidth, linewidth=0.96\linewidth]
+int main()
+{
+	struct Compx d1 = {1.2,5.3}, d2 = {1.2,-1.3};
+	struct Compx r = multComp(d1, d2);
+	printComp(r);
+	return 0;
+}
+
+\end{lstlisting}
+\end{frame}
+\fi
+
+
+\begin{frame}
+\frametitle{struct array (1)}
+\begin{itemize}
+	\item {Define a \textcolor{blue}{struct} named \textbf{NoteBook}}
+	\begin{itemize}
+		\item {qq: number, \textcolor{blue}{int} type}
+		\item {name[32]: friend's name, \textcolor{blue}{char} type}
+		\item {phone[16]: phone number, \textcolor{blue}{char} type}
+	\end{itemize}
+	\item {Define an array (\textbf{5 elements}) of NoteBook}
+	\begin{itemize}
+		\item {Input five records}
+		\item {Output five records}
+	\end{itemize}
+	\item {Please check the size of your defined \textcolor{blue}{struct} type}
+\end{itemize}
+
+\end{frame}
+
+\ifx\answers\undefined
+\begin{frame}[fragile]
+\frametitle{struct array (2)}
+\vspace{-0.15in}
+\begin{columns}
+\begin{column}{0.38\linewidth}
+\begin{lstlisting}[xleftmargin=0.04\linewidth]
+#include <stdio.h>
+struct NoteBook {
+  long qq;
+  char name[32];
+  char phone[16];
+};
+typedef struct NoteBook QQBook;
+void printQQbook();
+int main()
+{
+  printQQbook();
+  return 0;
+}
+\end{lstlisting}
+\end{column}
+\begin{column}{0.62\linewidth}
+	\begin{lstlisting}
+void printQQbook(){
+{
+  QQBook persons[4];
+  int i = 0;
+  for(i = 0; i < 4; i++)
+  {
+     printf("Name: ");
+     scanf("%s", persons[i].name);
+     printf("QQ: ");
+     scanf("%d", &persons[i].qq);
+  }
+  for(i = 0; i < 4; i++){
+  {
+    printf("Name: %s\n", persons[i].name);
+    printf("QQ: %d\n", persons[i].qq);
+  }
+}
+\end{lstlisting}
+\end{column}
+\end{columns}
+\end{frame}
+\fi
+
+\section{union}
+\label{sec:union}
+\begin{frame}<beamer>
+    \frametitle{Outline}
+    \tableofcontents[currentsection]
+\end{frame}
+\begin{frame}
+\frametitle{union (1)}
+\begin{itemize}
+	\item {Define a \textcolor{blue}{union} type}
+	\begin{itemize}
+		\item {One \textbf{float} number}	
+		\item {One \textbf{short} number}
+		\item {One \textbf{char} character}
+	\end{itemize}
+	\begin{itemize}
+		\item {Use \textcolor{blue}{typedef} to define type '\textbf{DATA}' of above union type}
+		\item {Declare variable d1 of type \textbf{DATA}}
+	\end{itemize}
+
+\end{itemize}
+\end{frame}
+
+\ifx\answers\undefined
+\begin{frame}[fragile]
+\frametitle{union (2)}
+\vspace{-0.15in}
+\begin{columns}
+\begin{column}{0.440\linewidth}
+\begin{lstlisting}[xleftmargin=0.05\linewidth]
+#include <stdio.h>
+union Data {
+  float f;
+  char c;
+  short i;
+};
+typedef union Data DATA;
+void testUnion();
+int main()
+{
+  testUnion();
+  return 0;
+}
+\end{lstlisting}
+\end{column}
+\begin{column}{0.56\linewidth}
+	\begin{lstlisting}[xleftmargin=0.05\linewidth]
+void testUnion()
+{
+  DATA d1;
+  printf("Size of data: %d\n", sizeof(DATA));
+  d1.c = 'a';
+  printf("%c\n", d1.c);
+  d1.f = 3.1415;
+  printf("f: %f\n", d1.f);
+  printf("d: %d\n", d1.i);
+  printf("c: %c\n", d1.c);
+  d1.i = 9;
+  printf("f: %f\n", d1.f);
+  printf("i: %d\n", d1.i);
+  printf("c: %c\n", d1.c);
+ }
+\end{lstlisting}
+\end{column}
+\end{columns}
+\end{frame}
+\fi
+
+
