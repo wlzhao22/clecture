@@ -1,0 +1,200 @@
+\section{Expressions}
+\label{sec:exp}
+\begin{frame}<beamer>
+    \frametitle{Outline}
+    \tableofcontents[currentsection]
+\end{frame}
+
+\begin{frame}[fragile]{Formatted Output (1)}
+\begin{itemize}
+	\item {Print out 6 numbers in two rows}
+	\item {Three numbers in each row}
+	\item {Each number occupies 5 digits and left-aligned}
+\end{itemize}
+
+\begin{lstlisting}[numbers=none, language=c, rulecolor=\color{blue}]
+  123  451  332
+  271  74   54
+\end{lstlisting}
+\end{frame}
+
+\ifx\answer\undefined
+\begin{frame}[fragile]{Formatted Output (2)}
+
+\begin{lstlisting}[numbers=none, language=c, rulecolor=\color{blue}]
+#include <stdio.h>
+int main()
+{
+  printf("%-5d%-5d%-5d\n", 123, 451, 332);
+  printf("%-5d%-5d%-5d", 271, 74, 54);
+  return 0;
+}
+\end{lstlisting}
+
+\end{frame}
+\fi
+
+
+\begin{frame}[fragile]{The octal and Hexadecimal form of a number (1)}
+\begin{itemize}
+	\item {Given an integer number, output its octal form}
+	\item {Given an integer number, output its hexadecimal form}
+\end{itemize}
+
+\begin{lstlisting}[numbers=none, language=c, rulecolor=\color{blue}]
+#include <stdio.h>
+int main()
+{
+   int a = 0;
+   scanf("%d", &a);
+   return 0;
+}
+\end{lstlisting}
+\end{frame}
+
+\ifx\answer\undefined
+\begin{frame}[fragile]{The octal and Hexadecimal form of a number (1)}
+\begin{itemize}
+	\item {Given an integer number, output its octal form}
+	\item {Given an integer number, output its hexadecimal form}
+\end{itemize}
+
+\begin{lstlisting}[numbers=none, language=c, rulecolor=\color{blue}]
+#include <stdio.h>
+int main()
+{
+   int a = 0;
+   scanf("%d", &a);
+   printf("%o\n", a);
+   printf("%x\n", a);
+   return 0;
+}
+\end{lstlisting}
+\end{frame}
+\fi
+
+\begin{frame}{Conditional Operator (1)}
+\begin{itemize}
+	\item {Problem:}
+	\begin{itemize}
+		\item {Accept two \textcolor{red}{integer} inputs \textbf{a} and \textbf{b} from user}
+		\item {Output the square-root of the \textbf{maximum one}}
+	\end{itemize}
+	\item {Hints:}
+	\begin{itemize}
+		\item {Function for square-root is root=\textcolor{blue}{sqrt}(val)}
+		\item {The header file is ``math.h''}
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\ifx\answer\undefined
+\begin{frame}[fragile]\frametitle{if-else clause}
+\begin{lstlisting}[basicstyle=\large,xleftmargin=0.05\linewidth, linewidth=0.85\linewidth]
+#include <stdio.h>
+#include <math.h>
+int main()
+{
+    int a = 0, b = 0, c = 0;
+    float r = 0;
+    printf("Input a:");
+    scanf("%d", &a);
+    printf("Input b:");
+    scanf("%d", &b);
+    c = a>b?a:b;
+    r = sqrt(c);
+    printf("Square-root is: %f\n", r);
+    return 0;
+}
+\end{lstlisting}
+\end{frame}
+\fi
+
+
+\begin{frame}
+\frametitle{Take the average of several numbers (1)}
+\begin{itemize}
+	\item {Accept four real numbers from user, output their average}
+\end{itemize}
+\end{frame}
+
+\ifx\answer\undefined
+\begin{frame}[fragile]{Take the average of several numbers (2)}
+\begin{lstlisting}[xleftmargin=0.05\linewidth, linewidth=0.85\linewidth]
+#include <stdio.h>
+int main( )
+{
+  float a = 0, b = 0;
+  float c = 0, d = 0, s = 0;
+  printf("Please input four numbers: ");
+  scanf("%f%f%f%f", &a, &b, &c, &d);
+  s = (a + b + c + d)/4.0;
+  printf("The average is %f\n", s);
+  return 0;
+}
+\end{lstlisting}
+\end{frame}
+
+\fi
+
+\begin{frame}
+\frametitle{Capitalize the character (1)}
+\begin{itemize}
+	\item {Accept the input from user a character}
+	\item {Output a character in upper case if the input is in 'a'$\sim$'z' range}
+	\item {Otherwise output the original character}
+	\item {For example, input `a', output `A'}
+	\item {~~~~input 'Z', output 'Z'; input ';', output ';'}
+\end{itemize}
+
+\end{frame}
+
+\ifx\answer\undefined
+\begin{frame}[fragile]{Capitalize the character (2)}
+\begin{lstlisting}[xleftmargin=0.05\linewidth, linewidth=0.85\linewidth]
+#include <stdio.h>
+int main( )
+{
+  char ch = ' '; //assign it to blank
+  printf("Please input a character: ");
+  scanf("%c", &ch);
+  ch = ch>='a' && ch <= 'z'?(ch - 32):ch;
+  printf("The character is %c\n", ch);
+  return 0;
+}
+\end{lstlisting}
+\end{frame}
+\fi
+
+\begin{frame}[fragile]
+\frametitle{Swap values of two variables (1)}
+\begin{itemize}
+	\item {Given variable a=31 and b = 17, swap the value of these two}
+	\item {Output the values before and after the swapping}
+	\item {You need another variable in order to fulfill the swapping}
+\end{itemize}
+\begin{lstlisting}[xleftmargin=0.05\linewidth, linewidth=0.85\linewidth]
+a = 31, b = 17
+a = 17, b = 31
+\end{lstlisting}
+
+\end{frame}
+
+\ifx\answer\undefined
+\begin{frame}[fragile]{Swap values of two variables (2)}
+\begin{lstlisting}[xleftmargin=0.05\linewidth, linewidth=0.85\linewidth]
+#include <stdio.h>
+int main( )
+{
+  int a = 31, b = 17, c = 0;
+  printf("a = %d, b = %d\n", a, b);
+  c = a; 
+  a = b;
+  b = c;
+  printf("a = %d, b = %d\n", a, b);
+  return 0;
+}
+\end{lstlisting}
+\end{frame}
+\fi
+
