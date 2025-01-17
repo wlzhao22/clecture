@@ -1,0 +1,285 @@
+\section{Exercises}
+\label{sec:exec}
+%\begin{frame}<beamer>
+%    \frametitle{Outline}
+%    \tableofcontents[currentsubsection]
+%\end{frame}
+
+\begin{frame}
+\frametitle{Approximate exp(x) (1)}
+\begin{equation}
+	e^x=\sum_{n=0}^{\infty}\frac{x^n}{n!}=1+\frac{x}{1}+\frac{x^2}{2}+ \frac{x^3}{6}...
+\end{equation}
+\begin{itemize}
+	\item {Requirements}
+	\begin{itemize}
+		\item {Keep terms that larger than 1e-6}
+	\end{itemize}
+	\item {Hints}
+	\begin{itemize}
+		\item {Define term=$\frac{x^n}{n!}$}
+		\item {Do loop while \textcolor{blue}{abs}(term) is larger than 1e-6}
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\ifx\answer\undefined
+\begin{frame}[fragile]
+\frametitle{Approximate exp(x) (2)}
+\vspace{-0.15in}
+\begin{lstlisting}[xleftmargin=0.08\linewidth, linewidth=0.9\linewidth]
+#include <stdio.h>
+#include <math.h>
+int main()
+{
+  const double prec = 1e-6;
+  double term = 1, sum = 0, x =0.3;
+  double up = 1, low = 1;
+  int i = 1;
+  scanf("%lf", &x);
+  while(abs(term) > prec)
+  {
+    sum += term;
+     up  = up*x;
+     low = low*i;
+    term = up/low;
+    i++;
+  }
+  printf("%lf\n", sum);
+}
+\end{lstlisting}
+\end{frame}
+\fi
+
+
+\begin{frame}[fragile]
+\frametitle{Print pyramid of alphabets on the screen}
+\vspace{0.1in}
+\begin{figure}
+	\includegraphics[width=0.15\linewidth]{figs/stars.pdf}
+\end{figure}
+\begin{itemize}
+	\item {Hints}
+	\begin{itemize}
+		\item {Suggested to use \textbf{for} loop}
+		\item {Two levels of embeding}
+	\end{itemize}
+\end{itemize}
+\begin{lstlisting}
+#include <stdio.h>
+for(i = 0; i < 5; i++)}
+{
+   for(j = 0; j < ?; j++)}
+   {
+     //filling your code   
+   }
+}
+\end{lstlisting}
+\end{frame}
+
+
+\ifx\answer\undefined
+\begin{frame}[fragile]
+\frametitle{Answer}
+\vspace{-0.15in}
+\begin{columns}
+\begin{column}{0.55\linewidth}
+	\begin{lstlisting}[xleftmargin=0.02\linewidth]
+#include <stdio.h>
+int main()
+{
+  int i=0, j=0, count=0;
+  int nl=5, nc=1, nb=nl-1;
+  for(j = 0; j < nl; j++)
+  {
+    for(i = 0; i < nb; i++)
+    {
+       printf(" ");
+    }
+    nc = 2*j-1;
+\end{lstlisting}
+\end{column}
+\begin{column}{0.45\linewidth}
+\begin{lstlisting}[firstnumber=13]
+   for(i=0;i<nc;i++)
+   {
+     printf("%c", ch);
+   }
+   ch++;
+   nb--;
+   printf("\n");
+  }//for(j)
+}
+	\end{lstlisting}
+\end{column}
+\end{columns}
+\end{frame}
+\fi
+
+\begin{frame}
+\frametitle{Find out prime numbers}
+\begin{itemize}
+	\item {Requirements}
+	\begin{itemize}
+		\item {Find all prime numbers smaller than \textbf{500}}
+		\item {Print out 8 numbers on each line}
+	\end{itemize}
+	\item{Hints}
+	\begin{itemize}
+		\item {Only dividable by itself}
+		\item {By filtering method}
+		\item {Try ``\%'' from \textbf{2} to \textbf{sqrt(num)}}
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\ifx\answer\undefined
+\begin{frame}[fragile]
+\frametitle{Answer (1)}
+\vspace{-0.15in}
+\begin{lstlisting}[xleftmargin=0.05\linewidth, linewidth=0.9\linewidth]
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+   int _PRIME_ = 1;
+   float b = 0;
+   int i = 0, j = 0, count = 0;
+   for(i = 2; i <= 500; i++)
+   {
+      b = sqrt(i+0.0);
+      _PRIME_ = 1;
+      for(j = 2; j < b; j++)
+      {
+          if(i%j == 0 && i != 2)
+          {
+             _PRIME_ = 0;
+\end{lstlisting}
+
+\end{frame}
+\fi
+
+\ifx\answer\undefined
+\begin{frame}[fragile]
+\frametitle{Answer (2)}
+\vspace{-0.15in}
+\begin{lstlisting}[firstnumber=18, xleftmargin=0.05\linewidth, linewidth=0.9\linewidth]
+          }//if(i%j)
+      }//for(j)
+      if(_PRIME_ == 1)
+      {
+        count++;
+        printf("%d\t", i);
+        if(count%8 == 0)
+        {
+            printf("\n");
+        }
+      }//if
+   }//for(i)
+   if(count %8 !=0)
+     printf("\n");
+}
+\end{lstlisting}
+
+\end{frame}
+\fi
+
+\begin{frame}
+\frametitle{Find out all complete numbers}
+\begin{itemize}
+	\item {Find out all the \textbf{complete number} in the range of [1, 10000]}
+	\item {Complete number: it equals to the sum of its factors }
+	\item {Example: 6 = 1+2+3}
+\end{itemize}
+
+\end{frame}
+
+\ifx\answer\defined
+\begin{frame}[fragile]
+\frametitle{Answer}
+\vspace{-0.15in}
+\begin{columns}
+\begin{column}{0.53\linewidth}
+\begin{lstlisting}[xleftmargin=0.02\linewidth]
+#include <stdio.h>
+int main()
+{
+ int j=0, i=0, sum=0;
+ for(j=1; j<=10000; j++)
+ {
+   sum = 1;
+   for(i = 2; i < j; i++)
+   {
+     if(j%i == 0)
+     {
+       sum += i;
+     }
+   }//for(i)
+}
+\end{lstlisting}
+\end{column}
+\begin{column}{0.47\linewidth}
+\begin{lstlisting}[firstnumber=16]
+    if(sum == j)
+    {
+      printf("%d\t", j);
+    }
+  }//for(j)
+  printf("\n");
+}
+\end{lstlisting}
+\end{column}
+\end{columns}
+
+\end{frame}
+\fi
+
+
+\begin{frame}
+\frametitle{Convert pure decimal fraction into binary form}
+\begin{itemize}
+	\item {Convert pure decimal fraction such as `0.635' into its binary form `0.1010001010001111010111'}
+	\item {Accept a  pure decimal fraction from input: \textcolor{red}{0.625}}
+	\item {Output its binary form: \textcolor{red}{0.101}}
+	\item {The loop continues until the fraction is lower than \textcolor{red}{0.005}}
+\end{itemize}
+
+\end{frame}
+
+\ifx\answer\defined
+\begin{frame}[fragile]
+\frametitle{Answer}
+\vspace{-0.12in}
+\begin{columns}
+\begin{column}{0.53\linewidth}
+\begin{lstlisting}[xleftmargin=0.02\linewidth]
+#include <stdio.h>
+int main()
+{
+    float a = 0.635;
+    scanf("%f", &a);
+    if(a < 1.0){
+      printf("0.");
+      do{
+	      a = a*2;
+          if(a >= 1.0)
+    	  {
+	         printf("1");
+             a = a - 1.0;
+          }else{
+           	printf("0");
+          }
+      }while(a > 0.005);
+\end{lstlisting}
+\end{column}
+\begin{column}{0.47\linewidth}
+\begin{lstlisting}[firstnumber=18]
+   }//end if
+   return 0;
+}
+\end{lstlisting}
+\end{column}
+\end{columns}
+\end{frame}
+\fi
