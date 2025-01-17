@@ -23,6 +23,11 @@ One can compile slides of every lecture with "pdflatex" smoothly. For instance
 pdflatex lec1.tex
 ```
 
+For the laboratory slides lab*.tex, one can comment/uncomment following line in in lab*.tex to decide hide/show the answers
+```
+\def\answer{ANS}
+```
+
 ## Copyright Issue
 Any one who receives these slides and material is free to use them. BUT when one shows them in any form or in any situation, one should point out that "**they are designed by Wan-Lei Zhao from China**". By the way, I am looking for the collaborators who are willing to contribute to this project. For anyone who would like to join in the project, please contact with me via email stonescx@gmail.com. **Please do star on this project when either you find it useful or you actully use it in your lecture.**
 
