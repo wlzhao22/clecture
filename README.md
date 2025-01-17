@@ -23,7 +23,7 @@ One can compile slides of every lecture with "pdflatex" smoothly. For instance
 pdflatex lec1.tex
 ```
 
-For the laboratory slides lab*.tex, one can comment/uncomment following line in in lab*.tex to decide hide/show the answers
+For the laboratory slides, namely ''lab*.tex'' series, one can comment/uncomment following line in in lab*.tex to decide hide/show the answers
 ```
 \def\answer{ANS}
 ```
