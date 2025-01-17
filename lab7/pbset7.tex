@@ -1,0 +1,268 @@
+\section{Exercises}
+\label{sec:exec}
+%\begin{frame}<beamer>
+%    \frametitle{Outline}
+%    \tableofcontents[currentsubsection]
+%\end{frame}
+
+\ifx\extra\undefined
+\begin{frame}
+\frametitle{Sort a randomly generated array: the problem}
+%\vspace{-0.20in}
+\begin{itemize}
+	\item {Given an array sized of 20}
+	\item {Sort the elements in ascending order: 1, 2, 4,$\cdots$}
+	\item {General steps:}
+\end{itemize}
+\begin{enumerate}
+	\item {Call rand()\%20 to generate an array}
+	\item {Print the elements on the screen}
+	\item {Repeat following loop 19 times}
+	\item {~~For two neighboring elements do}
+	\item {~~~~Switch their order if(a[j] $>$ a[j+1])}
+	\item {~~End-for}
+	\item {End-repeat}
+	\item {Print the elements on the screen}
+\end{enumerate}
+\end{frame}
+
+\ifx\answer\undefined
+\begin{frame}[fragile]
+\frametitle{Bubble Sort: the answer}
+\vspace{-0.25in}
+\begin{columns}
+\begin{column}{0.53\linewidth}
+\begin{lstlisting}[linewidth=0.95\linewidth, xleftmargin=0.05\linewidth]
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+#define N 20
+void bubsort()
+{
+ int i, j;
+ float tmp, a[N] = {0};
+ printf("Original:");
+ for(i = 0; i < N; i++)
+ {
+   a[i] = rand()%20;
+   printf("%3d ", a[i]);
+ }
+\end{lstlisting}
+\end{column}
+\begin{column}{0.47\linewidth}
+\begin{lstlisting}[firstnumber=15]
+ for(i = 0; i< N-1; i++)
+ {
+  for(j = 0; j < N-i-1; j++)
+  {
+    if(a[j] > a[j+1])
+    {
+      tmp    = a[j];
+      a[j]   = a[j+1];
+      a[j+1] = tmp;
+    }
+  }//for(j)
+ }//for(i)
+ printf("Sorted: ");
+ for(i = 0; i < N; i++)
+ {
+   printf("%3d ", a[i]);
+ }
+}//end bubsort()
+\end{lstlisting}
+\end{column}
+\end{columns}
+
+\end{frame}
+\fi
+\fi
+
+\begin{frame}
+\frametitle{Count the frequency of chars in a string: the problem}
+%\vspace{-0.15in}
+\begin{itemize}
+	\item {Given a string char s[] = "aa56231332bbAcc11"}
+	\item {Count the frequency of each character in the string}
+	\item {Output: a: -----$>$ 2}
+	\item {~~~~~~~~~~~b: -----$>$ 2}
+	\item {~~~~~~~~~~~c: -----$>$ 2}
+	\item {~~~~~~~~~~~.....}
+	\item {~~~~~~~~~~~1: -----$>$ 3}
+\end{itemize}
+\begin{itemize}
+	\item {Define an array \textcolor{blue}{int} freq[128];}
+	\item {If there is no occurrence for a character, \textcolor{red}{should not be displayed}}
+\end{itemize}
+\end{frame}
+
+
+\ifx\answer\undefined
+
+\begin{frame}[fragile]
+\frametitle{Count the frequency of chars in a string: the answer}
+\vspace{-0.2in}
+\begin{lstlisting}[xleftmargin=0.05\linewidth, linewidth=0.90\linewidth]
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+   char s[] = "aa56231332bbAcc11";
+   int  freq[128] ={0};
+   int i = 0, len = strlen(s);
+   for(i = 0; i < len; i++)
+   {
+      if(s[i]>=0 && s[i]<=127)
+      {
+         freq[s[i]] += 1;
+      }
+   }
+   for(i = 0; i < 128; i++)
+   {
+       if(freq[i] > 0)
+       {
+          printf("%c ---> %d\n", i, freq[i]);
+       }
+   }
+}//main()
+\end{lstlisting}
+\end{frame}
+\fi
+
+\begin{frame}
+\frametitle{Insert numbers to a sorted array: the problem}
+%\vspace{-0.15in}
+\begin{itemize}
+	\item {Given a sorted array $a[13]=\{10,14,15,18,19,21,22,31,32,35, 0, 0, 0\}$}
+	\item {Insert elements of $b[3]=\{55, 17, 32\}$ one by one into \textbf{a}}
+	\item {Keep the order of array \textbf{a} and print it out}
+\end{itemize}
+
+\end{frame}
+
+\ifx\answer\undefined
+\begin{frame}[fragile]
+\frametitle{Insert numbers to a sorted array: the answer(1)}
+\vspace{-0.2in}
+\begin{lstlisting}[xleftmargin=0.04\linewidth, linewidth=0.96\linewidth]
+#include <stdio.h>
+int main()
+{
+   int a[13] = {10,14,15,18,19,21,22,31,32,35,0,0,0};
+   int b[3] = {55, 17, 32};
+   int i = 0, j = 0, c = 0;
+   int len = 9, k = 0;
+   for(i = 0; i < 3; i++)
+   {
+      for(j = 0; j <= len; j++)
+      {
+          if(b[i] < a[j])
+            break;
+      }
+      for(k = len; k >= j; k--)
+      {
+           a[k+1] = a[k];
+      }
+      a[j] = b[i];
+      len  = len + 1;
+   }//for(i)
+\end{lstlisting}
+\end{frame}
+\fi
+
+\ifx\answer\undefined
+\begin{frame}[fragile]
+\frametitle{Insert numbers to a sorted array: the answer(2)}
+
+\begin{lstlisting}[xleftmargin=0.05\linewidth, linewidth=0.9\linewidth,firstnumber=21]
+   for(j = 0; j <= len; j++)
+   {
+       printf("%d ", a[j]);
+   }
+}//main()
+\end{lstlisting}
+\end{frame}
+\fi
+
+
+\begin{frame}[fragile]
+\frametitle{Remove redundant blanks from a string: the problem}
+%\vspace{-0.15in}
+\begin{itemize}
+	\item {Given a string str[]=``~~who~~am~~~~~i. To~be~~~~or~not~to~~be''}
+	\item {Remove redundant blanks ` ' from this string}
+	\item {The result should be ``who am i. To be or not to be''}
+\end{itemize}
+\begin{lstlisting}
+void cleanStr(char str[])
+{
+   //filling your code
+}
+
+int main()
+{
+    char str[]="  who  am     i. To be    or not to  be    ";
+    cleanStr(str);
+    printf("%s\n", str);
+}
+\end{lstlisting}
+\end{frame}
+
+\ifx\answer\undefined
+\begin{frame}[fragile]
+\frametitle{Remove redundant blanks from a string: the answer (1)}
+\vspace{-0.15in}
+\begin{lstlisting}
+void cleanStr(char str[])
+{  int i = 0, j = 0, nblank = 0;
+   char cstr[512];
+   while(str[i] != '\0')
+   {
+       if(str[i] != ' '){
+         cstr[j] = str[i];
+         j++;
+         nblank = 0;
+       }else{
+          nblank++;
+          if(nblank <= 1){
+            cstr[j] = str[i];
+            j++;
+          }
+       }
+       i++;
+   }
+   cstr[j] = '\0';
+   strcpy(str, cstr);
+}
+\end{lstlisting}
+\end{frame}
+\fi
+
+\ifx\answer\undefined
+\begin{frame}[fragile]
+\frametitle{Remove redundant blanks from a string: the answer (2)}
+\vspace{-0.15in}
+\begin{lstlisting}
+void cleanStr(char str[])
+{
+   int i = 0, j = 0;
+   int sz = strlen(str);
+   while(i < sz)
+   {
+       while(i < sz && str[i] == ' ')
+       {
+          i++; 
+       }
+       for(; str[i] != ' ' && i < sz; i++, j++)
+       {
+           str[j] = str[i];
+       }
+       if(i < sz)
+       {
+          str[j++] = str[i++];
+       }
+   }//while(i)
+   str[j] = '\0';
+}
+\end{lstlisting}
+\end{frame}
+\fi
