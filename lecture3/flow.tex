@@ -8,9 +8,8 @@
 	\begin{itemize}
 		\item {Integrated Development Environment}
 		\begin{itemize}
-			\item {Microsoft Visual Studio (\textcolor{blue}{default option})}
+			\item {VScode (\textcolor{blue}{default option})}
 			\item {Dev-C++ (\textcolor{red}{recommended})}
-			\item {VScode}
 			\item {Codeblocks}
 		\end{itemize}
 		\item {Any text editors + C compiler}
@@ -52,26 +51,36 @@ int main(void)
 	\centering
 	Source code: main.c\\\
 	$\Downarrow$\\\
-	\begin{lstlisting}[numbers=none]
-		$ gcc main.c
-	\end{lstlisting}
+\begin{columns}[T]
+		\column{.40\textwidth}
+Linux/Mac OS X
+		\begin{lstlisting}[numbers=none]
+gcc main.c -o hello
+		\end{lstlisting}
+		\column{.50\textwidth}
+Windows
+		\begin{lstlisting}[numbers=none]
+D:\mycode\gcc main.c -o hello
+		\end{lstlisting}
+	\end{columns}
 \vspace{-0.2in}
 (Preprocessing $\rightarrow$ compiling $\rightarrow$ assembling $\rightarrow$ linking)
 	\ \\\
 	$\Downarrow$\\\ 
 	Executable program\\\
 	\begin{columns}[T]
-		\column{.35\textwidth}
-		Linux/Mac OS X (\textbf{a.out})
+		\column{.40\textwidth}
+		Linux/Mac OS X (\textbf{\textcolor{green}{hello}})
 		\begin{lstlisting}[numbers=none]
-			$ ./a.out
-			$ Hello World!
+$ ./hello
+$ Hello World!
 		\end{lstlisting}
-		\column{.3\textwidth}
-		Windows (\textbf{a.exe})
+		\column{.50\textwidth}
+		Windows (\textbf{hello.exe})
 		\begin{lstlisting}[numbers=none]
-			$ ./a.exe
-			$ Hello World!
+D:\mycode\hello
+Hello World!
+D:\mycode\
 		\end{lstlisting}
 	\end{columns}
 \end{frame}
