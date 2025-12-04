@@ -647,7 +647,7 @@ int main(){
 \end{frame}
 
 \begin{frame}[fragile]{1D Array Example-4 (5): the code}
-\vspace{-0.1in}
+\vspace{-0.02in}
 \begin{lstlisting}[xleftmargin=0.08\linewidth,linewidth=0.9\linewidth]
 #include <stdio.h>
 int main()
@@ -665,7 +665,7 @@ int main()
       }//for(j)
    }//for(i)
    for(i = 0; i < 10; i++) {
-      printf("%d ", a[i]);
+      printf("%d, ", a[i]);
    }   
    return 0;
 }
@@ -699,7 +699,7 @@ int main()
 }
 \end{lstlisting}
 \end{column}
-\begin{column}{0.4\linewidth}
+\begin{column}{0.45\linewidth}
 \begin{lstlisting}
 int main()
 {
@@ -827,7 +827,6 @@ int main()
 \end{lstlisting}
 \end{frame}
 
-
 \begin{frame}{Example-1: transpose a matrix (1)}
 \begin{itemize}
 	\item {Given a 2D matrix, kept in a 1D array}
@@ -844,7 +843,7 @@ A=\left[
 6 & 4 & 10 \\
 5 & 5 & 9 
 \end{array}
-\right]_{3{\times}4} \nonumber
+\right]_{4{\times}3} \nonumber
 \end{equation}
 \end{column}
 \begin{column}{0.05\linewidth}
@@ -860,28 +859,110 @@ B=A^T=\left[
 13 & 7 & 4 & 5 \\
 5 & 21 & 10 & 9
 \end{array}
+\right]_{3{\times}4} \nonumber
+\end{equation}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Example-1: transpose a matrix (2)}
+\begin{itemize}
+	\item {Given a 2D matrix, kept in a 1D array}
+	\item {a[12] = \{12,13,5,5,7,21,6,4,10,5,5,9\}}
+\end{itemize}
+\vspace{-0.1in}
+\begin{columns}
+\begin{column}{0.38\linewidth}
+\begin{equation}
+A=\left[
+\begin{array}{cccc}
+&    & j  &   \\
+& 12 & 13 & 5 \\
+& 5 & 7 & 21 \\
+i& 6 & 4 & 10 \\
+& 5 & 5 & 9 
+\end{array}
 \right]_{4{\times}3} \nonumber
+\end{equation}
+\end{column}
+\begin{column}{0.02\linewidth}
+\begin{center}
+$\Rightarrow$
+\end{center}
+\end{column}
+\begin{column}{0.48\linewidth}
+\begin{equation}
+B=A^T=\left[ 
+\begin{array}{ccccc}
+ &    &  & i  &   \\
+ & 12 & 5 & 6 & 5 \\
+j& 13 & 7 & 4 & 5 \\
+ & 5 & 21 & 10 & 9
+\end{array}
+\right]_{3{\times}4} \nonumber
+\end{equation}
+\end{column}
+\end{columns}
+\begin{enumerate}
+	\item {A[i][j] $\rightleftarrows$ B[j][i]}
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}{Example-1: transpose a matrix (3)}
+\begin{itemize}
+	\item {Given a 2D matrix, kept in a 1D array}
+	\item {a[12] = \{12,13,5,5,7,21,6,4,10,5,5,9\}}
+\end{itemize}
+\vspace{-0.1in}
+\begin{columns}
+\begin{column}{0.4\linewidth}
+\begin{equation}
+A=\left[
+\begin{array}{ccc}
+12 & 13 & 5 \\
+5 & 7 & 21 \\
+6 & 4 & 10 \\
+5 & 5 & 9 
+\end{array}
+\right]_{4{\times}3} \nonumber
+\end{equation}
+\end{column}
+\begin{column}{0.05\linewidth}
+\begin{center}
+$\Rightarrow$
+\end{center}
+\end{column}
+\begin{column}{0.44\linewidth}
+\begin{equation}
+B=A^T=\left[ 
+\begin{array}{cccc}
+12 & 5 & 6 & 5 \\
+13 & 7 & 4 & 5 \\
+5 & 21 & 10 & 9
+\end{array}
+\right]_{3{\times}4} \nonumber
 \end{equation}
 \end{column}
 \end{columns}
 \begin{itemize}
-	\item {a[12] =\{12,5,6,5,13,7,4,5,5,21,10,9\}}
+	\item {b[12] =\{12,5,6,5,13,7,4,5,5,21,10,9\}}
 \end{itemize}
 \begin{enumerate}
-	\item {A[i][j] $\rightleftarrows$ A[j][i]}
-	\item {A[i][j] $\Rightarrow$ a[i*c1+j]}
-	\item {B[j][i] $\Rightarrow$ b[j*c2+i]}
+	\item {A[i][j] $\rightleftarrows$ B[j][i]}
+	\item {A[i][j] $\Rightarrow$ a[i*c1+j], where c1=3}
+	\item {B[j][i] $\Rightarrow$ b[j*c2+i], where c2=4}
 	\item {a[i*c1+j] $\rightleftharpoons$ b[j*c2+i]}
 \end{enumerate}
 \end{frame}
 
-\begin{frame}[fragile]{Example-1: transpose a matrix (2)}
+\begin{frame}[fragile]{Example-1: transpose a matrix (4)}
 \begin{lstlisting}[xleftmargin=0.08\linewidth, linewidth=0.85\linewidth]
 #include <stdio.h>
 int main(){
   int a[12] = {12,13,5,5,7,21,6,4,10,5,5,9};
   int b[12] = {0};
-  int i = 0, j = 0, tmp = 0;
+  int i = 0, j = 0;
   for(i = 0; i < 4; i++){
     for(j = 0; j < 3; j++){
       b[j*4+i] = a[i*3+j];
