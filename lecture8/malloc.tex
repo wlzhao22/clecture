@@ -21,13 +21,13 @@ struct STD {
   float gpa;
 };
 typedef STD STDT;
-int main()
+void main()
 {
    int a, a1[10];
    STDT b, b1[10];
 }
 \end{lstlisting}
-\vspace{-0.1in}
+\vspace{-0.02in}
 \begin{itemize}
 	\item {The memory cells for a, a1, b and b1 are allocated when your code is loaded into memory}
 	\item {It is done \textcolor{red}{before the code is executed}}
@@ -80,18 +80,18 @@ int main()
 \end{frame}
 
 \begin{frame}[fragile]{Dynamic Memory Allocation: explained}
-\vspace{-0.1in}
+\vspace{-0.02in}
 \begin{figure}
 \begin{center}
 	\includegraphics[width=0.8\linewidth]{figs/malloc.pdf}
 \end{center}
 \end{figure}
-\vspace{-0.1in}
+\vspace{-0.02in}
 \begin{columns}
 \begin{column}{0.45\linewidth}
 \begin{lstlisting}
 #include <stdlib.h>
-int main()
+void main()
 {
     void *x = malloc(16);
     int *p = (int*)x;
@@ -114,7 +114,7 @@ int main()
 \begin{column}{0.85\linewidth}
 \begin{lstlisting}
 #include <stdlib.h>
-int main()
+void main()
 {
    int i = 0, *a1 = (int*)malloc(5*sizeof(int));
    for(i = 0; i < 5; i++)
@@ -122,12 +122,11 @@ int main()
        a1[i] = i+1;
    }
    free(a1);//<--release the memory pointing by a1
-   return 0;
 }
 \end{lstlisting}
 \end{column}
 \end{columns}
-\vspace{-0.2in}
+\vspace{-0.02in}
 \begin{enumerate}
 	\item {Function ``\textbf{malloc}($\cdot$)'' returns the starting address of this block of memory}
 	\item {Once it is allocated, you can operate it as an array}
@@ -189,7 +188,7 @@ int main()
 
 \begin{lstlisting}, xleftmargin=0.02\linewidth, linewidth=0.98\linewidth]
 #include <stdlib.h>
-int main()
+void main()
 {
    int i = 0, *a1 = (int*)malloc(5*sizeof(int));
    for(i = 0; i < 5; i++)
@@ -198,11 +197,9 @@ int main()
    }
    a1 = (int*)malloc(15*sizeof(int));//<-something wrong here
    free(a1);
-   return 0;
 }
 \end{lstlisting}
-
-\vspace{-0.15in}
+\vspace{-0.03in}
 \begin{itemize}
 	\item {You are not allowed to use memory that has been released}
 	\item {We lose the pointer to one block of memory (at line 9)}

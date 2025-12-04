@@ -1,5 +1,5 @@
 \section{Pointer to Array}
-\label{sec:structs}
+\label{sec:p2array}
 \begin{frame}<beamer>
     \frametitle{Outline}
     \tableofcontents[currentsection]
@@ -207,7 +207,7 @@ int main()
 	\item {We saw it many times}
 	\item {Now we give a full explanation over it}
 \end{itemize}
-\vspace{-0.2in}
+\vspace{-0.03in}
 \begin{columns}
 \begin{column}{0.5\linewidth}
 \begin{figure}
@@ -244,7 +244,7 @@ int main()
 \end{frame}
 
 \begin{frame}[fragile]{Array of chars, String and Pointer of String}
-\vspace{-0.15in}
+\vspace{-0.03in}
 \begin{itemize}
 	\item {Since pointer points to the first address of an array}
 	\item {``str1'' is defined as \textcolor{red}{constant} array of chars, and pointed by pointer str}
@@ -254,7 +254,7 @@ int main()
 \begin{lstlisting}[xleftmargin=0.02\linewidth, linewidth=0.98\linewidth]
 #include <stdio.h>
 #include <string.h>
-int main()
+void main()
 {
    char *str1 = "hello"; //<--str1[0] = 'a' will be illegal
    char str2[10] = "hello";
@@ -264,7 +264,6 @@ int main()
    printf("%s\n", str2);
    printf("%s\n", str3);
    printf("%s\n", str4);
-   return 0;
 }
 \end{lstlisting}
 \end{frame}
@@ -317,7 +316,7 @@ int main()
 \begin{frame}[fragile]{Example of Pointer to Array (4)}
 \begin{lstlisting}[xleftmargin=0.05\linewidth, linewidth=0.95\linewidth]
 #include <stdio.h>
-int main()
+void main()
 {
   char *str1="hello world!";
   char str2[16];
@@ -331,10 +330,9 @@ int main()
   *p2='\0'; //<--indicate the end of the string
   printf("%s\n", str1);
   printf("%s\n", str2);
-  return 0;
 }
 \end{lstlisting}
-\vspace{-0.15in}
+\vspace{-0.03in}
 \begin{itemize}
 	\item {Be careful all the time}
 \end{itemize}
@@ -444,7 +442,7 @@ int main()
 \end{frame}
 
 \begin{frame}[fragile]{Popular functions for string operation (3)}
-\vspace{-0.2in}
+\vspace{-0.02in}
 \begin{center}
 \flushleft{
 \Large{
@@ -455,7 +453,7 @@ int main()
 \begin{lstlisting}[xleftmargin=0.05\linewidth, linewidth=0.95\linewidth]
 #include <stdio.h>
 #include <string.h>
-int main()
+void main()
 {
    char *str1="hello", *str2 = "hi", *str3="hello";
    if(strcmp(str1, str2) == -1)
@@ -470,7 +468,6 @@ int main()
    }else{
       printf("They are inequal!\n");
    }
-   return 0;
 }
 \end{lstlisting}
 \end{frame}

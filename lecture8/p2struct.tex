@@ -1,5 +1,5 @@
 \section{Pointer to struct Variables}
-\label{sec:structs}
+\label{sec:p2struct}
 \begin{frame}<beamer>
     \frametitle{Outline}
     \tableofcontents[currentsection]
@@ -69,7 +69,7 @@ int main()
 \end{frame}
 
 \begin{frame}[fragile]{Pointer to struct Type Variable}
-\vspace{-0.2in}
+\vspace{-0.02in}
 \begin{columns}
 \begin{column}{0.46\linewidth}
 \begin{lstlisting}
@@ -78,13 +78,12 @@ struct STD {
   float gpa;
 };
 typedef struct STD STDT;
-int main()
+void main()
 {
  STDT std1 = {"Peter", 3.8};
  struct STD *p = &std1;
  printf("%s\n", (*p).name);
  printf("%f\n", (*p).gpa);
- return 0;
 }
 \end{lstlisting}
 \end{column}
@@ -95,13 +94,12 @@ struct STD {
   float gpa;
 };
 typedef struct STD STDT;
-int main()
+void main()
 {
  STDT std1 = {"Peter", 3.8};
  struct STD *p = &std1;
  printf("%s\n", p->name);
  printf("%f\n", p->gpa);
- return 0;
 }
 \end{lstlisting}
 \end{column}
@@ -113,14 +111,14 @@ int main()
 \end{frame}
 
 \begin{frame}[fragile]{Comparison Study over Pointers}
-\vspace{-0.1in}
+\vspace{-0.03in}
 \begin{lstlisting}[xleftmargin=0.05\linewidth, linewidth=0.95\linewidth]
 #include <stdio.h>
 struct STD {
   char name[16];
   float gpa;
 };
-int main()
+void main()
 {
    struct STD std1 = {"Peter", 3.8};
    struct STD *p = &std1;
@@ -130,10 +128,9 @@ int main()
    printf("size of p: %d\n", sizeof(p));
    printf("size of q: %d\n", sizeof(q));
    printf("size of r: %d\n", sizeof(r));
-   return 0;
 }
 \end{lstlisting}
-\vspace{-0.2in}
+\vspace{-0.02in}
 \begin{itemize}
 	\item {The size is the same for different kinds of pointers}
 	\item {Why??}
