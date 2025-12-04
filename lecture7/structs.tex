@@ -139,7 +139,7 @@ int main()
 \end{frame}
 
 \begin{frame}[fragile]{struct: initialize variable of composite type (2)}
-\vspace{-0.15in}
+\vspace{-0.02in}
 \begin{lstlisting}
 #include <stdio.h>
 #include <string.h>
@@ -159,6 +159,7 @@ int main()
    printf("Numb: %s\n", std.stdNb);
    printf("Age: %d\n", std.age);
    printf("Gender: %s\n", std.gender);
+   return 0;
 }
 \end{lstlisting}
 \end{frame}
@@ -214,7 +215,7 @@ int main()
 \begin{frame}[fragile]{struct: exmaple (4)}
 \vspace{-0.22in}
 \begin{columns}
-\begin{column}{0.48\linewidth}
+\begin{column}{0.47\linewidth}
 \begin{lstlisting}
 struct DATE {
    int day, month, year;
@@ -235,7 +236,7 @@ int main()
    scanf("%d", &date.day);
 \end{lstlisting}
 \end{column}
-\begin{column}{0.48\linewidth}
+\begin{column}{0.46\linewidth}
 \begin{lstlisting}[firstnumber=17]
    if(isLeap(date.year))
    {
@@ -256,7 +257,7 @@ int main()
 \end{frame}
 
 \begin{frame}[fragile]{struct: exmaple (5)}
-\vspace{-0.15in}
+\vspace{-0.02in}
 \begin{columns}
 \begin{column}{0.48\linewidth}
 \begin{lstlisting}
@@ -385,24 +386,79 @@ int main()
 \end{columns}
 \end{frame}
 
+\begin{frame}{struct example: complex number (1)}
+\begin{itemize}
+	\item {Given two complex number a = 2+3i and b = 4-i}
+	\item {You are asked to define a struct of Complex}
+	\item {Fulfill c = a+b}
+\end{itemize}
+\begin{center}
+\Large{
+	Think about it in 5 minutes ...
+	}
+\end{center}
+
+\end{frame}
+
+\begin{frame}[fragile]{struct example: complex number (2)}
+\begin{itemize}
+	\item {Define the \textcolor{blue}{struct}}
+\end{itemize}
+\begin{lstlisting}[linewidth=0.5\linewidth]
+struct Complex {
+   float real, virt;
+};
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{struct example: complex number (3)}
+\begin{lstlisting}
+struct Complex {
+float real, virt;
+};
+
+struct Complex add( struct Complex a, struct Complex b){
+   //fill by yourself
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{struct example: complex number (4)}
+\begin{lstlisting}
+struct Complex {
+float real, virt;
+};
+
+struct Complex add( struct Complex a, struct Complex b){
+   struct Complex c;
+   c.real = a.real + b.real;
+   c.virt  = a.virt + b.virt;
+   return c;
+}
+
+int main(){
+ struct Complex a = {2,3} , c;
+ struct Complex b = {4,-1};
+ c = add(a, b);
+ printf("c = %f + %fi", c.real, c.virt);
+ return 0;
+}
+\end{lstlisting}
+\end{frame}
 
 \begin{frame}[fragile]{struct: \textcolor{blue}{typedef} to save code (1)}
 \begin{itemize}
 	\item {In ``struct STD'',  ``\textcolor{blue}{struct}'' has been repeated everywhere}
 	\item {We can use ``\textcolor{blue}{typedef}'' to save up our typing}
 \end{itemize}
-\vspace{-0.15in}
-\begin{columns}
-\begin{column}{0.48\linewidth}
+\vspace{-0.03in}
 \begin{lstlisting}
 struct DATE {
-   int day, month, year;
-};
+   int day, month, year;};
 struct STD{
    char Name[10];
    int age;
-   char gender[6];
-};
+   char gender[6];};
 typedef struct STD StdType;
 typedef struct DATE DatType;
 int main()
@@ -413,14 +469,11 @@ int main()
    ...
 }
 \end{lstlisting}
-\end{column}
-\begin{column}{0.48\linewidth}
+\vspace{-0.15in}
 \begin{itemize}
 	\item {During compiling stage}
 	\item {``StdType'' is replaced by ``\textcolor{blue}{struct} STD''}
 \end{itemize}
-\end{column}
-\end{columns}
 \end{frame}
 
 \begin{frame}[fragile]{struct: \textcolor{blue}{typedef} to save code (2)}

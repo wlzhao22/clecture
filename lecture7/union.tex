@@ -53,8 +53,7 @@ union Data {
 struct Data1 {
    short i;
    float f;
-   char str[20];
-};
+   char str[20];};
 \end{lstlisting}
 \end{column}
 \begin{column}{0.45\linewidth}
@@ -70,19 +69,17 @@ union Data2 {
 \end{frame}
 
 \begin{frame}[fragile]{union: definition (2)}
-\vspace{-0.2in}
+\vspace{-0.03in}
 \begin{lstlisting}
 struct Data1 {
    short i;
    float f;
-   char str[10];
-};
+   char str[10];};
 
 union Data2 {
    short i;
    float f;
-   char str[10];
-};
+   char str[10];};
 int main()
 {
    Data1 d1;
@@ -154,8 +151,7 @@ Size of d2: 12
 union Data {
    int i;
    float f;
-   char str[20];
-};
+   char str[20];};
 int main() 
 {
    union Data data;        
@@ -175,15 +171,14 @@ int main()
 \end{frame}
 
 \begin{frame}[fragile]{union: learn by example (2)}
-\vspace{-0.2in}
+\vspace{-0.03in}
 \begin{lstlisting}
 #include <stdio.h>
 #include <string.h>
 union Data {
    int i;
    float f;
-   char str[20];
-};
+   char str[20];};
 int main(){
    union Data data;        
    data.i = 10;
@@ -192,6 +187,7 @@ int main(){
    printf( "data.i : %d\n", data.i);
    printf( "data.f : %f\n", data.f);
    printf( "data.str : %s\n", data.str);
+   return 0;
 }
 \end{lstlisting}
 \vspace{-0.20in}
@@ -208,8 +204,7 @@ data.str : C Programming
 union Data {
    int i;
    float f;
-   char str[20];
-};
+   char str[20];};
 int main(){
    union Data data;        
    data.i = 10;
@@ -218,21 +213,21 @@ int main(){
    printf( "data.i : %d\n", data.i);
    printf( "data.f : %f\n", data.f);
    printf( "data.str : %s\n", data.str);
+   return 0;
 }
 \end{lstlisting}
 
 \end{frame}
 
 \begin{frame}[fragile]{union: learn by example (4)}
-\vspace{-0.16in}
+\vspace{-0.03in}
 \begin{lstlisting}
 #include <stdio.h>
 #include <string.h>
 union Data {
    int i;
    float f;
-   char str[20];
-};
+   char str[20];};
 int main(){
    union Data data;        
    data.i = 10;
@@ -241,6 +236,7 @@ int main(){
    printf( "data.i : %d\n", data.i);
    printf( "data.f : %f\n", data.f);
    printf( "data.str : %s\n", data.str);
+   return 0;
 }
 \end{lstlisting}
 \vspace{-0.16in}
@@ -250,15 +246,14 @@ data.str :
 \end{frame}
 
 \begin{frame}[fragile]{union: learn by example (5)}
-\vspace{-0.16in}
+\vspace{-0.03in}
 \begin{lstlisting}
 #include <stdio.h>
 #include <string.h>
 union Data {
    int i;
    float f;
-   char str[20];
-};
+   char str[20];};
 int main(){
    data.i = 10;
    printf( "data.i : %d\n", data.i);
@@ -266,21 +261,21 @@ int main(){
    printf( "data.f : %f\n", data.f);
    strcpy( data.str, "C Programming");
    printf( "data.str : %s\n", data.str);
+   return 0;
 }
 \end{lstlisting}
 
 \end{frame}
 
 \begin{frame}[fragile]{union: learn by example (6)}
-\vspace{-0.16in}
+\vspace{-0.03in}
 \begin{lstlisting}
 #include <stdio.h>
 #include <string.h>
 union Data {
    int i;
    float f;
-   char str[20];
-};
+   char str[20];};
 int main(){
    data.i = 10;
    printf( "data.i : %d\n", data.i);
@@ -288,6 +283,7 @@ int main(){
    printf( "data.f : %f\n", data.f);
    strcpy( data.str, "C Programming");
    printf( "data.str : %s\n", data.str);
+   return 0;
 }
 \end{lstlisting}
 \vspace{-0.16in}
