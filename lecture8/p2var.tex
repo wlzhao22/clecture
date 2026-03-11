@@ -439,6 +439,7 @@ int main()
    *p = a;
    p  = b;
    p  = &c;
+   return 0;
 }
 \end{lstlisting}
 \end{column}
@@ -455,6 +456,7 @@ int main()
    *p  = b;
    printf("%d", *p);
    printf("%d", a);
+   return 0;
 }
 \end{lstlisting}
 \end{column}
@@ -472,12 +474,12 @@ void incr(int *a)
 }
 int main()
 {
- int a = 4, *b = &a;
- printf("%d\n", *b);
- incr(&a);
- printf("%d\n", a);
- printf("%d\n", *b);
- return 0;
+	int a = 4, *b = &a;
+	printf("%d\n", *b);
+	incr(&a);
+	printf("%d\n", a);
+	printf("%d\n", *b);
+	return 0;
 }
 \end{lstlisting}
 \end{column}
@@ -489,12 +491,12 @@ void incr(int *a)
 }
 int main()
 {
- int a = 4, *b = &a;
- printf("%d\n", *b);
- incr(&a);
- printf("%d\n", a);
- printf("%d\n", *b);
- return 0;
+	int a = 4, *b = &a;
+	printf("%d\n", *b);
+	incr(&a);
+	printf("%d\n", a);
+	printf("%d\n", *b);
+	return 0;
 }
 \end{lstlisting}
 \end{column}
@@ -518,12 +520,12 @@ void incr(adr a)
 }
 int main()
 {
- int a = 4, *b = &a;
- printf("%d\n", *b);
- incr(&a);
- printf("%d\n", a);
- printf("%d\n", *b);
- return 0;
+	int a = 4, *b = &a;
+	printf("%d\n", *b);
+	incr(&a);
+	printf("%d\n", a);
+	printf("%d\n", *b);
+	return 0;
 }
 \end{lstlisting}
 \end{column}
@@ -535,12 +537,12 @@ void incr(adr a)
 }
 int main()
 {
- int a = 4, *b = &a;
- printf("%d\n", *b);
- incr(&a);
- printf("%d\n", a);
- printf("%d\n", *b);
- return 0;
+	int a = 4, *b = &a;
+	printf("%d\n", *b);
+	incr(&a);
+	printf("%d\n", a);
+	printf("%d\n", *b);
+	return 0;
 }
 \end{lstlisting}
 \end{column}
@@ -558,10 +560,10 @@ int main()
 \begin{lstlisting}[xleftmargin=0.08\linewidth, linewidth=0.9\linewidth]
 int main()
 {
-  int a = 0;
-  printf("Input value for a: ");
-  scanf("%d", &a); //<-- pay attention to here
-  return 0;
+	int a = 0;
+	printf("Input value for a: ");
+	scanf("%d", &a); //<-- pay attention to here
+	return 0;
 }
 \end{lstlisting}
 \vspace{-0.03in}
@@ -573,10 +575,10 @@ int main()
 \begin{lstlisting}[xleftmargin=0.01\linewidth, linewidth=0.99\linewidth]
 int main()
 {
-  int a = 0;
-  printf("Input value for a: ");
-  scanf("%d", a); //<--ask yourself whether this is valid??
-  return 0;
+	int a = 0;
+	printf("Input value for a: ");
+	scanf("%d", a);//<-ask yourself whether this is valid?
+	return 0;
 }
 \end{lstlisting}
 \end{frame}
