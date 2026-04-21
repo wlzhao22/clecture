@@ -103,8 +103,8 @@ int main()
 \vspace{-0.15in}
 \begin{itemize}
 	\item {The name should be \textbf{unique}}
-	\item {There is should be input parameter(s) along with the types}
-	\item {There is should be output value type}
+	\item {The input parameter(s) along with the types should be specified}
+	\item {The output value type should be specified}
 \end{itemize}
 \end{frame}
 
@@ -121,7 +121,7 @@ int main()
 	\item {The name should be \textbf{unique}}
 	\item {There should be input parameter(s) along with the types}
 	\item {There should be output value type}
-	\item {If there is nothing, the returning type is \textcolor{blue}{int}}
+	\item {If there is nothing, the returning type is \textcolor{blue}{int} by default (\textcolor{red}{this is not recommended!!})}
 \end{itemize}
 \end{frame}
 
@@ -216,7 +216,7 @@ int main()
 \begin{frame}[fragile]{Define a function (4): separate declaration from definition}
 \vspace{-0.2in}
 \begin{columns}
-\begin{column}{0.48\linewidth}
+\begin{column}{0.45\linewidth}
 \begin{lstlisting}
 long fact(int i); 
 int main()
@@ -257,7 +257,7 @@ long fact(int i)
 \begin{frame}[fragile]{Define a function (5): combine declaration with definition}
 \vspace{-0.2in}
 \begin{columns}
-\begin{column}{0.48\linewidth}
+\begin{column}{0.45\linewidth}
 \begin{lstlisting}
 long fact(int i)
 {
@@ -293,6 +293,21 @@ int main()
 \end{columns}
 \end{frame}
 
+\begin{frame}[fragile]{Function definition: a summary}
+\LARGE{
+\begin{itemize}
+	\item {Princeples in function definition}
+	\begin{enumerate}
+		\item {Remember return type, if there is no need, put \textcolor{blue}{void}}
+		\item {Give a unique and self-telling name to your function}
+		\item {Define function first, then you can call it (just as variable in C)}
+		\item {Parameters along with the type appear in pair}
+		\item {Parameters are transferred by \textcolor{red}{value}}
+	\end{enumerate}
+\end{itemize}
+}
+\end{frame}
+
 \section{Functions with Examples}
 \label{sec:example}
 \begin{frame}[fragile]{Example-1}
@@ -301,7 +316,7 @@ int main()
 	\item {Arguments and Parameters should be matched}
 \end{itemize}
 \begin{lstlisting}
-float arear(float r, float pi)
+float area(float r, const float pi)
 {
    float a = 0;
    a = r*r*pi;
@@ -506,67 +521,55 @@ int main()
 \begin{column}{0.48\linewidth}
 \begin{lstlisting}[linewidth=0.95\linewidth]
 #include <stdio.h>
-int isArms(int n)
-{
-  int nd = 0, s = 0, b = 0;
-  int a = n, i = 0, t = 0;
+int ndigit(int n){
+  int nd = 0, a = n;
   while(a > 0){
      a = a/10;
      nd++;
   }
-  a = n;
+  return nd;
+}
+int isArms(int n, int nd)
+{
+  int s = 0, b = 0;
+  int a = n, i = 0, t = 0;
+  t = 1; a = n;
   while(a > 0){
     b = a%10;
     t = 1;
-    for(i = 0; i < nd; i++){
-       t = t*b;
+    for(i = 0; i<nd; i++){
+      t = t*b;
     }
-    s += t;
-    a  = a/10;
-  }//end-while(a)
 \end{lstlisting}
 \end{column}
 \begin{column}{0.48\linewidth}
-\begin{lstlisting}[firstnumber=20, linewidth=0.95\linewidth]
-   if(s == n)
-     return 1;
-   else
-     return 0;
-}
-
+\begin{lstlisting}[firstnumber=21, linewidth=0.95\linewidth]
+    s += t;
+    a  = a/10;
+  }
+  if(s == n)
+    return 1;
+  else
+    return 0;
+ }
 int main()
 {
- int i = 1;
- for(i=1; i<100000; i++)
- {
-     if(isArms(i) == 1)
-     {
-        printf("%6d ", i);
-     }
- }
- return 0;
+  int i = 1 , nd = 0;
+  for(i=1; i<100000; i++){
+	nd = ndigit(i);
+	if(isArms(i, nd)==1){
+	   printf("%6d ", i);
+	}
+  }
+  printf("\n");
+  return 0;
 }
 \end{lstlisting}
 \end{column}
 \end{columns}
 \end{frame}
 
-
-\begin{frame}[fragile]{Function definition: a summary}
-\LARGE{
-\begin{itemize}
-	\item {Princeples in function definition}
-	\begin{enumerate}
-		\item {Remember return type, if there is no need, put \textcolor{blue}{void}}
-		\item {Give a unique and self-telling name to your function}
-		\item {Define function first, then you can call it (just as variable in C)}
-		\item {Parameters along with the type appear in pair}
-		\item {Parameters are transferred by \textcolor{red}{value}}
-	\end{enumerate}
-\end{itemize}
-}
-\end{frame}
-
+\section{Parameter Transfer in C Functions}
 \begin{frame}[fragile]{Parameter Transfer (1)}
 \begin{figure}
 	\includegraphics[width=0.85\linewidth]{figs/arg2para.pdf}
