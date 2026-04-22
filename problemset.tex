@@ -1,0 +1,162 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{graphics}
+\usepackage{pstricks}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{subfigure}
+\usepackage{listings}
+\usepackage{courier}
+\usepackage{multirow}
+\definecolor{cornblue}{HTML}{6495ED}
+\definecolor{navyblue}{HTML}{000080}
+\definecolor{midnblue}{HTML}{191970}
+\definecolor{lghtblue}{HTML}{B0C4DE}
+\definecolor{ballblue}{rgb}{0.13, 0.67, 0.8}
+\definecolor{cornflowerblue}{rgb}{0.39,0.58,0.93}
+\definecolor{babyblueeyes}{rgb}{0.63, 0.79, 0.95}
+
+
+\title{C Programming --- Problem Set}
+\author{Wan-Lei Zhao\\Xiamen University}
+\date{2026-4-22}
+
+\lstset{
+  backgroundcolor=\color{white},   
+  basicstyle=\footnotesize,    
+  language=c,
+  breakatwhitespace=false,         
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{ballblue},    % comment style
+  extendedchars=true,              
+  frame=single,                    % adds a frame around the code
+  keepspaces=true,                 
+  keywordstyle=\color{blue},       % keyword style
+  numbers=left,                    
+  numbersep=5pt,                   
+  numberstyle=\tiny\color{blue}, 
+  rulecolor=\color{babyblueeyes},
+  stepnumber=1,              
+  stringstyle=\color{black},     % string literal style
+  tabsize=4,                       % sets default tabsize to 4 spaces
+  title=\lstname                   
+}
+
+\renewcommand{\thesection}{\Roman{section}}
+
+\begin{document}
+
+\maketitle
+
+\section{Branch clause}
+
+\begin{enumerate}
+    \item Given a user input of three integers year, month, day, output this day is which day of the year. Do it with \textcolor{blue}{switch} clause.
+\end{enumerate}
+
+\section{Loop}
+
+\begin{enumerate}
+    \item Find out all Armstrong numbers that are less than 100,000. Armstrong number: Given an $n$-digit number, the summation on the '$n$' power of each digit number equals to the number. 
+\\
+\begin{lstlisting}
+Example: 1 2 3 4 5 6 7 8 9 153 370 371 407
+\end{lstlisting}
+    
+    
+    \item Convert a decimal float number into binary and output loop until the residue is lower than 0.005.
+    
+    \item Print out the two pyramids of characters in the following shape:
+\\
+\begin{lstlisting}
+A        B
+AA      BB
+AAA    BBB
+AAAA  BBBB
+AAAAABBBBB
+\end{lstlisting}
+    
+    \item Implement $e^x$, the $x$ is specified by the user. Please only consider the term that is larger than 1e-6.
+    
+    \item Print out the first $n$ terms of Fibonacci series. '$n$' is specified by the user.
+    
+    \item Given a character ‘a’ - ‘z’ or ‘A’ - ‘Z’, if it is in the lower case, convert it to the upper case, if it is in the upper case, convert it to the lower case.
+    
+    \item Given two positive integers, work out the least common multiple of the two integers.
+    
+    \item Find out all four-digits number that the sum of its first and the fourth digits equals to the sum of its second and its third digits. Print out all these numbers, each number takes up 7 positions, and separated by one blank. Five numbers at most should be printed on each line. The numbers on each column are left-aligned.
+    
+    \item Find out all Palindrome numbers ($< 10,000$), print 8 numbers at most on each line.
+    
+    \item Find out all numbers ($< 10,000$) that they are both squares and Palindrome numbers. Print 8 numbers at most on each line.
+    
+    \item Accept an integer input ‘$n$’ from user, then the output a ‘$n$’ rows of characters in a pyramid shape. For instance, when the user input 4, your code output the pyramid shape as:
+\\
+\begin{lstlisting}
+   A
+  BBB
+ CCCCC
+DDDDDDD
+\end{lstlisting}
+    
+    \item Accept an integer input ‘$n$’ from user, then the output a ‘$n$’ rows of characters in a pyramid shape. For instance, when the user input 4, your code output the pyramid shape as:
+\\
+\begin{lstlisting}
+   A
+  BCD
+ EFGHI
+JKLMNOP
+\end{lstlisting}
+    
+    \item Accept an integer input from user, then output the integer number with the digits in reversed order. For instance, the input is “879”, the output is “978”. The input is “810”, the output is “18”.
+    
+    \item Given an integer number input by the user. For the output prime number, it should satisfy another condition. Namely, the digit in the higher position should be larger than the digit in the lower position. For instance, number “631” is a valid number, while prime number “113” is not. When user input “100 10000”, the valid output should be formatted with no more than 15 numbers on each line. One number occupies four digits position.
+    
+    \item Find out all integers that their sum of all digits is 25. Print 10 numbers on each line. One number takes up 8 digit positions.
+\end{enumerate}
+
+\section{Function}
+
+\begin{enumerate}
+    \item Please calculate $\sin(x)$ by its progression form. Given any float number input $x$, output its $\sin(x)$ value.
+    \item Please calculate $\cos(x)$ by its progression form. Given any float number input $x$, output its $\cos(x)$ value.
+    \item Define a function to judge whether an input integer is a prime number. In the \texttt{main()} function, print out all the prime numbers in the range of $[2, 1000]$.
+    \item List out all the Fibonacci numbers that are less than and equal to 10,000. When you print the number, each number takes up 5 digits. The number should be also divisible by integer ‘5’.
+    \item Define two functions to check whether one number is prime and whether there is a duplicate digit in the number respectively. Call and test them in ``main()''.
+    \item Define a function to judge whether a three-digit integer is a narcissistic number. Call this function from the \texttt{main()} function to check the numbers from 100 to 999, print out all the narcissistic numbers in this range.
+\end{enumerate}
+
+\section{Array}
+
+\begin{enumerate}
+    \item Given a numeric string in float number form ``-321.12'', please work out a function to convert it into a float number without calling ``atof()'' C library.
+    \item Given a user input of three integers year, month, day, output this day is which day of the year. Do it with 1D array.
+    \item Given a numeric string such as ``321'' that in pure positive integer form, work out a function to convert it into an integer number without calling “atoi()” C library.
+    \item Transpose a 2D matrix that is kept in a 1D array. Print out the matrix in rows and columns both before and after the transpose.
+    \item Swap the minimum with the maximum number of an array and print out the array before and after the swapping.
+    \item Given 10 children stand in a circle, they count off from `1'. Each time, the one who counts $n=3$ gets out from the circle. The ones in the circle continue this counting until no children are left. Print out the order that the children get out from the circle. The user can specify `$n$'.
+    \item Given matrices A of $3{\times}4$ and B of $4{\times}3$, implement the multiplication between two matrices, and print out the resulting matrix.
+    \item Given two sorted arrays, merge them into a new one while keeping the resulting array sorted.
+    \item Given a sorted array, insert three numbers (unordered) from another array into the sorted array one by one.
+    \item Given a sentence kept by a string, where words are separated by blanks, remove extra blanks. There should be only one blank between words and no blank at the end.
+    \item Calculate the frequency of characters in a string (case-insensitive). List the frequencies of each appearing character.
+    \item Given a decimal integer, print out its hexadecimal number.
+    \item Implement a function to convert an integer into a string. For example, input -312, print out ``-312''.
+    \item Print out the factorial of $n$, namely $n!$, where $n$ is an integer in the range of $[80, 110]$.
+\end{enumerate}
+
+\section{Pointers}
+
+\begin{enumerate}
+    \item Build a single-directed list structure, no longer than 26. The length is specified by the user. Values are uppercase characters (e.g., $A{\rightarrow}B{\rightarrow}C{\rightarrow}D{\rightarrow}NIL$). Reverse the list and print it out.
+    \item Given a root of a binary tree, define a recursive function to calculate the depth of the tree.
+    \item Define a recursive function to calculate the depth of an M-branch tree.
+\end{enumerate}
+
+\end{document}
+
