@@ -62,12 +62,18 @@
 \begin{document}
 
 \maketitle
+\begin{abstract}
+The exercises are organized in the order that is in line with the order of lecture chapters. For the exercises in one section, they are organized from the ``easy'' to ``hard'' order. The GCC compiler and Linux environment are recommended. For Windows users, you can try MingW compiler\footnote{https://www.mingw-w64.org/} and Visual Studio code editor.
+
+My happiness with computer science starts from the learning of programming in C on my own in year 1999. From that time, I started to figure out how the computer works internally. I wish the same happiness is experienced by every user of this material.
+
+\end{abstract}
 \tableofcontents
 \newpage
 \section{Branch clause}
 
 \begin{enumerate}
-    \item Given a user input of three integers \textbf{year}, \textbf{month}, and \textbf{day}, output this day is which day of the year. Do it with \textcolor{blue}{switch} clause.
+    \item Given a user input of three integers \textbf{year}, \textbf{month}, and \textbf{day}, print out this day is which day of the year. Do it with \textcolor{blue}{switch} clause.
 \end{enumerate}
 
 \section{Loop}
@@ -80,7 +86,7 @@ Example: 1 2 3 4 5 6 7 8 9 153 370 371 407
 \end{lstlisting}
     
     
-    \item Convert a decimal float number into binary and output loop until the residue is lower than 0.005.
+    \item Convert a decimal float number into binary loop until the residue is lower than 0.005. Print out the binary codes on the screen.
     
     \item Print out the two pyramids of characters in the following shape:
 \\
@@ -114,7 +120,7 @@ F_{n-1} + F_{n-2} & n > 1
     
     \item Find out all numbers ($< 10,000$) that they are both squares and \textit{Palindrome} numbers. Print 8 numbers at most on each line.
     
-    \item Accept an integer input `$n$’ from user, then the output a `$n$’ rows of characters in a pyramid shape. For instance, when the user input 4, your code output the pyramid shape as:
+    \item Accept an integer input `$n$’ from user, then output a `$n$’ rows of characters in a pyramid shape. For instance, when the user input 4, your codes print out the pyramid shape as:
 \\
 \begin{lstlisting}
    A
@@ -123,7 +129,7 @@ F_{n-1} + F_{n-2} & n > 1
 DDDDDDD
 \end{lstlisting}
     
-    \item Accept an integer input `$n$’ from user, then the output a `$n$’ rows of characters in a pyramid shape. For instance, when the user input 4, your code output the pyramid shape as:
+    \item Accept an integer input `$n$’ from user, then the print out a `$n$’ rows of characters in a pyramid shape on the screen. For instance, when the user input 4, your codes print the pyramid shape on the screen like:
 \\
 \begin{lstlisting}
    A
@@ -132,9 +138,9 @@ DDDDDDD
 JKLMNOP
 \end{lstlisting}
     
-    \item Accept an integer input from user, then output the integer number with the digits in reversed order. For instance, the input is ``879'', the output is ``978''. The input is ``810'', the output is ``18''.
+    \item Accept an integer input from user, then print out the integer number with the digits in reversed order. For instance, the input is ``879'', the output is ``978''. The input is ``810'', the output is ``18''.
     
-    \item Given an integer number input by the user. For the output prime number, it should satisfy another condition. Namely, the digit in the higher position should be larger than the digit in the lower position. For instance, number ``631'' is a valid number, while prime number ``113'' is not. When user input ``100 10000'', the valid output should be formatted with no more than 15 numbers on each line. One number occupies four digits position.
+    \item Given integer range $[a, b]$ input by the user, print out the prime numbers that satisfy certain conditions. For the result prime number, it should satisfy the following condition. Namely, the digit in the higher position should be larger than the digit in the lower position. For instance, number ``631'' is a valid number, while prime number ``113'' is not. When user input ``100 10000'', one should print out all the valid prime numbers in this range. The valid output should be formatted with no more than 15 numbers on each line. One number occupies four digits position.
     
     \item Find out all integers that their sum of all digits is 25. Print 10 numbers on each line. One number takes up 8 digit positions.
 \end{enumerate}
@@ -187,28 +193,6 @@ F_{n-1} + F_{n-2} & n > 1
     \item Define a function pointer pointing to functions such as sin(x), $x^2$, $e^x$ that are defined by yourself as well. It is allowed the user to choose based on which to calculate its integral between range $[a, b]$, the parameters a and b are also specified by the user.
 \end{enumerate}
 
-\section{Bitwise Operations}
-\begin{enumerate}
-	\item {Given a number, check whether it is even or odd by bitwise operation.}
-    \item {Count the number of ones ``1'' for a user input 32-bit integer and print it out.}
-    \item {Given a non-negative number n. The problem is to toggle the last m bits in the binary representation of n. A toggle operation flips a bit from 0 to 1 and a bit from 1 to 0.}
-    \item {Given two non-negative integers a and b. The problem is to check if one of the two numbers is 1's complement of the other.}
-    \item {Given a string s representing a non-negative decimal number, determine whether the number is divisible by 8. Return true if it is divisible by 8, otherwise return false.}
-    \item {Given a number, the task is to set all odd bits of a number. Positions of bits are counted from LSB (least significant bit) to MSB (Most significant bit). Position of LSB is considered as 1.}
-\begin{lstlisting}
-Input : 20
-Output : 21
-Explanation : Binary representation of 20
-is 10100. Setting all odd
-bits make the number 10101 which is binary
-representation of 21.
-
-Input : 10
-Output : 15
-\end{lstlisting}
-	\item {Check if a number is multiple of 9 using bitwise operators}
-\end{enumerate}
-
 \section{File Operations}
 \begin{enumerate}
 	\item {Allow the user to input the 10 student records that will be kept in an array of structure. Thereafter, save the 10 records to file ``std\_table.db'' in binary form. Finally, load the records from the file into an array again and display them on the screen as a table.}
@@ -221,5 +205,70 @@ typedef struct {
 \end{lstlisting}
 	\item {Try the above problem, while save the records into a text file ``std\_table.txt''.}
 \end{enumerate}
+
+\section{Bitwise Operations}
+\begin{enumerate}
+	\item {Given a number, check whether it is even or odd by bitwise operation.}
+    \item {Count the number of ones ``1'' for a user input 32-bit integer and print it out.}
+    \item {Given a non-negative number n. The problem is to toggle the last m bits in the binary representation of n. A toggle operation flips a bit from 0 to 1 and a bit from 1 to 0.}
+    \item {Given two non-negative integers a and b. The problem is to check if one of the two numbers is 1's complement of the other.}
+    \item {Given a string s representing a non-negative decimal number, determine whether the number is divisible by 8. Return true if it is divisible by 8, otherwise return false.}
+    \item {Given a number, the task is to set all odd bits of a number. Positions of bits are counted from LSB (least significant bit) to MSB (Most significant bit). Position of LSB is considered as 1.}
+\begin{lstlisting}
+Input : 20
+Output : 21
+Explanation : Binary representation of 20 is 10100. Setting all odd bits make the number 10101 which is binary representation of 21.
+Input : 10
+Output : 15
+\end{lstlisting}
+	\item {Check if a number is multiple of 9 using bitwise operators}
+\end{enumerate}
+
+\section{Make and CMake}
+\begin{enumerate}
+	\item {Declare two functions \textcolor{blue}{int} func1(\textcolor{blue}{int} a) and \textcolor{blue}{int} func2(\textcolor{blue}{int} b) and save them in ``func1.h'' and ``func2.h'' respectively, implement them in files ``func1.c'' and ``func2.c''. Therefore call func2() in another code file 'proj1.c' where ``main()'' is defined. Save all these files under one folder. Please compose a Makefile manually to compile this project.}
+\begin{lstlisting}[caption=func1.h]
+int func1(int a);
+\end{lstlisting}	
+\begin{lstlisting}[caption=func1.c]
+#include <stdio.h>
+
+int func1(int a)
+{
+   printf("a is %d\n", d);
+   return a;
+}
+\end{lstlisting}	
+
+\begin{lstlisting}[caption=func2.h]
+int func2(int b);
+\end{lstlisting}	
+\begin{lstlisting}[caption=func2.c]
+#include <stdio.h>
+#include "func1.h"
+
+int func2(int b)
+{
+   func1(a+2);
+   printf("a is %d\n", d);
+   return a;
+}
+\end{lstlisting}	
+
+\begin{lstlisting}[caption=proj1.c]
+#include <stdio.h>
+#include "func2.h"
+
+int main()
+{
+   printf("I am in main()\n");
+   func2(5);
+   return 0;
+}
+\end{lstlisting}	
+
+	\item {Try the above problem by composing a CMakefile.txt manually to compile the project.}
+\end{enumerate}
+
 \end{document}
 
