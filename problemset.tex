@@ -56,13 +56,13 @@
 \section{Branch clause}
 
 \begin{enumerate}
-    \item Given a user input of three integers year, month, day, output this day is which day of the year. Do it with \textcolor{blue}{switch} clause.
+    \item Given a user input of three integers \textbf{year}, \textbf{month}, and \textbf{day}, output this day is which day of the year. Do it with \textcolor{blue}{switch} clause.
 \end{enumerate}
 
 \section{Loop}
 
 \begin{enumerate}
-    \item Find out all Armstrong numbers that are less than 100,000. Armstrong number: Given an $n$-digit number, the summation on the `$n$' power of each digit number equals to the number. 
+    \item Find out all \textit{Armstrong} numbers that are less than 100,000. \textit{Armstrong} number: Given an $n$-digit number, the summation on the `$n$' power of each digit number equals to the number. 
 \\
 \begin{lstlisting}
 Example: 1 2 3 4 5 6 7 8 9 153 370 371 407
@@ -83,17 +83,25 @@ AAAAABBBBB
     
     \item Implement $e^x$, the $x$ is specified by the user. Please only consider the term that is larger than 1e-6.
     
-    \item Print out the first $n$ terms of Fibonacci series. `$n$' is specified by the user.
-    
+    \item Print out the first $n$ terms of \textit{Fibonacci} series. `$n$' is specified by the user.
+    \begin{equation}
+F_n = 
+\begin{cases} 
+0 & n = 0 \\
+1 & n = 1 \\
+F_{n-1} + F_{n-2} & n > 1 
+\end{cases}
+\end{equation}
+
     \item Given a character `a' - `z' or `A' - `Z', if it is in the lower case, convert it to the upper case, if it is in the upper case, convert it to the lower case.
     
     \item Given two positive integers, work out the least common multiple of the two integers.
     
     \item Find out all four-digits number that the sum of its first and the fourth digits equals to the sum of its second and its third digits. Print out all these numbers, each number takes up 7 positions, and separated by one blank. Five numbers at most should be printed on each line. The numbers on each column are left-aligned.
     
-    \item Find out all Palindrome numbers ($< 10,000$), print 8 numbers at most on each line.
+    \item Find out all \textit{Palindrome} numbers ($< 10,000$), print 8 numbers at most on each line.
     
-    \item Find out all numbers ($< 10,000$) that they are both squares and Palindrome numbers. Print 8 numbers at most on each line.
+    \item Find out all numbers ($< 10,000$) that they are both squares and \textit{Palindrome} numbers. Print 8 numbers at most on each line.
     
     \item Accept an integer input `$n$’ from user, then the output a `$n$’ rows of characters in a pyramid shape. For instance, when the user input 4, your code output the pyramid shape as:
 \\
@@ -126,7 +134,16 @@ JKLMNOP
     \item Please calculate $\sin(x)$ by its progression form. Given any float number input $x$, output its $\sin(x)$ value.
     \item Please calculate $\cos(x)$ by its progression form. Given any float number input $x$, output its $\cos(x)$ value.
     \item Define a function to judge whether an input integer is a prime number. In the \texttt{main()} function, print out all the prime numbers in the range of $[2, 1000]$.
-    \item List out all the Fibonacci numbers that are less than and equal to 10,000. When you print the number, each number takes up 5 digits. The number should be also divisible by integer `5’.
+    \item List out all the \textit{Fibonacci} numbers that are less than and equal to 10,000. When you print the number, each number takes up 5 digits. The number should be also divisible by integer `5’.
+    \begin{equation}
+F_n = 
+\begin{cases} 
+0 & n = 0 \\
+1 & n = 1 \\
+F_{n-1} + F_{n-2} & n > 1 
+\end{cases}
+\end{equation}
+
     \item Define two functions to check whether one number is prime and whether there is a duplicate digit in the number respectively. Call and test them in ``main()''.
     \item Define a function to judge whether a three-digit integer is a narcissistic number. Call this function from the \texttt{main()} function to check the numbers from 100 to 999, print out all the narcissistic numbers in this range.
 \end{enumerate}
