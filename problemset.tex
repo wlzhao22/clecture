@@ -159,5 +159,38 @@ JKLMNOP
     \item Define a function pointer pointing to functions such as sin(x), $x^2$, $e^x$ that are defined by yourself as well. It is allowed the user to choose based on which to calculate its integral between range $[a, b]$, the parameters a and b are also specified by the user.
 \end{enumerate}
 
+\section{Bitwise Operations}
+\begin{enumerate}
+	\item {Given a number, check whether it is even or odd by bitwise operation.}
+    \item {Count the number of ones ``1'' for a user input 32-bit integer and print it out.}
+    \item {Given a non-negative number n. The problem is to toggle the last m bits in the binary representation of n. A toggle operation flips a bit from 0 to 1 and a bit from 1 to 0.}
+    \item {Given two non-negative integers a and b. The problem is to check if one of the two numbers is 1's complement of the other.}
+    \item {Given a string s representing a non-negative decimal number, determine whether the number is divisible by 8. Return true if it is divisible by 8, otherwise return false.}
+    \item {Given a number, the task is to set all odd bits of a number. Positions of bits are counted from LSB (least significant bit) to MSB (Most significant bit). Position of LSB is considered as 1.}
+\begin{lstlisting}
+Input : 20
+Output : 21
+Explanation : Binary representation of 20
+is 10100. Setting all odd
+bits make the number 10101 which is binary
+representation of 21.
+
+Input : 10
+Output : 15
+\end{lstlisting}
+	\item {Check if a number is multiple of 9 using bitwise operators}
+\end{enumerate}
+
+\section{File Operations}
+\begin{enumerate}
+	\item {Allow the user to input the 10 student records that will be kept in an array of structure. Thereafter, save the 10 records to file ``std\_table.db'' in binary form. Finally, load the records from the file into an array again and display them on the screen as a table.}
+\begin{lstlisting}
+typedef struct {
+ char stdName[64];
+ char stdNumb[16];
+ unsigned age;
+} StdType;
+\end{lstlisting}
+\end{enumerate}
 \end{document}
 
