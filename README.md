@@ -12,7 +12,7 @@ This project shares the "C Programming" course slides (in English) written with 
 #### Lecture 6 Array and String
 #### Lecture 7 struct, union and enum
 #### Lecture 8 Pointers
-#### Lecture 9 File Operation
+#### Lecture 9 File Operations
 #### Lecture 10 Bitwise Operations
 #### Lecture 11 make and Makefile
 
