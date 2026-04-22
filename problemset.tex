@@ -8,6 +8,12 @@
 \usepackage{pstricks}
 \usepackage{graphicx}
 \usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,  % Colors internal links (ToC, figures) black
+    urlcolor=blue,     % You can still keep URLs a different color
+}
+
 \usepackage{subfigure}
 \usepackage{listings}
 \usepackage{courier}
@@ -48,11 +54,16 @@
 }
 
 \renewcommand{\thesection}{\Roman{section}}
+\makeatletter
+\renewcommand{\l@section}{\@dottedtocline{1}{1.5em}{2.3em}}
+\makeatother
+
 
 \begin{document}
 
 \maketitle
-
+\tableofcontents
+\newpage
 \section{Branch clause}
 
 \begin{enumerate}
