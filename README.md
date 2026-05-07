@@ -31,8 +31,8 @@ For the laboratory slides, namely ''lab*.tex'' series, one can comment/uncomment
 ## Copyright Issue
 It is free to use for any one who receives these slides and material. BUT when one shows them in any form or in any situation, one should point out that "**they are designed by Wan-Lei Zhao from China**". By the way, I am looking for the collaborators who are willing to contribute to this project. For anyone who would like to join in the project, please contact me via email stonescx@gmail.com. 
 
-## Exercises for the course
-The exercises are organized into a PDF file and can be found from the package.
+## Exercises for the lectures
+The exercises are organized into a PDF file 'problemset.pdf' in this package.
 
 ## Author
 Wan-Lei Zhao
